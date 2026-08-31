@@ -98,6 +98,10 @@ npm run export:local -- --project aibike
 面向公众号和技术社区的完整介绍见独立文章：
 [《AIUI Sports Agents 开源项目怎么玩》](articles/AIUI_Sports_Agents_开源项目怎么玩.md)。
 
+如果你也准备把自己的 AIUI 项目安全地发布到 GitHub，请按
+[《从本地到 GitHub：一步步开源 AIUI 项目》](articles/从本地到GitHub_一步步开源AIUI项目.md)
+完成白名单导出、脱敏、证据分级、首次推送与安全设置。
+
 ## 当前边界
 
 - 这是公开的评测与治理总仓；三个应用的源码快照仍按白名单分别审计，项目卡不等于应用源码已经公开。
