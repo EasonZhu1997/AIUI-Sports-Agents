@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="576" viewBox="0 0 1600 576" role="img" aria-labelledby="title desc">
+  <title id="title">AIUI Sports Agents</title>
+  <desc id="desc">Evidence-first sports agents for smart glasses, covering running, cycling, and rowing.</desc>
+  <defs>
+    <linearGradient id="background" x1="40" y1="20" x2="1550" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06111F"/>
+      <stop offset="0.48" stop-color="#0A1D33"/>
+      <stop offset="1" stop-color="#11172B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="180" y1="140" x2="1390" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#54D6FF"/>
+      <stop offset="0.5" stop-color="#5EE6A8"/>
+      <stop offset="1" stop-color="#FFB34D"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="0" cy="0" r="1" gradientTransform="translate(245 260) rotate(90) scale(260)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#32C9FF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#32C9FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orangeGlow" cx="0" cy="0" r="1" gradientTransform="translate(1440 470) rotate(90) scale(300)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF984D" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FF984D" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#8FE6FF" stroke-opacity="0.045"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000814" flood-opacity="0.5"/>
+    </filter>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="576" rx="36" fill="url(#background)"/>
+  <rect x="1" y="1" width="1598" height="574" rx="35" fill="url(#grid)" stroke="#78DFFF" stroke-opacity="0.18" stroke-width="2"/>
+  <rect width="1600" height="576" rx="36" fill="url(#cyanGlow)"/>
+  <rect width="1600" height="576" rx="36" fill="url(#orangeGlow)"/>
+
+  <g opacity="0.3">
+    <circle cx="1318" cy="116" r="6" fill="#54D6FF"/>
+    <circle cx="1412" cy="196" r="6" fill="#5EE6A8"/>
+    <circle cx="1501" cy="108" r="6" fill="#FFB34D"/>
+    <path d="M1180 176L1318 116L1412 196L1501 108L1588 154" fill="none" stroke="url(#accent)" stroke-width="3" stroke-dasharray="8 12"/>
+    <path d="M1260 278H1594M1332 326H1594M1404 374H1594" stroke="#B4EFFF" stroke-opacity="0.12" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(82 112)" filter="url(#shadow)">
+    <rect width="250" height="250" rx="66" fill="#07182A" stroke="#67DCFF" stroke-opacity="0.34" stroke-width="2"/>
+    <path d="M44 99C49 79 65 66 86 66H111C122 66 131 72 125 86C131 72 140 66 151 66H176C197 66 213 79 218 99L225 132C229 153 212 172 191 172H154C140 172 131 163 125 151C119 163 110 172 96 172H59C38 172 21 153 25 132L44 99Z" fill="#0A1729" stroke="url(#accent)" stroke-width="6"/>
+    <path d="M40 124H68L81 101L99 147L116 117L128 133L144 105L162 143L177 122H211" fill="none" stroke="#ECFBFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="68" cy="124" r="8" fill="#54D6FF"/>
+    <circle cx="128" cy="133" r="8" fill="#5EE6A8"/>
+    <circle cx="177" cy="122" r="8" fill="#FFB34D"/>
+    <text x="125" y="216" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="3" fill="#DDF7FF">AIUI AGENTS</text>
+  </g>
+
+  <g transform="translate(382 122)">
+    <text x="0" y="72" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="70" font-weight="780" letter-spacing="2" fill="#F3FAFF">AIUI SPORTS AGENTS</text>
+    <text x="2" y="126" font-family="PingFang SC,Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="29" font-weight="620" letter-spacing="5" fill="#B9CFDF">跑步 · 骑行 · 划船机</text>
+    <text x="2" y="174" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="650" letter-spacing="3" fill="url(#accent)">EVIDENCE FIRST · SENSOR HONEST · DEVICE VERIFIED</text>
+
+    <g transform="translate(0 218)">
+      <rect width="128" height="42" rx="21" fill="#0D2C44" stroke="#54D6FF" stroke-opacity="0.75"/>
+      <circle cx="24" cy="21" r="7" fill="#54D6FF"/><text x="42" y="27" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#DFF8FF">RUN</text>
+      <rect x="144" width="128" height="42" rx="21" fill="#10352E" stroke="#5EE6A8" stroke-opacity="0.75"/>
+      <circle cx="168" cy="21" r="7" fill="#5EE6A8"/><text x="186" y="27" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#E4FFF2">BIKE</text>
+      <rect x="288" width="152" height="42" rx="21" fill="#3A2A19" stroke="#FFB34D" stroke-opacity="0.8"/>
+      <circle cx="312" cy="21" r="7" fill="#FFB34D"/><text x="330" y="27" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#FFF1D8">ROWER</text>
+    </g>
+  </g>
+
+  <g transform="translate(82 466)">
+    <path d="M0 0H1436" stroke="url(#accent)" stroke-opacity="0.38" stroke-width="2"/>
+    <text x="0" y="52" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="720" letter-spacing="1" fill="#E6F7FF">REAL SENSOR DATA</text>
+    <text x="440" y="52" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="720" letter-spacing="1" fill="#E6FFF2">BOUND EVIDENCE LEVELS</text>
+    <text x="938" y="52" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="720" letter-spacing="1" fill="#FFF0D8">HONEST OPEN GATES</text>
+    <circle cx="402" cy="45" r="5" fill="#54D6FF" filter="url(#softGlow)"/>
+    <circle cx="900" cy="45" r="5" fill="#5EE6A8" filter="url(#softGlow)"/>
+  </g>
+</svg>

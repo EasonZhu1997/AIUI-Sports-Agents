@@ -1,127 +1,211 @@
+<div align="center" id="readme-top">
+
+<img src="assets/brand/hero.svg" alt="AIUI Sports Agents：跑步、骑行与划船机的证据优先运动 Agent" width="100%">
+
+<p><strong>面向智能眼镜运动 Agent 的公开评测、证据与治理枢纽</strong></p>
+
+<p>
+  <a href="https://github.com/EasonZhu1997/AIUI-Sports-Agents/actions/workflows/validate.yml"><img src="https://github.com/EasonZhu1997/AIUI-Sports-Agents/actions/workflows/validate.yml/badge.svg" alt="Validate"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/EasonZhu1997/AIUI-Sports-Agents?style=flat-square" alt="Apache-2.0 License"></a>
+  <img src="https://img.shields.io/badge/Node.js-20--25-339933?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 20–25">
+  <a href="benchmark/evidence-levels.md"><img src="https://img.shields.io/badge/public_evidence-L2-8B5CF6?style=flat-square" alt="Current public evidence L2"></a>
+  <a href="README.en.md"><img src="https://img.shields.io/badge/README-English-1677ff?style=flat-square" alt="English README"></a>
+</p>
+
+[项目矩阵](#项目矩阵) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [仓库地图](#仓库地图) · [文档中心](#文档中心) · [路线图](ROADMAP.md)
+
+</div>
+
 # AIUI Sports Agents
 
-面向智能眼镜的证据优先运动 Agent 开源计划。
+AIUI Sports Agents 用一套公开、可复核的方法，组织智能眼镜上的跑步、骑行与划船机 Agent，并把“源码、包、预览、宿主、真机、平台”六个阶段分别记录。
 
-这个项目不是把不同运动应用塞进一个大应用，而是用一套公开、可复核的方法，维护多个独立运行的垂直产品：
+> [!IMPORTANT]
+> 当前公开的是评测规范、项目卡、机器可读结果、治理文档和维护工具。AISmartRun、AIBike、AISmartRower 的应用源码快照与 AIX 尚未公开；项目卡和 L2 证据不代表 Rokid 真机通过、AIUI Studio 已提审或商店已上架。
 
-- **AISmartRun**：跑步；HRS、RSC 与眼镜 IMU。
-- **AIBike**：骑行；HRS、CSC、Cycling Power、FTMS 与眼镜 IMU。
-- **AISmartRower**：划船机；标准 FTMS Rower Data，可选独立 HRS。当前以只读遥测为主，机器控制关闭。
+## 为什么做这个项目
 
-核心原则只有四条：
+AIUI Sports Agents 不把跑步、骑行和划船机硬塞进一个大应用。三个垂直产品独立运行、独立验证、独立发布，但共享一套可以公开复核的证据语言。
 
-1. 真实传感器优先。
-2. 估算必须明确标注。
-3. 没有证据就保持不可用。
-4. 每一项能力都绑定版本、环境与证据等级。
+| **Measured First** | **Honest Degradation** | **Evidence Bound** |
+| --- | --- | --- |
+| 真实传感器数据优先，来源必须可说明。 | 估算必须标注；拿不到的数据保持 `unavailable`。 | 每项能力都绑定版本、环境、包身份与证据等级。 |
 
-## 项目怎么组织
+共同方法可以复用，共同指标可以横向比较；不同运动的专项分不合并成一个没有意义的总排名。
 
-```text
-AIUI Sports Agents             统一品牌、评测和治理
-├── AISmartRun                 独立应用、独立发布
-├── AIBike                     独立应用、独立发布
-└── AISmartRower               独立应用、独立发布
-```
+## 项目矩阵
 
-本仓库只承载公共方法和项目索引，不把三套应用硬合成一个单体。运动算法、页面状态机、权限和硬件验收分别维护；稳定复用的协议解析、输入去重、生命周期、存储与打包工具，经过两个项目验证后才进入共享层。
+公开状态快照更新于 **2026-08-31**。
 
-## 三种玩法
+| 项目 | 运动与协议 | Track | 版本 | 公开证据 | 结果摘要 | Open gates |
+| --- | --- | --- | ---: | --- | --- | ---: |
+| [AISmartRun](projects/smartrun.md) | 跑步 · HRS / RSC / IMU | `candidate` | `0.1.114` | `L2` | [Common 2P / 4~ · Sport 0P / 4~](results/smartrun.json) | 3 |
+| [AIBike](projects/aibike.md) | 骑行 · HRS / CSC / CPS / FTMS / IMU | `candidate` | `0.3.80` | `L2` | [Common 2P / 4~ · Sport 1P / 3~](results/aibike.json) | 3 |
+| [AISmartRower](projects/aismartrower.md) | 划船机 · FTMS Rower Data / HRS | `labs` | `0.0.1` | `L2` | [Common 2P / 4~ · Sport 0P / 2~ / 2B](results/aismartrower.json) | 4 |
 
-### 1. 作为使用者体验
+`P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。三个项目的 `sourceRepository` 当前均为空，`openSourceExport` 均为 `pending`；普通访问者现在不能从本仓直接构建三个运动应用。
 
-选择一个运动应用，先阅读对应项目卡和硬件兼容矩阵，再按该应用的本地构建说明生成 AIX。浏览器预览只能检查页面与 Ink 解析；BLE、IMU、按键、后台恢复和双设备连接必须在 Rokid 真机上验证。
-
-### 2. 作为开发者贡献
-
-修复或新增能力时，同时提交：
-
-- 实现与自动化测试；
-- 对应的协议或数据来源说明；
-- 一张结果卡，写明版本、设备、固件和仍未关闭的门；
-- 若宣称真机可用，提供经过脱敏的真机证据等级。
-
-### 3. 作为评测者复现
-
-所有运动共享 Common Benchmark，再执行各自的 Sport Benchmark。Common 结果可以跨运动比较；Sport 结果只在同一运动、同类硬件中比较，禁止用一个总分判断“跑步优于骑行”。
-
-## 现在就参与
-
-不确定从哪里开始，可以直接使用这些入口：
-
-- [填写体验与贡献问卷](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=contribution-survey.yml)
-- [报告 Bug 或提交真机证据](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=bug-and-device-evidence.yml)
-- [阅读贡献规则](CONTRIBUTING.md)
-- [查看手把手图文教程](articles/从本地到GitHub_一步步开源AIUI项目.md)
-- [准备 AIUI Studio 提交资料](docs/AIUI_SUBMISSION_WORKSHEET.md)
-- [私密报告安全漏洞](https://github.com/EasonZhu1997/AIUI-Sports-Agents/security/advisories/new)
-
-GitHub 问卷用于开源协作，不会自动上传 AIX、创建 AIUI Studio 智能体或提交平台审核。
+> AISmartRower 当前仅允许读取标准 FTMS Rower Data 与可选 HRS；Fitness Machine Control Point `0x2AD9` 保持关闭，不控制器械。
 
 ## 快速开始
 
-本仓库没有运行时依赖，Node.js 20 及以上即可：
+本仓库当前没有运行时依赖。使用 Node.js **20–25**：
 
 ```bash
+git clone https://github.com/EasonZhu1997/AIUI-Sports-Agents.git
+cd AIUI-Sports-Agents
 npm run validate
 npm run report
 ```
 
-检查相邻的本地应用源码：
+`validate` 检查项目登记、30 个评测项的数据结构和公开文件边界；它不是“30 个端到端测试全部通过”。`report` 根据当前结果文件生成有证据等级约束的项目摘要。
 
-```bash
-cp registry/local-projects.example.json registry/local-projects.json
-npm run audit:local
+预期报告：
+
+```text
+AISmartRun    candidate  0.1.114  L2
+AIBike        candidate  0.3.80   L2
+AISmartRower  labs       0.0.1    L2
 ```
 
-严格模式会在发现缺少开源文件、危险产物或不适合公开的目录时返回失败：
+<p align="right"><a href="#readme-top">返回顶部 ↑</a></p>
+
+## 如何参与
+
+不需要先会写代码。先选择最适合自己的入口：
+
+| 角色 | 可以做什么 | 从这里开始 |
+| --- | --- | --- |
+| 浏览者 / 评测者 | 阅读项目卡、复现 Common 与 Sport 评测、核对结果边界 | [Benchmark](benchmark/README.md) · [项目矩阵](#项目矩阵) |
+| 体验者 / 真机测试者 | 提交体验反馈、兼容性问题或脱敏的 Reader / Craft / 真机证据 | [体验与贡献问卷](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=contribution-survey.yml) · [Bug 与真机证据](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=bug-and-device-evidence.yml) |
+| 代码 / 文档贡献者 | 先用 Issue 对齐范围，再 Fork、建分支、测试并提交 Pull Request | [贡献指南](CONTRIBUTING.md) · [手把手图文教程](articles/从本地到GitHub_一步步开源AIUI项目.md) |
+| 项目维护者 | 审计相邻私有源码、预演白名单导出、维护结果卡与发布边界 | [开源边界](docs/OPEN_SOURCE_BOUNDARIES.md) · [发布清单](docs/PUBLICATION_CHECKLIST.md) |
+
+GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创建 AIUI Studio 智能体或提交平台审核。
+
+## 证据优先工作流
+
+<p align="center">
+  <img src="articles/images/open-source-guide/06-release-gates.svg" alt="源码、构建、预览、Craft Host、真机与平台审核是六道独立证据门" width="92%">
+</p>
+
+一次成功只能证明它真正覆盖的那一门：
+
+- GitHub 源码可读，不等于 AIX 可生成；
+- AIX 与 Reader / Preview 可检查，不等于 Craft 或 Rokid 真机通过；
+- 真机上传成功，不等于完整运动闭环稳定；
+- AIUI Studio 提审，不等于审核通过或已上架。
+
+每次结果都应保留失败、跳过、不可用与 Open gates，而不是只展示最好的一次。
+
+## 评测体系
+
+每个项目结果由三部分组成：
+
+| 层 | 解决的问题 | 是否可跨运动比较 |
+| --- | --- | --- |
+| [Common](benchmark/common.md) | 场景闭环、数据诚实、实时与生命周期、人因安全、离线与隐私、可复现性 | 可以 |
+| Sport | 跑步、骑行或划船机的协议、准确性和降级规则 | 仅同一运动、同类协议与相近硬件 |
+| [Evidence Level](benchmark/evidence-levels.md) | 当前结论到底由本地测试、预览、宿主、真机还是现场对照支持 | 用于限定结论，不是成熟度营销词 |
+
+专项入口：[Running](benchmark/running.md) · [Cycling](benchmark/cycling.md) · [Indoor Rowing](benchmark/indoor-rowing.md)
+
+| 等级 | 证据范围 | 不能向上推断为 |
+| --- | --- | --- |
+| `L1` | 自动化本地测试、解析器、业务逻辑与 mock adapter | AIUI 宿主或真实设备 |
+| `L2` | 本地 AIX、Reader / Preview、包体与语言检查 | Craft、无线电、按键或真机生命周期 |
+| `L3` | Craft 或目标 Host 的交互与集成证据 | 真实外设持续流与完整现场闭环 |
+| `L4` | 指定 Rokid 设备、固件、Host 和真实外设组合 | 其他设备、固件或长时间场景 |
+| `L5` | 完整现场会话与参考设备对照 | 未覆盖环境和人群的泛化结论 |
+
+当前三张公开项目卡均为 `L2`。
+
+<p align="right"><a href="#readme-top">返回顶部 ↑</a></p>
+
+## 仓库地图
+
+```text
+AIUI-Sports-Agents/
+├── projects/    项目卡：范围、版本、协议与开放门
+├── results/     机器可读的项目结果
+├── benchmark/   Common、专项指标与证据等级
+├── contracts/   可复核的协议与安全边界
+├── docs/        开源、隐私、硬件证据与发布规则
+├── scripts/     验证、报告、本地审计与白名单导出
+├── articles/    参与开源和 AIUI 提交流程文章
+└── assets/      本项目原创品牌资产
+```
+
+三套运动应用不会在这里合并成一个单体。运动算法、页面状态机、权限和硬件验收分别维护；只有经过多个项目验证的稳定基础设施，才考虑进入共享层。
+
+## 维护者工具
+
+下面的命令依赖维护者本机相邻的私有应用源码。普通访问者 clone 本仓后不需要执行。
+
+仅在配置不存在时创建本地映射：
 
 ```bash
+test -e registry/local-projects.json || \
+  cp registry/local-projects.example.json registry/local-projects.json
+```
+
+审计本地项目：
+
+```bash
+npm run audit:local
 npm run audit:local:strict
 ```
 
-白名单导出工具默认只预演，不写文件：
+白名单导出先预演，不写文件：
 
 ```bash
 npm run export:dry -- --project aibike
 ```
 
-确认清单后，才在本地生成 `dist/` 快照：
+只有 `PUBLIC_EXPORT_STATUS: READY` 且所有 blocker 已关闭时，才在本地生成 `dist/` 快照：
 
 ```bash
 npm run export:local -- --project aibike
 ```
 
-这一步只生成本地文件，不会创建远端仓库，也不会上传、安装、签名或发布 AIX。
+这些工具不会创建 GitHub 仓库，也不会上传、签名、安装或发布 AIX。
 
-## 评测输出
+## 当前与下一步
 
-每个结果由三部分组成：
+| 当前已经公开 | 下一步方向 |
+| --- | --- |
+| 统一 Registry、三张项目卡与机器可读结果 | 为 Run、Bike、Rower 生成经过白名单审计的独立源码快照 |
+| 30 个登记评测项及自动结构验证 | 补齐绑定设备、固件、Host 与包身份的 L4 真机矩阵 |
+| Common / Sport / L1–L5 评测方法 | 建立可重复的 L5 现场对照、误差与失败报告 |
+| Apache-2.0、贡献、安全、隐私与治理规则 | Paddle 与 Rider 先以孵化项目完成场景、协议和 L1 证据 |
 
-- **Common**：场景闭环、数据诚实、实时与生命周期、人因安全、离线与隐私、可复现性。
-- **Sport**：跑步、骑行或划船机的专项准确性与降级规则。
-- **Evidence Level**：L1 自动化测试到 L5 完整现场对照。
+[完整路线图](ROADMAP.md) 描述方向，不是发布日期、平台审核或发布承诺。
 
-详细规则见 [评测入口](benchmark/README.md)；当前项目状态见：
+## 文档中心
 
-- [AISmartRun 项目卡](projects/smartrun.md)
-- [AIBike 项目卡](projects/aibike.md)
-- [AISmartRower 项目卡](projects/aismartrower.md)
+| 主题 | 文档 |
+| --- | --- |
+| 项目与评测 | [Benchmark 入口](benchmark/README.md) · [项目生命周期](docs/PROJECT_LIFECYCLE.md) · [Evidence Levels](docs/EVIDENCE_LEVELS.md) |
+| 硬件与安全 | [硬件证据指南](docs/HARDWARE_EVIDENCE_GUIDE.md) · [Rower 安全边界](docs/ROWER_SAFETY_BOUNDARY.md) · [FTMS Rower Profile](contracts/ftms-rower-profile.md) |
+| 开源与发布 | [开源边界](docs/OPEN_SOURCE_BOUNDARIES.md) · [发布检查清单](docs/PUBLICATION_CHECKLIST.md) · [第三方说明](THIRD_PARTY_NOTICES.md) |
+| GitHub 与 AIUI | [Public 项目参与图文教程](articles/从本地到GitHub_一步步开源AIUI项目.md) · [AIUI Studio 提交预填表](docs/AIUI_SUBMISSION_WORKSHEET.md) |
+| 项目介绍 | [AIUI Sports Agents 开源项目怎么玩](articles/AIUI_Sports_Agents_开源项目怎么玩.md) · [English README](README.en.md) |
 
-面向公众号和技术社区的完整介绍见独立文章：
-[《AIUI Sports Agents 开源项目怎么玩》](articles/AIUI_Sports_Agents_开源项目怎么玩.md)。
+<p align="right"><a href="#readme-top">返回顶部 ↑</a></p>
 
-如果你也准备把自己的 AIUI 项目安全地发布到 GitHub，或想参与当前 Public 项目，请按
-[《手把手图文版：从看到 Public 项目，到参与贡献、填写问卷和提交 AIUI》](articles/从本地到GitHub_一步步开源AIUI项目.md)
-完成问卷、Fork/PR、白名单导出、脱敏、证据分级、Craft 验证与 AIUI Studio 提审。
+## 贡献、安全与许可证
 
-## 当前边界
+- 开始贡献前，请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。
+- 安全漏洞、账号、个人数据或危险设备控制问题，请使用 [Private vulnerability reporting](https://github.com/EasonZhu1997/AIUI-Sports-Agents/security/advisories/new)，不要创建公开 Issue。
+- 公开材料不得包含 key、token、真实 MAC、序列号、轨迹、未脱敏日志或无权再分发的 SDK、固件和素材；详见 [PRIVACY.md](PRIVACY.md)。
+- 本仓库自有代码、文档与原创品牌资产采用 [Apache License 2.0](LICENSE)。第三方内容保持各自许可证，不会自动变成 Apache-2.0。
 
-- 这是公开的评测与治理总仓；三个应用的源码快照仍按白名单分别审计，项目卡不等于应用源码已经公开。
-- 结果卡中的 `pass` 只在标注的证据等级内成立，不能越级解释为真机通过。
-- 原始设备日志、运动备份、稳定设备标识、凭据、固件包、AIX 和未确认授权素材不进入公开快照。
-- 网络能力默认关闭或显式选择；离线运动闭环不得依赖后端。
+<div align="center">
 
-## 许可证
+<img src="assets/brand/logo.svg" alt="AIUI Sports Agents logo" width="92">
 
-本仓库自有代码与文档采用 Apache License 2.0。第三方依赖、示例和素材仍受各自许可证约束；未确认授权的内容不属于公开发布范围。
+**Evidence before claims. Honest data before impressive demos.**
+
+本项目不暗示 Rokid、AIUI 或设备厂商官方背书。
+
+</div>
