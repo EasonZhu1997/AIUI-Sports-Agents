@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Public 仓库入口操作示意</title>
+  <desc id="desc">先阅读 README，再进入 Issues，页面同时展示 Code、Pull requests、Actions、Fork 和 Star。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58a6ff"/>
+    </marker>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif;fill:#f0f6fc}
+      .muted{fill:#8b949e}.small{font-size:18px}.label{font-size:21px;font-weight:650}.title{font-size:38px;font-weight:760}.step{font-size:24px;font-weight:730}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g transform="translate(48 16) scale(0.92)">
+  <circle cx="1080" cy="90" r="150" fill="#1f6feb" opacity="0.08"/>
+  <circle cx="80" cy="650" r="190" fill="#2ea043" opacity="0.07"/>
+
+  <circle cx="62" cy="61" r="27" fill="#1f6feb"/>
+  <text x="62" y="69" text-anchor="middle" font-size="22" font-weight="760">01</text>
+  <text x="104" y="73" class="title">先看懂 Public 项目入口</text>
+  <text x="104" y="105" class="muted small">公开可见不等于随意修改：先理解项目，再选择参与入口</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="142" width="1060" height="450" rx="18" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+    <rect x="70" y="142" width="1060" height="76" rx="18" fill="#161b22"/>
+    <rect x="70" y="198" width="1060" height="20" fill="#161b22"/>
+  </g>
+  <text x="102" y="180" class="label" fill="#58a6ff">owner / AIUI-Sports-Agents</text>
+  <rect x="426" y="160" width="76" height="28" rx="14" fill="none" stroke="#8b949e"/>
+  <text x="464" y="180" text-anchor="middle" class="small" fill="#8b949e">Public</text>
+  <rect x="906" y="157" width="92" height="36" rx="7" fill="#21262d" stroke="#30363d"/>
+  <text x="952" y="181" text-anchor="middle" class="small">Fork</text>
+  <rect x="1008" y="157" width="94" height="36" rx="7" fill="#21262d" stroke="#30363d"/>
+  <text x="1055" y="181" text-anchor="middle" class="small">Star</text>
+
+  <g>
+    <rect x="94" y="232" width="104" height="50" rx="8" fill="#21262d"/>
+    <text x="146" y="264" text-anchor="middle" class="label">Code</text>
+    <text x="251" y="264" text-anchor="middle" class="label" fill="#58a6ff">Issues</text>
+    <text x="424" y="264" text-anchor="middle" class="label">Pull requests</text>
+    <text x="578" y="264" text-anchor="middle" class="label">Actions</text>
+    <line x1="212" y1="280" x2="290" y2="280" stroke="#f78166" stroke-width="4"/>
+  </g>
+
+  <rect x="98" y="310" width="610" height="240" rx="12" fill="#161b22" stroke="#30363d"/>
+  <rect x="98" y="310" width="610" height="54" rx="12" fill="#21262d"/>
+  <text x="126" y="345" class="label">README.md</text>
+  <text x="130" y="402" font-size="25" font-weight="720">项目是什么？现在完成到哪一步？</text>
+  <line x1="130" y1="427" x2="650" y2="427" stroke="#30363d"/>
+  <text x="130" y="463" class="small" fill="#c9d1d9">阅读：项目目标、快速开始、目录、贡献规则</text>
+  <text x="130" y="502" class="small" fill="#c9d1d9">确认：已有问题、测试边界、隐私与证据要求</text>
+
+  <rect x="758" y="323" width="314" height="92" rx="14" fill="#10233c" stroke="#58a6ff" stroke-width="2"/>
+  <circle cx="798" cy="369" r="24" fill="#1f6feb"/>
+  <text x="798" y="377" text-anchor="middle" font-size="21" font-weight="760">1</text>
+  <text x="838" y="363" class="step">先读 README</text>
+  <text x="838" y="392" class="muted small">弄清范围和规则</text>
+  <path d="M 758 369 C 720 369 734 392 698 402" fill="none" stroke="#58a6ff" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="758" y="446" width="314" height="92" rx="14" fill="#1b2735" stroke="#f78166" stroke-width="2"/>
+  <circle cx="798" cy="492" r="24" fill="#da3633"/>
+  <text x="798" y="500" text-anchor="middle" font-size="21" font-weight="760">2</text>
+  <text x="838" y="486" class="step">再点 Issues</text>
+  <text x="838" y="515" class="muted small">提问、反馈或填问卷</text>
+  <path d="M 913 446 C 900 355 620 297 290 263" fill="none" stroke="#f78166" stroke-width="4" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+
+  <rect x="314" y="618" width="572" height="48" rx="24" fill="#162436" stroke="#58a6ff"/>
+  <text x="600" y="649" text-anchor="middle" class="label">推荐顺序：Code / README → Issues → 决定是否 Fork 或提交 PR</text>
+  </g>
+</svg>

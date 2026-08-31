@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">使用 GitHub Issues 填写体验与贡献问卷</title>
+  <desc id="desc">依次点击 Issues、New issue，选择体验与贡献问卷，填写身份、运动、环境、帮助方向、证据、隐私确认，然后提交。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-opacity="0.34"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#58a6ff"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif;fill:#f0f6fc}.title{font-size:38px;font-weight:760}.muted{fill:#8b949e}.small{font-size:17px}.label{font-size:20px;font-weight:700}.num{font-size:20px;font-weight:760}.field{font-size:16px;fill:#c9d1d9}</style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g transform="translate(48 16) scale(0.92)">
+  <circle cx="62" cy="61" r="27" fill="#1f6feb"/><text x="62" y="69" text-anchor="middle" class="num">03</text>
+  <text x="104" y="73" class="title">问卷怎么填：跟着 Issues 一步步点</text>
+  <text x="104" y="105" class="muted small">问卷本身就是一个结构化 Issue，提交后维护者可公开跟进</text>
+
+  <g>
+    <circle cx="145" cy="166" r="23" fill="#1f6feb"/><text x="145" y="173" text-anchor="middle" class="num">1</text>
+    <rect x="180" y="142" width="112" height="48" rx="8" fill="#21262d" stroke="#58a6ff"/><text x="236" y="173" text-anchor="middle" class="label">Issues</text>
+    <path d="M304 166 H380" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrow)"/>
+    <circle cx="417" cy="166" r="23" fill="#1f6feb"/><text x="417" y="173" text-anchor="middle" class="num">2</text>
+    <rect x="452" y="142" width="148" height="48" rx="8" fill="#238636" stroke="#2ea043"/><text x="526" y="173" text-anchor="middle" class="label">New issue</text>
+    <path d="M612 166 H688" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrow)"/>
+    <circle cx="725" cy="166" r="23" fill="#1f6feb"/><text x="725" y="173" text-anchor="middle" class="num">3</text>
+    <rect x="760" y="136" width="348" height="60" rx="10" fill="#172b42" stroke="#58a6ff" stroke-width="2"/>
+    <text x="934" y="162" text-anchor="middle" class="label">选择“体验与贡献问卷”</text><text x="934" y="185" text-anchor="middle" class="small" fill="#79c0ff">点击 Get started</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="230" width="1020" height="392" rx="18" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+    <rect x="90" y="230" width="1020" height="60" rx="18" fill="#161b22"/>
+    <rect x="90" y="270" width="1020" height="20" fill="#161b22"/>
+    <text x="122" y="268" font-size="24" font-weight="730">体验与贡献问卷</text>
+    <rect x="873" y="243" width="205" height="36" rx="8" fill="#238636"/><text x="975" y="267" text-anchor="middle" font-size="18" font-weight="700">Submit new issue</text>
+  </g>
+
+  <g>
+    <circle cx="130" cy="328" r="19" fill="#8957e5"/><text x="130" y="335" text-anchor="middle" class="num">4</text>
+    <text x="164" y="335" class="label">按真实情况填写六类关键信息</text>
+    <rect x="128" y="358" width="282" height="78" rx="10" fill="#161b22" stroke="#30363d"/>
+    <text x="148" y="384" class="label">身份</text><text x="148" y="413" class="field">普通用户 / AIUI 开发 / 真机测试</text>
+    <rect x="459" y="358" width="282" height="78" rx="10" fill="#161b22" stroke="#30363d"/>
+    <text x="479" y="384" class="label">运动</text><text x="479" y="413" class="field">跑步 / 骑行 / 划船机 / 其他</text>
+    <rect x="790" y="358" width="282" height="78" rx="10" fill="#161b22" stroke="#30363d"/>
+    <text x="810" y="384" class="label">环境</text><text x="810" y="413" class="field">平台类别、场地、复现条件</text>
+    <rect x="128" y="462" width="282" height="78" rx="10" fill="#161b22" stroke="#30363d"/>
+    <text x="148" y="488" class="label">帮助方向</text><text x="148" y="517" class="field">反馈 / 代码 / 文档 / 测试</text>
+    <rect x="459" y="462" width="282" height="78" rx="10" fill="#161b22" stroke="#30363d"/>
+    <text x="479" y="488" class="label">证据</text><text x="479" y="517" class="field">等级 / 脱敏摘要 / Open gates</text>
+    <rect x="790" y="462" width="282" height="78" rx="10" fill="#231d24" stroke="#f85149"/>
+    <text x="810" y="488" class="label">隐私确认</text><text x="810" y="517" class="field">已去除密钥与个人/设备标识</text>
+  </g>
+
+  <circle cx="823" cy="582" r="21" fill="#238636"/><text x="823" y="589" text-anchor="middle" class="num">5</text>
+  <path d="M846 582 H930" stroke="#3fb950" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="942" y="559" width="136" height="46" rx="8" fill="#238636"/><text x="1010" y="589" text-anchor="middle" font-size="18" font-weight="700">提交问卷</text>
+  <text x="90" y="662" class="muted small">提交前再读一遍：内容会公开显示；不知道的字段写“不确定”，不要猜测，也不要上传秘密信息。</text>
+  </g>
+</svg>

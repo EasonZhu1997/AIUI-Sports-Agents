@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">AIUI 项目发布证据的六道边界</title>
+  <desc id="desc">GitHub 源码、AIX、Reader 或 Preview、Craft 或 Host、真机、AIUI 平台和审核各是不同阶段，必须逐门通过。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-opacity="0.34"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#58a6ff"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif;fill:#f0f6fc}.title{font-size:38px;font-weight:760}.muted{fill:#8b949e}.small{font-size:17px}.num{font-size:20px;font-weight:760}.gateTitle{font-size:18px;font-weight:730}.gateText{font-size:14px;fill:#c9d1d9}.gateProof{font-size:14px;font-weight:700}</style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g transform="translate(48 16) scale(0.92)">
+  <circle cx="62" cy="61" r="27" fill="#da3633"/><text x="62" y="69" text-anchor="middle" class="num">06</text>
+  <text x="104" y="73" class="title">发布不是一个按钮：六道证据门逐一通过</text>
+  <text x="104" y="105" class="muted small">某一阶段成功，只能证明这一阶段；不要把“已上传”写成“已上线”</text>
+
+  <rect x="76" y="137" width="1048" height="86" rx="16" fill="#2b1d21" stroke="#f85149" stroke-width="2"/>
+  <text x="600" y="171" text-anchor="middle" font-size="21" font-weight="760"><tspan>GitHub 源码</tspan><tspan fill="#ff7b72"> ≠ </tspan><tspan>AIX</tspan><tspan fill="#ff7b72"> ≠ </tspan><tspan>Reader / Preview</tspan></text>
+  <text x="600" y="201" text-anchor="middle" font-size="21" font-weight="760"><tspan fill="#ff7b72">≠ </tspan><tspan>Craft / Host</tspan><tspan fill="#ff7b72"> ≠ </tspan><tspan>真机</tspan><tspan fill="#ff7b72"> ≠ </tspan><tspan>AIUI 平台 / 审核</tspan></text>
+
+  <path d="M228 365 H240 M408 365 H420 M588 365 H600 M768 365 H780 M948 365 H960" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)"><rect x="60" y="250" width="168" height="240" rx="16" fill="#161b22" stroke="#58a6ff"/><circle cx="88" cy="282" r="19" fill="#1f6feb"/><text x="88" y="289" text-anchor="middle" class="num">1</text><text x="116" y="288" class="gateTitle">源码门</text><text x="80" y="329" class="gateText">GitHub 可访问</text><text x="80" y="357" class="gateText">README 可运行</text><text x="80" y="385" class="gateText">许可与依赖清楚</text><line x1="80" y1="413" x2="208" y2="413" stroke="#30363d"/><text x="80" y="449" class="gateProof" fill="#79c0ff">证据：提交 SHA</text></g>
+  <g filter="url(#shadow)"><rect x="240" y="250" width="168" height="240" rx="16" fill="#161b22" stroke="#a371f7"/><circle cx="268" cy="282" r="19" fill="#8957e5"/><text x="268" y="289" text-anchor="middle" class="num">2</text><text x="296" y="288" class="gateTitle">构建门</text><text x="260" y="329" class="gateText">AIX 成功生成</text><text x="260" y="357" class="gateText">版本与 UUID 核对</text><text x="260" y="385" class="gateText">包体规则通过</text><line x1="260" y1="413" x2="388" y2="413" stroke="#30363d"/><text x="260" y="449" class="gateProof" fill="#d2a8ff">证据：校验值</text></g>
+  <g filter="url(#shadow)"><rect x="420" y="250" width="168" height="240" rx="16" fill="#161b22" stroke="#d29922"/><circle cx="448" cy="282" r="19" fill="#9e6a03"/><text x="448" y="289" text-anchor="middle" class="num">3</text><text x="476" y="288" class="gateTitle">预览门</text><text x="440" y="329" class="gateText">Reader / Preview</text><text x="440" y="357" class="gateText">页面与交互走通</text><text x="440" y="385" class="gateText">记录已知限制</text><line x1="440" y1="413" x2="568" y2="413" stroke="#30363d"/><text x="440" y="449" class="gateProof" fill="#e3b341">证据：截图/录像</text></g>
+  <g filter="url(#shadow)"><rect x="600" y="250" width="168" height="240" rx="16" fill="#161b22" stroke="#a371f7"/><circle cx="628" cy="282" r="19" fill="#8957e5"/><text x="628" y="289" text-anchor="middle" class="num">4</text><text x="656" y="281" class="gateTitle">Craft / Host</text><text x="656" y="301" class="gateTitle">门</text><text x="620" y="335" class="gateText">集成可运行</text><text x="620" y="363" class="gateText">权限 / 生命周期</text><text x="620" y="391" class="gateText">环境版本已记录</text><line x1="620" y1="413" x2="748" y2="413" stroke="#30363d"/><text x="620" y="442" class="gateProof" fill="#d2a8ff">证据：环境/版本</text><text x="620" y="462" class="gateProof" fill="#d2a8ff">/结果</text></g>
+  <g filter="url(#shadow)"><rect x="780" y="250" width="168" height="240" rx="16" fill="#161b22" stroke="#3fb950"/><circle cx="808" cy="282" r="19" fill="#238636"/><text x="808" y="289" text-anchor="middle" class="num">5</text><text x="836" y="288" class="gateTitle">真机门</text><text x="800" y="329" class="gateText">安装与启动</text><text x="800" y="357" class="gateText">连接、交互、数据</text><text x="800" y="385" class="gateText">失败可复现</text><line x1="800" y1="413" x2="928" y2="413" stroke="#30363d"/><text x="800" y="449" class="gateProof" fill="#7ee787">证据：脱敏日志</text></g>
+  <g filter="url(#shadow)"><rect x="960" y="250" width="168" height="240" rx="16" fill="#161b22" stroke="#f78166"/><circle cx="988" cy="282" r="19" fill="#da3633"/><text x="988" y="289" text-anchor="middle" class="num">6</text><text x="1016" y="281" class="gateTitle">平台与审核</text><text x="1016" y="301" class="gateTitle">门</text><text x="980" y="335" class="gateText">按平台表单提交</text><text x="980" y="363" class="gateText">资料、版本、隐私一致</text><text x="980" y="391" class="gateText">等待审核结果</text><line x1="980" y1="413" x2="1108" y2="413" stroke="#30363d"/><text x="980" y="442" class="gateProof" fill="#ffa198">证据：平台状态</text><text x="980" y="462" class="gateProof" fill="#ffa198">/回执</text></g>
+
+  <g>
+    <circle cx="92" cy="553" r="20" fill="#238636"/><path d="M83 553 l6 7 13 -16" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <text x="126" y="560" font-size="20" font-weight="720">每过一门再更新状态</text>
+    <circle cx="410" cy="553" r="20" fill="#9e6a03"/><path d="M400 553 H420" stroke="#ffffff" stroke-width="4"/>
+    <text x="444" y="560" font-size="20" font-weight="720">缺证据就标“待验证”</text>
+    <circle cx="762" cy="553" r="20" fill="#da3633"/><path d="M753 544 L771 562 M771 544 L753 562" stroke="#ffffff" stroke-width="4"/>
+    <text x="796" y="560" font-size="20" font-weight="720">不能跨门宣称完成</text>
+  </g>
+  <rect x="150" y="602" width="900" height="70" rx="24" fill="#162436" stroke="#58a6ff"/>
+  <text x="600" y="631" text-anchor="middle" font-size="17" font-weight="700">推荐状态：源码已公开｜AIX 待构建｜预览待验证</text>
+  <text x="600" y="657" text-anchor="middle" font-size="17" font-weight="700">Craft 待验证｜真机待验证｜平台未提交</text>
+  </g>
+</svg>

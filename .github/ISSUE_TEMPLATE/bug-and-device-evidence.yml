@@ -1,0 +1,191 @@
+name: Bug 与真机证据
+description: 报告可公开的缺陷、兼容性问题，或补充经过脱敏的 Reader、Craft、真机与现场测试证据。
+title: "[Bug/证据] "
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先判断是否适合公开：涉及漏洞、账号、个人数据、危险设备控制或未修复的安全利用时，请退出本表单，改用 **Private vulnerability reporting**。
+
+        公开材料不得包含 key、真实 MAC 地址、序列号、精确位置/运动轨迹、私有链接或未授权素材。设备可使用本次测试的随机别名，例如 `rower-a`、`hrs-b`。
+
+  - type: dropdown
+    id: report_kind
+    attributes:
+      label: 提交类型
+      options:
+        - 可复现的软件 Bug
+        - 设备或固件兼容性问题
+        - Reader / Preview / Craft 证据补充
+        - Rokid 真机证据补充
+        - BLE / IMU 外设证据补充
+        - L5 现场对照结果
+        - 数据来源或证据等级标注问题
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project
+    attributes:
+      label: 项目
+      options:
+        - AISmartRun
+        - AIBike
+        - AISmartRower
+        - 公共契约 / Benchmark / Registry
+        - Paddle / Rider 孵化项目
+        - 新项目或暂不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sport
+    attributes:
+      label: 运动类型
+      options:
+        - Run（跑步）
+        - Bike（骑行）
+        - Rower（划船机）
+        - Paddle / Rider
+        - Common（公共能力）
+        - 多个运动或不适用
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题或证据摘要
+      description: 先用一句话写结论，再说明影响；不要把估算值写成实测值。
+      placeholder: |
+        一句话结论：
+        影响：
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境与版本
+      description: 只填写公开版本和设备类别。L2 以上可填包文件名、UUID 与 SHA-256，但不要填设备唯一标识。
+      placeholder: |
+        项目 commit / 版本 / locale：
+        AIX 文件名 / UUID / SHA-256（适用时）：
+        Reader / Craft / Host 版本（适用时）：
+        Rokid 型号 / 固件（适用时，不填序列号）：
+        外设类别 / 公开型号 / 协议（适用时，不填 MAC）：
+        测试日期、时区与持续时间：
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 操作步骤或复现步骤
+      description: 按顺序写可复现的最小步骤，并包含断流、隐藏/恢复、重连或退出等适用场景。
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      description: 同时写明通过、失败、跳过和不可用项；不要只提供最顺利的一次。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data_source
+    attributes:
+      label: 数据来源
+      options:
+        - measured（传感器或协议实测）
+        - estimated（算法估算）
+        - unavailable（当前不可用）
+        - mixed（混合来源，需在下方逐项说明）
+        - 不涉及运动数据
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_details
+    attributes:
+      label: 数据来源与新鲜度说明
+      description: 写清每个关键指标来自哪里、何时更新、缺失时如何处理；选择 mixed 时必须逐项说明，不涉及运动数据时填写 N/A。没有字段就写 unavailable，不要用 0 冒充。
+      placeholder: |
+        Measured：
+        Estimated：
+        Unavailable：
+        新鲜度 / 断流规则：
+    validations:
+      required: true
+
+  - type: dropdown
+    id: evidence_level
+    attributes:
+      label: 证据等级
+      options:
+        - not_run（尚未执行，只报告设计或待复现问题）
+        - L1（自动化本地测试）
+        - L2（包与 Reader / Preview）
+        - L3（Craft / Host 集成环境）
+        - L4（Rokid 真机）
+        - L5（完整现场对照）
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests_and_refs
+    attributes:
+      label: 已执行测试与公开证据引用
+      description: 原样列出命令/操作和结果。只引用脱敏后的最小日志、截图或视频；不能公开的原始材料请留在受控本地环境。
+      placeholder: |
+        测试命令或操作：
+        通过 / 失败 / 跳过：
+        公开证据引用：
+    validations:
+      required: true
+
+  - type: textarea
+    id: open_gates
+    attributes:
+      label: 仍未验证的开放门（Open gates）
+      description: 例如 Reader、Craft、真机、其他固件、长期稳定性、隐私或第三方授权。
+      placeholder: 尚未验证：
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope_confirmation
+    attributes:
+      label: 范围与真实性确认
+      options:
+        - label: 我没有用扫描到、连接成功或订阅成功代替“已收到首个合法完整数据”。
+          required: true
+        - label: 若涉及 Rower，我确认没有要求发现、订阅或写入 FTMS Control Point `0x2AD9`。
+          required: true
+        - label: 我只声明本次记录环境能够证明的结果，没有从 Reader / Preview 推断真机兼容。
+          required: true
+
+  - type: checkboxes
+    id: privacy_confirmation
+    attributes:
+      label: 隐私与权利确认
+      options:
+        - label: 我已移除 key、token、账号、真实 MAC 地址、序列号、精确位置/轨迹、通知内容和无关人员信息。
+          required: true
+        - label: 我有权公开所附代码、日志、截图、照片或视频，并会注明第三方材料的来源、版本与许可证。
+          required: true

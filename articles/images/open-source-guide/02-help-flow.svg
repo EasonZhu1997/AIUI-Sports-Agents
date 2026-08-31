@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">普通用户帮助开源项目的四种路径</title>
+  <desc id="desc">从体验反馈、参与开发、参与评测、贡献真机证据四条路径帮助项目，并在提交前完成脱敏。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#121b2b"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-opacity="0.32"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#58a6ff"/></marker>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif;fill:#f0f6fc}.title{font-size:38px;font-weight:760}.muted{fill:#8b949e}.small{font-size:18px}.cardTitle{font-size:25px;font-weight:730}.body{font-size:19px}.num{font-size:21px;font-weight:760}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g transform="translate(48 16) scale(0.92)">
+  <circle cx="1110" cy="600" r="190" fill="#8957e5" opacity="0.06"/>
+  <circle cx="60" cy="140" r="170" fill="#1f6feb" opacity="0.07"/>
+  <circle cx="62" cy="61" r="27" fill="#1f6feb"/><text x="62" y="69" text-anchor="middle" class="num">02</text>
+  <text x="104" y="73" class="title">看到 Public 项目，我能怎么帮助？</text>
+  <text x="104" y="105" class="muted small">不必先成为维护者：选一条最适合自己的参与路径</text>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="135" width="350" height="78" rx="39" fill="#1f6feb"/>
+    <text x="600" y="184" text-anchor="middle" font-size="27" font-weight="760">我想帮助这个项目</text>
+  </g>
+  <path d="M600 213 V252 M600 238 H245 V277 M600 238 H955 V277 M600 238 H480 V277 M600 238 H720 V277" fill="none" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="278" width="252" height="248" rx="18" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <circle cx="99" cy="322" r="24" fill="#238636"/><text x="99" y="330" text-anchor="middle" class="num">1</text>
+    <text x="136" y="330" class="cardTitle">体验反馈</text>
+    <text x="88" y="380" class="body">审阅公开项目卡</text><text x="88" y="417" class="body">描述预期与实际结果</text><text x="88" y="454" class="body">提交 Issue 或问卷</text>
+    <rect x="87" y="478" width="174" height="30" rx="15" fill="#163822"/><text x="174" y="499" text-anchor="middle" class="small" fill="#7ee787">适合所有用户</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="336" y="278" width="252" height="248" rx="18" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <circle cx="375" cy="322" r="24" fill="#1f6feb"/><text x="375" y="330" text-anchor="middle" class="num">2</text>
+    <text x="412" y="330" class="cardTitle">参与开发</text>
+    <text x="364" y="380" class="body">先认领一个 Issue</text><text x="364" y="417" class="body">Fork 后建立新分支</text><text x="364" y="454" class="body">测试通过再提交 PR</text>
+    <rect x="363" y="478" width="174" height="30" rx="15" fill="#102b45"/><text x="450" y="499" text-anchor="middle" class="small" fill="#79c0ff">代码与文档</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="612" y="278" width="252" height="248" rx="18" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+    <circle cx="651" cy="322" r="24" fill="#9e6a03"/><text x="651" y="330" text-anchor="middle" class="num">3</text>
+    <text x="688" y="330" class="cardTitle">参与评测</text>
+    <text x="640" y="380" class="body">按同一指标与场景</text><text x="640" y="417" class="body">记录版本和复现步骤</text><text x="640" y="454" class="body">给出可比较的结果</text>
+    <rect x="639" y="478" width="174" height="30" rx="15" fill="#3b2e12"/><text x="726" y="499" text-anchor="middle" class="small" fill="#e3b341">基准与报告</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="888" y="278" width="252" height="248" rx="18" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+    <circle cx="927" cy="322" r="24" fill="#8957e5"/><text x="927" y="330" text-anchor="middle" class="num">4</text>
+    <text x="964" y="330" class="cardTitle">真机证据</text>
+    <text x="916" y="380" class="body">记录设备与环境类别</text><text x="916" y="417" class="body">提交脱敏最小证据</text><text x="916" y="454" class="body">标清成功与失败边界</text>
+    <rect x="915" y="478" width="174" height="30" rx="15" fill="#2c1f48"/><text x="1002" y="499" text-anchor="middle" class="small" fill="#d2a8ff">不写真实标识</text>
+  </g>
+
+  <path d="M186 526 V564 H600 M462 526 V564 M738 526 V564 M1014 526 V564 H600 V586" fill="none" stroke="#8b949e" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="272" y="586" width="656" height="72" rx="18" fill="#2b1d21" stroke="#f85149" stroke-width="2"/>
+  <text x="316" y="617" font-size="22" font-weight="740" fill="#ff7b72">提交前共同规则</text>
+  <text x="316" y="645" class="small">删除密钥、账号、定位、设备编号和旁人信息，再提交 Issue 或 Pull Request</text>
+  </g>
+</svg>

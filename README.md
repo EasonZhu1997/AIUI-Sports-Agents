@@ -45,6 +45,19 @@ AIUI Sports Agents             统一品牌、评测和治理
 
 所有运动共享 Common Benchmark，再执行各自的 Sport Benchmark。Common 结果可以跨运动比较；Sport 结果只在同一运动、同类硬件中比较，禁止用一个总分判断“跑步优于骑行”。
 
+## 现在就参与
+
+不确定从哪里开始，可以直接使用这些入口：
+
+- [填写体验与贡献问卷](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=contribution-survey.yml)
+- [报告 Bug 或提交真机证据](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=bug-and-device-evidence.yml)
+- [阅读贡献规则](CONTRIBUTING.md)
+- [查看手把手图文教程](articles/从本地到GitHub_一步步开源AIUI项目.md)
+- [准备 AIUI Studio 提交资料](docs/AIUI_SUBMISSION_WORKSHEET.md)
+- [私密报告安全漏洞](https://github.com/EasonZhu1997/AIUI-Sports-Agents/security/advisories/new)
+
+GitHub 问卷用于开源协作，不会自动上传 AIX、创建 AIUI Studio 智能体或提交平台审核。
+
 ## 快速开始
 
 本仓库没有运行时依赖，Node.js 20 及以上即可：
@@ -98,9 +111,9 @@ npm run export:local -- --project aibike
 面向公众号和技术社区的完整介绍见独立文章：
 [《AIUI Sports Agents 开源项目怎么玩》](articles/AIUI_Sports_Agents_开源项目怎么玩.md)。
 
-如果你也准备把自己的 AIUI 项目安全地发布到 GitHub，请按
-[《从本地到 GitHub：一步步开源 AIUI 项目》](articles/从本地到GitHub_一步步开源AIUI项目.md)
-完成白名单导出、脱敏、证据分级、首次推送与安全设置。
+如果你也准备把自己的 AIUI 项目安全地发布到 GitHub，或想参与当前 Public 项目，请按
+[《手把手图文版：从看到 Public 项目，到参与贡献、填写问卷和提交 AIUI》](articles/从本地到GitHub_一步步开源AIUI项目.md)
+完成问卷、Fork/PR、白名单导出、脱敏、证据分级、Craft 验证与 AIUI Studio 提审。
 
 ## 当前边界
 

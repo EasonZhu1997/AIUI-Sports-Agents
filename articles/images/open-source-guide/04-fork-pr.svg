@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">从 Fork 到 Pull Request 的操作流程</title>
+  <desc id="desc">依次点击 Fork、Create fork、Code，复制地址或克隆，新建分支、提交并推送，再从 Contribute 打开 Pull Request。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="9" stdDeviation="13" flood-opacity="0.34"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#58a6ff"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif;fill:#f0f6fc}.title{font-size:38px;font-weight:760}.muted{fill:#8b949e}.small{font-size:17px}.cardTitle{font-size:22px;font-weight:730}.num{font-size:20px;font-weight:760}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;fill:#a5d6ff}</style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g transform="translate(48 16) scale(0.92)">
+  <circle cx="62" cy="61" r="27" fill="#1f6feb"/><text x="62" y="69" text-anchor="middle" class="num">04</text>
+  <text x="104" y="73" class="title">想改代码：从 Fork 到 PR 的完整按钮链</text>
+  <text x="104" y="105" class="muted small">Fork 是你的副本；Pull Request 是请求维护者审阅并合并改动</text>
+
+  <path d="M214 226 H282 M450 226 H518 M686 226 H754 M872 298 V365 H812 M624 444 H556 M368 444 H300" fill="none" stroke="#58a6ff" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)"><rect x="58" y="153" width="156" height="146" rx="16" fill="#161b22" stroke="#58a6ff"/><circle cx="88" cy="184" r="20" fill="#1f6feb"/><text x="88" y="191" text-anchor="middle" class="num">1</text><text x="118" y="191" class="cardTitle">Fork</text><rect x="82" y="218" width="108" height="42" rx="8" fill="#21262d" stroke="#30363d"/><text x="136" y="245" text-anchor="middle" font-size="19" font-weight="700">点 Fork</text></g>
+  <g filter="url(#shadow)"><rect x="282" y="153" width="168" height="146" rx="16" fill="#161b22" stroke="#58a6ff"/><circle cx="312" cy="184" r="20" fill="#1f6feb"/><text x="312" y="191" text-anchor="middle" class="num">2</text><text x="342" y="191" class="cardTitle">创建副本</text><rect x="306" y="218" width="120" height="42" rx="8" fill="#238636"/><text x="366" y="245" text-anchor="middle" font-size="17" font-weight="700">Create fork</text></g>
+  <g filter="url(#shadow)"><rect x="518" y="153" width="168" height="146" rx="16" fill="#161b22" stroke="#58a6ff"/><circle cx="548" cy="184" r="20" fill="#1f6feb"/><text x="548" y="191" text-anchor="middle" class="num">3</text><text x="578" y="191" class="cardTitle">复制地址</text><rect x="542" y="218" width="120" height="42" rx="8" fill="#238636"/><text x="602" y="245" text-anchor="middle" font-size="19" font-weight="700">Code</text><text x="602" y="281" text-anchor="middle" class="small">复制或 clone</text></g>
+  <g filter="url(#shadow)"><rect x="754" y="153" width="388" height="146" rx="16" fill="#161b22" stroke="#58a6ff"/><circle cx="784" cy="184" r="20" fill="#1f6feb"/><text x="784" y="191" text-anchor="middle" class="num">4</text><text x="814" y="191" class="cardTitle">新建分支</text><rect x="780" y="214" width="336" height="57" rx="8" fill="#0d1117" stroke="#30363d"/><text x="798" y="239" class="code">git switch -c docs/my-change</text><text x="798" y="261" class="code"># 一个主题使用一个分支</text></g>
+
+  <g filter="url(#shadow)"><rect x="624" y="365" width="518" height="158" rx="16" fill="#161b22" stroke="#a371f7"/><circle cx="654" cy="396" r="20" fill="#8957e5"/><text x="654" y="403" text-anchor="middle" class="num">5</text><text x="684" y="403" class="cardTitle">修改、验证、提交并推送</text><rect x="650" y="426" width="466" height="68" rx="8" fill="#0d1117" stroke="#30363d"/><text x="670" y="451" class="code">git commit -m "docs: explain the flow"</text><text x="670" y="478" class="code">git push -u origin docs/my-change</text></g>
+  <g filter="url(#shadow)"><rect x="300" y="365" width="256" height="158" rx="16" fill="#161b22" stroke="#3fb950" stroke-width="2"/><circle cx="330" cy="396" r="20" fill="#238636"/><text x="330" y="403" text-anchor="middle" class="num">6</text><text x="360" y="403" class="cardTitle">发起 PR</text><rect x="326" y="430" width="204" height="38" rx="8" fill="#21262d"/><text x="428" y="455" text-anchor="middle" font-size="17" font-weight="700">Contribute</text><rect x="326" y="476" width="204" height="38" rx="8" fill="#238636"/><text x="428" y="501" text-anchor="middle" font-size="16" font-weight="700">Open pull request</text></g>
+  <g filter="url(#shadow)"><rect x="58" y="365" width="174" height="158" rx="16" fill="#162436" stroke="#58a6ff"/><circle cx="88" cy="396" r="20" fill="#1f6feb"/><text x="88" y="403" text-anchor="middle" class="num">7</text><text x="118" y="403" class="cardTitle">等审阅</text><text x="84" y="444" class="small">回答评论</text><text x="84" y="474" class="small">按建议补改</text><text x="84" y="504" class="small">CI 通过再合并</text></g>
+
+  <rect x="155" y="580" width="890" height="70" rx="18" fill="#2b1d21" stroke="#f85149"/>
+  <text x="190" y="610" font-size="20" font-weight="730" fill="#ff7b72">提交前检查</text><text x="190" y="638" class="small">只包含本次改动；测试已通过；PR 说明关联 Issue；没有密钥、账号、定位或真实设备标识。</text>
+  </g>
+</svg>

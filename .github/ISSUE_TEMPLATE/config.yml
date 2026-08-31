@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 私密报告安全漏洞
+    url: https://github.com/EasonZhu1997/AIUI-Sports-Agents/security/advisories/new
+    about: 涉及漏洞、账号、隐私数据或设备安全时，请不要创建公开 Issue，请从这里私密提交。
+  - name: 先阅读贡献规则
+    url: https://github.com/EasonZhu1997/AIUI-Sports-Agents/blob/main/CONTRIBUTING.md
+    about: 查看项目边界、证据等级、隐私要求和 Pull Request 规则。

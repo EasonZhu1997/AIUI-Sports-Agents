@@ -1,0 +1,175 @@
+name: 体验与贡献问卷
+description: 第一次参与、认领任务、补充测试或申请纳入一个 AIUI 运动项目时，从这里开始。
+title: "[贡献问卷] "
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你愿意帮忙！这是公开问卷，GitHub 会显示你的公开账号，不需要填写真实姓名、邮箱或联系方式。
+
+        **请勿填写或上传：** key、token、账号信息、真实 MAC 地址、序列号、精确位置/运动轨迹、私有仓库地址、未脱敏日志、含旁人的录音录像，以及无权公开的 SDK、固件或素材。安全漏洞请使用上方“私密报告安全漏洞”入口。
+
+  - type: dropdown
+    id: participant_role
+    attributes:
+      label: 你以什么角色参与？
+      description: 请选择最接近的一项；这里只用于帮助维护者安排评审。
+      options:
+        - AIUI 应用开发者
+        - 普通体验用户
+        - 真机或外设测试者
+        - BLE / IMU / 算法开发者
+        - 文档、设计或无障碍贡献者
+        - 设备或协议生态伙伴
+        - 其他公开贡献者
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sport
+    attributes:
+      label: 运动类型
+      options:
+        - Run（跑步）
+        - Bike（骑行）
+        - Rower（划船机）
+        - Paddle（桨板，孵化中）
+        - Rider（泛骑行，孵化中）
+        - Common（公共能力）
+        - 多个运动
+        - 暂不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target_project
+    attributes:
+      label: 想帮助哪个项目？
+      options:
+        - AISmartRun
+        - AIBike
+        - AISmartRower
+        - 新的 AIUI 运动项目
+        - 公共契约、评测或治理
+        - 暂不确定，请维护者协助分流
+    validations:
+      required: true
+
+  - type: input
+    id: public_project_ref
+    attributes:
+      label: 项目或公开资料链接（可选）
+      description: 只填可公开访问且有权分享的地址；没有就留空，不要填私有仓库或带凭据的链接。
+      placeholder: 例如：公开仓库、公开说明文档或项目名称
+
+  - type: checkboxes
+    id: help_area
+    attributes:
+      label: 你想怎样帮助？
+      description: 可多选。若想法还不明确，也可以选择“认领适合新手的任务”。
+      options:
+        - label: 试用项目并反馈体验
+        - label: 补充文档、翻译、截图说明或无障碍建议
+        - label: 补充单元测试、异常样本或解析器
+        - label: 完成 Reader / Preview / Craft 验证
+        - label: 完成 Rokid 真机或 BLE / IMU 外设验证
+        - label: 提交脱敏的 L1–L5 证据摘要
+        - label: 修复代码或提交新功能
+        - label: 申请把一个新的 AIUI 运动项目纳入 Registry / Benchmark
+        - label: 认领适合新手的任务
+    validations:
+      required: true
+
+  - type: textarea
+    id: contribution_plan
+    attributes:
+      label: 你计划完成什么？
+      description: 用几句话写清目标、预期产物和你希望维护者提供的帮助。
+      placeholder: |
+        目标：
+        预期产物：
+        希望获得的帮助：
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 测试或开发环境
+      description: 填公开的版本/类别即可；不要填设备地址、序列号、账号、精确位置或本机绝对路径。
+      placeholder: |
+        操作系统与版本：
+        Node / AIUI Craft / Reader / Host 版本（适用时）：
+        Rokid 型号与固件版本（适用时，不填序列号）：
+        外设类别与公开型号（适用时，不填 MAC）：
+    validations:
+      required: true
+
+  - type: dropdown
+    id: aiui_stage
+    attributes:
+      label: 目前做到 AIUI 流程的哪一步？
+      options:
+        - 只有想法，尚未开始
+        - 已有可审阅源码
+        - 已完成本地自动化测试（L1）
+        - 已完成 AIX 与 Reader / Preview 检查（L2）
+        - 已完成 Craft / Host 集成验证（L3）
+        - 已完成 Rokid 真机验证（L4）
+        - 已完成现场对照测试（L5）
+        - 不适用或暂不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: evidence_level
+    attributes:
+      label: 本次能够提供的证据等级
+      description: 只选择已经完成且能够说明的等级；计划中的测试请选择 not_run。
+      options:
+        - not_run（尚未执行）
+        - L1（自动化本地测试）
+        - L2（包与 Reader / Preview）
+        - L3（Craft / Host 集成环境）
+        - L4（Rokid 真机）
+        - L5（完整现场对照）
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence_summary
+    attributes:
+      label: 证据摘要与开放门
+      description: 写实际执行的命令/操作、结果、失败或跳过项；原始日志和媒体优先留在本地，只公开脱敏摘要。
+      placeholder: |
+        已执行：
+        结果与公开证据引用：
+        仍未验证（Open gates）：
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pr_intent
+    attributes:
+      label: 是否愿意提交 Pull Request？
+      options:
+        - 愿意，我可以按维护者建议提交 PR
+        - 愿意，但需要有人带我完成第一次 PR
+        - 暂时只能提供体验反馈或证据
+        - 还不确定，先讨论范围
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: public_privacy_confirmation
+    attributes:
+      label: 公开与隐私确认
+      options:
+        - label: 我确认本 Issue 不包含 key、token、账号、真实 MAC 地址、序列号、精确位置/轨迹或其他个人敏感信息。
+          required: true
+        - label: 我确认有权公开所附代码、文字、图片、日志或其他材料；第三方内容会单独说明来源与许可证。
+          required: true
+        - label: 我理解 Reader / Preview、Craft / Host、Rokid 真机和现场对照是不同证据等级，不会把低等级结果写成高等级通过。
+          required: true

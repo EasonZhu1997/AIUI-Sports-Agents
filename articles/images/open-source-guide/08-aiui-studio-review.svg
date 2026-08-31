@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">AIUI Studio 智能体提审与状态流转</title>
+  <desc id="desc">在项目卡更多菜单点击提审，填写智能体提审说明并提交审核，随后观察草稿、审核中、审核拒绝、下架和已上架等状态。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#151827"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="15" flood-opacity="0.36"/></filter>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#a371f7"/></marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#58a6ff"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif;fill:#f0f6fc}.title{font-size:37px;font-weight:760}.muted{fill:#8b949e}.small{font-size:16px}.label{font-size:18px;font-weight:700}.num{font-size:20px;font-weight:760}.status{font-size:17px;font-weight:720}</style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <g transform="translate(48 16) scale(0.92)">
+  <circle cx="1100" cy="70" r="170" fill="#8957e5" opacity="0.08"/>
+  <circle cx="62" cy="61" r="27" fill="#8957e5"/><text x="62" y="69" text-anchor="middle" class="num">08</text>
+  <text x="104" y="72" class="title">AIUI Studio：从项目卡发起提审</text>
+  <text x="104" y="105" class="muted small">补齐平台资料并如实声明证据；未完成验证列入 Open gates</text>
+
+  <g filter="url(#shadow)">
+    <rect x="62" y="150" width="318" height="284" rx="18" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="86" y="176" width="66" height="66" rx="14" fill="#2c1f48" stroke="#a371f7"/><text x="119" y="216" text-anchor="middle" font-size="24" font-weight="760">A</text>
+    <text x="174" y="199" font-size="22" font-weight="730">智能体名称</text><text x="174" y="226" class="muted small">版本 1.0.0 · 草稿</text>
+    <rect x="88" y="278" width="260" height="102" rx="10" fill="#0d1117" stroke="#30363d"/><text x="108" y="308" class="small">功能介绍与预览摘要</text><text x="108" y="338" class="muted small">程序包、素材、权限状态</text>
+    <circle cx="341" cy="184" r="18" fill="#21262d" stroke="#a371f7"/><circle cx="334" cy="184" r="2.5" fill="#f0f6fc"/><circle cx="341" cy="184" r="2.5" fill="#f0f6fc"/><circle cx="348" cy="184" r="2.5" fill="#f0f6fc"/>
+    <circle cx="82" cy="184" r="20" fill="#1f6feb"/><text x="82" y="191" text-anchor="middle" class="num">1</text>
+  </g>
+  <text x="64" y="465" class="small" fill="#d2a8ff">将鼠标移到“更多”三点处</text>
+
+  <g filter="url(#shadow)">
+    <rect x="300" y="164" width="154" height="156" rx="12" fill="#21262d" stroke="#a371f7"/>
+    <rect x="312" y="178" width="130" height="38" rx="7" fill="#21262d"/><text x="336" y="203" class="label">编辑</text>
+    <rect x="312" y="222" width="130" height="42" rx="7" fill="#2c1f48" stroke="#a371f7"/><text x="336" y="249" class="label" fill="#d2a8ff">提审</text>
+    <rect x="312" y="270" width="130" height="38" rx="7" fill="#21262d"/><text x="336" y="295" class="label" fill="#ff7b72">删除</text>
+  </g>
+  <path d="M454 243 C500 243 500 210 548 210" fill="none" stroke="#a371f7" stroke-width="4" marker-end="url(#arrowPurple)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="534" y="150" width="604" height="318" rx="18" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+    <rect x="534" y="150" width="604" height="58" rx="18" fill="#21262d"/><rect x="534" y="190" width="604" height="18" fill="#21262d"/>
+  </g>
+  <circle cx="568" cy="179" r="20" fill="#8957e5"/><text x="568" y="186" text-anchor="middle" class="num">2</text>
+  <text x="602" y="187" font-size="22" font-weight="740">智能体（名称）提审</text><text x="1108" y="187" text-anchor="middle" font-size="24" fill="#8b949e">×</text>
+  <text x="572" y="245" class="label">提审说明</text>
+  <rect x="572" y="260" width="528" height="112" rx="9" fill="#0d1117" stroke="#30363d"/>
+  <text x="592" y="292" class="muted small">说明本次版本变化、测试范围、已知限制和复测结果</text>
+  <text x="592" y="322" class="muted small">不要粘贴密钥、私人账号或真实设备标识</text>
+  <circle cx="882" cy="416" r="20" fill="#238636"/><text x="882" y="423" text-anchor="middle" class="num">3</text>
+  <rect x="918" y="395" width="182" height="44" rx="8" fill="#238636"/><text x="1009" y="423" text-anchor="middle" class="label">提交审核</text>
+
+  <path d="M1009 469 V514 H185" fill="none" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <text x="70" y="542" class="label">提交后看状态：</text>
+  <g>
+    <rect x="202" y="515" width="126" height="50" rx="25" fill="#21262d" stroke="#8b949e"/><text x="265" y="546" text-anchor="middle" class="status">草稿</text>
+    <path d="M329 540 H368" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <rect x="380" y="515" width="126" height="50" rx="25" fill="#102b45" stroke="#58a6ff"/><text x="443" y="546" text-anchor="middle" class="status" fill="#79c0ff">审核中</text>
+    <path d="M507 540 H546" stroke="#58a6ff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <rect x="558" y="500" width="138" height="50" rx="25" fill="#163822" stroke="#3fb950"/><text x="627" y="531" text-anchor="middle" class="status" fill="#7ee787">已上架</text>
+    <rect x="558" y="566" width="138" height="50" rx="25" fill="#2b1d21" stroke="#f85149"/><text x="627" y="597" text-anchor="middle" class="status" fill="#ffa198">审核拒绝</text>
+    <path d="M507 546 C530 546 526 591 558 591" fill="none" stroke="#f85149" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <path d="M697 525 H742" stroke="#8b949e" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <rect x="754" y="500" width="126" height="50" rx="25" fill="#231d24" stroke="#f78166"/><text x="817" y="531" text-anchor="middle" class="status" fill="#ffa198">下架</text>
+    <rect x="912" y="500" width="226" height="116" rx="16" fill="#201d2e" stroke="#a371f7"/>
+    <text x="936" y="532" class="label" fill="#d2a8ff">状态不是线性按钮</text>
+    <text x="936" y="562" class="small">拒绝后修改再提审</text><text x="936" y="589" class="small">已上架也可能被下架</text>
+  </g>
+  <rect x="244" y="645" width="712" height="38" rx="19" fill="#2b1d21" stroke="#f85149"/>
+  <text x="600" y="670" text-anchor="middle" class="small" fill="#ffa198">当前页面没有单独、稳定的“发布”按钮：以“提审”入口和平台状态为准</text>
+  </g>
+</svg>

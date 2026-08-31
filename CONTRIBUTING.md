@@ -4,6 +4,15 @@
 
 参与即表示你同意遵守 [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)、[PRIVACY.md](./PRIVACY.md) 与 [SECURITY.md](./SECURITY.md)。
 
+## 最快参与路径
+
+1. 第一次参与或不知道认领什么：填写 [体验与贡献问卷](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=contribution-survey.yml)。
+2. 报告可公开的 Bug、Reader/Craft/真机结果：填写 [Bug 与真机证据](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=bug-and-device-evidence.yml)。
+3. 准备修改代码：先在 Issue 对齐范围，再 Fork、创建主题分支并提交 Pull Request。
+4. 涉及漏洞、账号、个人数据或危险设备控制：使用 [私密安全报告](https://github.com/EasonZhu1997/AIUI-Sports-Agents/security/advisories/new)，不要创建公开 Issue。
+
+完整按钮与填写示例见 [手把手图文教程](./articles/从本地到GitHub_一步步开源AIUI项目.md)。社区问卷只用于开源协作，不会自动上传 AIX、导入 Craft 或提交 AIUI Studio 审核。
+
 ## 开始之前
 
 1. 先确认改动属于哪个运动项目，或属于公共契约、评测与文档。
