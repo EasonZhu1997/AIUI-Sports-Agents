@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/aiui-sports/result.schema.json",
+  "title": "AIUI Sports Agents result card",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "version",
+    "sourceRevision",
+    "lastUpdated",
+    "evidenceLevel",
+    "common",
+    "sportSpecific",
+    "openGates"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "projectId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "version": { "type": "string", "minLength": 1 },
+    "sourceRevision": { "type": "string", "minLength": 1 },
+    "lastUpdated": { "type": "string", "format": "date" },
+    "evidenceLevel": { "enum": ["L1", "L2", "L3", "L4", "L5"] },
+    "common": { "$ref": "#/$defs/metrics" },
+    "sportSpecific": { "$ref": "#/$defs/metrics" },
+    "openGates": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "required": ["id", "status", "evidence", "notes"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "status": { "enum": ["pass", "partial", "blocked", "not_run"] },
+        "evidence": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/metric" },
+      "minItems": 1
+    }
+  }
+}

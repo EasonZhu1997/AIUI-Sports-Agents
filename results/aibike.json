@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "projectId": "aibike",
+  "version": "0.3.80",
+  "sourceRevision": "local-unpublished-2026-08-31",
+  "lastUpdated": "2026-08-31",
+  "evidenceLevel": "L2",
+  "common": [
+    {
+      "id": "closed-loop",
+      "status": "partial",
+      "evidence": ["projects/aibike.md"],
+      "notes": "本地流程和自动化存在；目标真机完整骑行仍为开放门。"
+    },
+    {
+      "id": "data-truth",
+      "status": "pass",
+      "evidence": ["benchmark/cycling.md"],
+      "notes": "在 L1/L2 范围内真实来源优先、估算标注且功率不估算。"
+    },
+    {
+      "id": "agent-decision",
+      "status": "partial",
+      "evidence": ["projects/aibike.md"],
+      "notes": "本地规则和来源门存在；现场提示频率与正确性待真机验证。"
+    },
+    {
+      "id": "lifecycle",
+      "status": "partial",
+      "evidence": ["projects/aibike.md"],
+      "notes": "自动化覆盖代次和清理；录屏、BLE/IMU 持续流待真机关闭。"
+    },
+    {
+      "id": "offline-privacy",
+      "status": "pass",
+      "evidence": ["PRIVACY.md"],
+      "notes": "L1/L2 范围内自由骑和本地总结离线可用。"
+    },
+    {
+      "id": "reproducibility",
+      "status": "partial",
+      "evidence": ["projects/aibike.md"],
+      "notes": "三语构建门存在；公开 canonical revision 尚未建立。"
+    }
+  ],
+  "sportSpecific": [
+    {
+      "id": "cadence",
+      "status": "partial",
+      "evidence": ["benchmark/cycling.md"],
+      "notes": "解析和 IMU 算法有本地测试；缺公开 L4/L5 误差表。"
+    },
+    {
+      "id": "speed-distance",
+      "status": "partial",
+      "evidence": ["benchmark/cycling.md"],
+      "notes": "来源账本可测试；CSC/FTMS 与参考设备对照待补。"
+    },
+    {
+      "id": "source-priority",
+      "status": "partial",
+      "evidence": ["benchmark/cycling.md"],
+      "notes": "自动化验证真实来源抢占；真机多 profile 矩阵待补。"
+    },
+    {
+      "id": "power-truth",
+      "status": "pass",
+      "evidence": ["benchmark/cycling.md"],
+      "notes": "L1/L2 范围内没有 CPS/FTMS 功率时不生成估算功率。"
+    }
+  ],
+  "openGates": [
+    "建立首个公开 canonical commit",
+    "完成 CSC、Cycling Power、FTMS 与 IMU 的 Rokid 真机矩阵",
+    "绑定三语 AIX 的版本、UUID、payload hash 与真机证据"
+  ]
+}

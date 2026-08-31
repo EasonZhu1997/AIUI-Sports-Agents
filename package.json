@@ -1,0 +1,20 @@
+{
+  "name": "@aiui-sports/agents-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-first benchmark and governance hub for AIUI sports agents.",
+  "type": "module",
+  "engines": {
+    "node": ">=20 <26"
+  },
+  "scripts": {
+    "test": "npm run validate",
+    "validate": "node scripts/validate.mjs",
+    "report": "node scripts/report.mjs",
+    "audit:local": "node scripts/audit-local.mjs",
+    "audit:local:strict": "node scripts/audit-local.mjs --strict",
+    "export:dry": "node scripts/export-project.mjs",
+    "export:local": "node scripts/export-project.mjs --write"
+  },
+  "license": "Apache-2.0"
+}

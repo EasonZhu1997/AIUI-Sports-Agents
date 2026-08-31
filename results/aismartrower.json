@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "projectId": "aismartrower",
+  "version": "0.0.1",
+  "sourceRevision": "local-unpublished-2026-08-31",
+  "lastUpdated": "2026-08-31",
+  "evidenceLevel": "L2",
+  "common": [
+    {
+      "id": "closed-loop",
+      "status": "partial",
+      "evidence": ["projects/aismartrower.md"],
+      "notes": "本地流程和自动化存在；Rokid 真机 FTMS/HRS 会话未关闭。"
+    },
+    {
+      "id": "data-truth",
+      "status": "pass",
+      "evidence": ["benchmark/indoor-rowing.md"],
+      "notes": "在 L1/L2 范围内 subscribed、first-valid、live、silent 和 stale 分离。"
+    },
+    {
+      "id": "agent-decision",
+      "status": "partial",
+      "evidence": ["projects/aismartrower.md"],
+      "notes": "本地确定性总结存在；现场训练建议仍需真机证据。"
+    },
+    {
+      "id": "lifecycle",
+      "status": "partial",
+      "evidence": ["projects/aismartrower.md"],
+      "notes": "双 generation 设计可测试；两台外设的实际宿主行为待验证。"
+    },
+    {
+      "id": "offline-privacy",
+      "status": "pass",
+      "evidence": ["PRIVACY.md"],
+      "notes": "L1/L2 范围内不保存设备标识或原始 BLE 包，核心总结本地完成。"
+    },
+    {
+      "id": "reproducibility",
+      "status": "partial",
+      "evidence": ["projects/aismartrower.md"],
+      "notes": "已有本地测试和 AIX 工具；公开 canonical revision 尚未建立。"
+    }
+  ],
+  "sportSpecific": [
+    {
+      "id": "ftms-parser",
+      "status": "partial",
+      "evidence": ["contracts/ftms-rower-profile.md"],
+      "notes": "标准字段与分片有自动化；已观测的 KS/WMX 双字节阻力形状有窄范围具名兼容与回归向量，但修复后持续流仍待设备复测。"
+    },
+    {
+      "id": "pace-stroke-power-distance",
+      "status": "partial",
+      "evidence": ["benchmark/indoor-rowing.md"],
+      "notes": "本地字段账本存在；设备屏误差与真实覆盖率待补。"
+    },
+    {
+      "id": "first-packet-liveness",
+      "status": "blocked",
+      "evidence": ["projects/aismartrower.md"],
+      "notes": "需要 Rokid 真机达到首个合法 Rower Data 包并保持持续流。"
+    },
+    {
+      "id": "dual-gatt",
+      "status": "blocked",
+      "evidence": ["projects/aismartrower.md"],
+      "notes": "FTMS 已连接时的独立 HRS 与 15 分钟交错需要真机验证。"
+    }
+  ],
+  "openGates": [
+    "建立首个公开 canonical commit",
+    "在同一划船机上复测具名兼容的持续流，并补齐不同活动状态与固件向量",
+    "完成 Rokid FTMS 首包、持续流、第二条 HRS GATT 与双清理",
+    "保持 Control Point 关闭，除非另行完成加密、indication 和物理效果验收"
+  ]
+}

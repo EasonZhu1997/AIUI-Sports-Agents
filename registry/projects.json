@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    {
+      "id": "smartrun",
+      "name": "AISmartRun",
+      "sport": "running",
+      "status": "candidate",
+      "version": "0.1.114",
+      "profile": "projects/smartrun.md",
+      "result": "results/smartrun.json",
+      "protocols": ["HRS", "RSC", "IMU"],
+      "sourceRepository": null,
+      "openSourceExport": "pending"
+    },
+    {
+      "id": "aibike",
+      "name": "AIBike",
+      "sport": "cycling",
+      "status": "candidate",
+      "version": "0.3.80",
+      "profile": "projects/aibike.md",
+      "result": "results/aibike.json",
+      "protocols": ["HRS", "CSC", "CPS", "FTMS", "IMU"],
+      "sourceRepository": null,
+      "openSourceExport": "pending"
+    },
+    {
+      "id": "aismartrower",
+      "name": "AISmartRower",
+      "sport": "indoor-rowing",
+      "status": "labs",
+      "version": "0.0.1",
+      "profile": "projects/aismartrower.md",
+      "result": "results/aismartrower.json",
+      "protocols": ["FTMS Rower Data", "HRS"],
+      "sourceRepository": null,
+      "openSourceExport": "pending"
+    }
+  ]
+}

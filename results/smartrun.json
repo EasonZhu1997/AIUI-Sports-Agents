@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "projectId": "smartrun",
+  "version": "0.1.114",
+  "sourceRevision": "local-unpublished-2026-08-31",
+  "lastUpdated": "2026-08-31",
+  "evidenceLevel": "L2",
+  "common": [
+    {
+      "id": "closed-loop",
+      "status": "partial",
+      "evidence": ["projects/smartrun.md"],
+      "notes": "本地流程和自动化存在；目标真机完整会话仍为开放门。"
+    },
+    {
+      "id": "data-truth",
+      "status": "pass",
+      "evidence": ["benchmark/running.md"],
+      "notes": "在 L1/L2 范围内区分 RSC、IMU、stale 和不可用。"
+    },
+    {
+      "id": "agent-decision",
+      "status": "partial",
+      "evidence": ["projects/smartrun.md"],
+      "notes": "本地确定性降级存在；现场建议仍需真机会话验证。"
+    },
+    {
+      "id": "lifecycle",
+      "status": "partial",
+      "evidence": ["projects/smartrun.md"],
+      "notes": "自动化覆盖 hide/show 与迟到回调；真机录屏和持续传感器门未关闭。"
+    },
+    {
+      "id": "offline-privacy",
+      "status": "pass",
+      "evidence": ["PRIVACY.md"],
+      "notes": "L1/L2 范围内核心跑步和本地总结不依赖网络。"
+    },
+    {
+      "id": "reproducibility",
+      "status": "partial",
+      "evidence": ["projects/smartrun.md"],
+      "notes": "已有测试和打包门；公开 canonical revision 尚未建立。"
+    }
+  ],
+  "sportSpecific": [
+    {
+      "id": "cadence",
+      "status": "partial",
+      "evidence": ["benchmark/running.md"],
+      "notes": "解析和算法有本地测试；缺公开 L4/L5 误差表。"
+    },
+    {
+      "id": "pace-distance",
+      "status": "partial",
+      "evidence": ["benchmark/running.md"],
+      "notes": "RSC/IMU 账本可测试；400m/1km 真机对照待补。"
+    },
+    {
+      "id": "false-motion",
+      "status": "partial",
+      "evidence": ["benchmark/running.md"],
+      "notes": "mock 与算法门存在；真机转头、扶镜和录屏矩阵待补。"
+    },
+    {
+      "id": "source-switch",
+      "status": "partial",
+      "evidence": ["benchmark/running.md"],
+      "notes": "自动化验证不双算；真实 RSC 静默与恢复待补。"
+    }
+  ],
+  "openGates": [
+    "生成经过白名单审计的公开源码快照",
+    "绑定 source revision、AIX UUID、Rokid 型号、固件和 host build",
+    "完成 HRS/RSC/IMU、录屏、hide/show 与现场跑步对照"
+  ]
+}

@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+dist/
+registry/local-projects.json
+*.aix
+*.apk
+*.aab
+*.pem
+*.key
+*.jks
+*.keystore
+.env
+.env.*
+!.env.example
