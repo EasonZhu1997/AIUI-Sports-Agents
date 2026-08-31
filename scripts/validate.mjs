@@ -28,14 +28,18 @@ const requiredPublicFiles = [
   'registry/projects.json',
 ];
 const forbiddenExtensions = new Set([
-  '.aix', '.apk', '.aab', '.pem', '.key', '.jks', '.keystore', '.p12', '.db', '.jsonl', '.zip',
+  '.aix', '.apk', '.aab', '.pem', '.key', '.jks', '.keystore', '.p12', '.pfx', '.db', '.jsonl', '.zip',
 ]);
+const forbiddenExactNames = new Set(['.npmrc', '.netrc', 'id_rsa', 'id_ed25519']);
+const forbiddenNamePatterns = [/^credentials.*\.json$/i, /^service-account.*\.json$/i];
 const ignoredDirs = new Set(['.git', 'node_modules', 'dist']);
 const forbiddenSecretPatterns = [
   ['private key block', /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],
   ['OpenAI-style API key', /\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b/],
   ['GitHub access token', /\bgh[pousr]_[A-Za-z0-9]{20,}\b/],
   ['AWS access key', /\bAKIA[A-Z0-9]{16}\b/],
+  ['Google API key', /\bAIza[0-9A-Za-z_-]{30,}\b/],
+  ['Slack access token', /\bxox[baprs]-[0-9A-Za-z-]{10,}\b/],
 ];
 const errors = [];
 
@@ -170,7 +174,11 @@ const windowsHomePattern = new RegExp('[A-Za-z]:\\\\' + 'Users' + '\\\\');
 for (const relative of files) {
   const base = path.basename(relative);
   const extension = path.extname(base).toLowerCase();
-  if (forbiddenExtensions.has(extension) || base === '.env' || base.startsWith('.env.')) {
+  if (forbiddenExtensions.has(extension)
+      || forbiddenExactNames.has(base)
+      || forbiddenNamePatterns.some((pattern) => pattern.test(base))
+      || base === '.env'
+      || base.startsWith('.env.')) {
     errors.push(`${relative}: forbidden public artifact type`);
   }
   if (!['.md', '.json', '.mjs', '.yml', '.yaml', '.txt', ''].includes(extension)) continue;

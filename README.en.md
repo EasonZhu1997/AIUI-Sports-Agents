@@ -22,4 +22,4 @@ npm run report
 
 See [README.md](README.md) for the complete Chinese guide, [benchmark/README.md](benchmark/README.md) for the evaluation model, and `projects/` for individual product cards.
 
-This local repository has not been published or uploaded. Apache-2.0 covers original work in this repository; third-party materials remain subject to their own licenses.
+This is the public benchmark and governance hub. Source snapshots for the three applications remain subject to separate allowlist reviews; a project card does not mean the application source has already been published. Apache-2.0 covers original work in this repository, while third-party materials remain subject to their own licenses.

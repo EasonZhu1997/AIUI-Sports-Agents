@@ -7,8 +7,16 @@ registry/local-projects.json
 *.aab
 *.pem
 *.key
+*.p12
+*.pfx
 *.jks
 *.keystore
+.npmrc
+.netrc
+credentials*.json
+service-account*.json
+id_rsa
+id_ed25519
 .env
 .env.*
 !.env.example
