@@ -3,7 +3,7 @@
   "projectId": "aismartrower",
   "version": "0.0.1",
   "sourceRevision": "local-unpublished-2026-08-31",
-  "lastUpdated": "2026-08-31",
+  "lastUpdated": "2026-09-01",
   "evidenceLevel": "L2",
   "common": [
     {
@@ -70,7 +70,7 @@
     }
   ],
   "openGates": [
-    "建立首个公开 canonical commit",
+    "建立首个完成双许可审计的 source-available canonical commit",
     "在同一划船机上复测具名兼容的持续流，并补齐不同活动状态与固件向量",
     "完成 Rokid FTMS 首包、持续流、第二条 HRS GATT 与双清理",
     "保持 Control Point 关闭，除非另行完成加密、indication 和物理效果验收"

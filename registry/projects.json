@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "projects": [
     {
       "id": "smartrun",
@@ -11,7 +11,14 @@
       "result": "results/smartrun.json",
       "protocols": ["HRS", "RSC", "IMU"],
       "sourceRepository": null,
-      "openSourceExport": "pending"
+      "approvalRecord": null,
+      "sourceDistribution": {
+        "status": "pending",
+        "model": "source-available-dual-license",
+        "communityLicense": "PolyForm-Noncommercial-1.0.0",
+        "commercialAuthorization": "written-agreement-required",
+        "licensor": null
+      }
     },
     {
       "id": "aibike",
@@ -23,7 +30,14 @@
       "result": "results/aibike.json",
       "protocols": ["HRS", "CSC", "CPS", "FTMS", "IMU"],
       "sourceRepository": null,
-      "openSourceExport": "pending"
+      "approvalRecord": null,
+      "sourceDistribution": {
+        "status": "pending",
+        "model": "source-available-dual-license",
+        "communityLicense": "PolyForm-Noncommercial-1.0.0",
+        "commercialAuthorization": "written-agreement-required",
+        "licensor": null
+      }
     },
     {
       "id": "aismartrower",
@@ -35,7 +49,14 @@
       "result": "results/aismartrower.json",
       "protocols": ["FTMS Rower Data", "HRS"],
       "sourceRepository": null,
-      "openSourceExport": "pending"
+      "approvalRecord": null,
+      "sourceDistribution": {
+        "status": "pending",
+        "model": "source-available-dual-license",
+        "communityLicense": "PolyForm-Noncommercial-1.0.0",
+        "commercialAuthorization": "written-agreement-required",
+        "licensor": null
+      }
     }
   ]
 }

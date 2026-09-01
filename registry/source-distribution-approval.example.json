@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "projectId": "PROJECT_ID",
+  "version": "PROJECT_VERSION",
+  "licensor": "EXACT_LEGAL_LICENSOR_NAME",
+  "contributorRightsStatus": "pending",
+  "contributorRightsBasis": null,
+  "thirdPartyRightsStatus": "pending",
+  "reviewedSourceRevision": "0000000000000000000000000000000000000000",
+  "contentManifestSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "reviewedBy": "REVIEWER_IDENTITY",
+  "reviewedAt": "YYYY-MM-DD"
+}

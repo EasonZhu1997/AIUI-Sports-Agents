@@ -5,6 +5,8 @@
 - **当前语义版本**：0.0.1
 - **公开证据等级**：L2；另有非 Rokid 主机的局部设备证据，不能升级为 L4
 - **核心来源**：必需 FTMS Rower Data，可选独立 HRS
+- **计划源码分发**：`pending`；未来独立源码仓计划采用 PolyForm Noncommercial 1.0.0，属于 source-available
+- **商业使用**：未来应用源码需另行取得实际权利人的书面商业许可；当前项目卡不授予尚未发布的源码权利
 
 ## 玩法
 
@@ -26,6 +28,6 @@ HUD 展示活动时长、500m 配速、桨频、距离、功率和当前心率�
 - FTMS 已连接时的第二条 HRS GATT；
 - 双链路 15 分钟交错、单路断开、hide/show 与幂等清理；
 - 已观测的 KS/WMX 双字节阻力形状已有窄范围兼容与回归向量；仍需在同一设备上重跑持续流，并补不同活动状态与固件证据；
-- 原始 captures、固件 ZIP 和 release 不进入公开源码快照。
+- 原始 captures、固件 ZIP 和 release 不进入 source-available 应用源码快照。
 
 公共 GATT 轮廓见 [FTMS Rower Profile](../contracts/ftms-rower-profile.md)。

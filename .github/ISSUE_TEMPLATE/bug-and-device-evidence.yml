@@ -11,6 +11,8 @@ body:
 
         公开材料不得包含 key、真实 MAC 地址、序列号、精确位置/运动轨迹、私有链接或未授权素材。设备可使用本次测试的随机别名，例如 `rower-a`、`hrs-b`。
 
+        本表单只接收 Hub 的最小复现、脱敏证据和公开契约反馈，不得附 Run、Bike、Rower、Paddle 或 Rider 的产品实现源码。应用源码贡献须等待对应独立仓及正式贡献规则开放。
+
   - type: dropdown
     id: report_kind
     attributes:
@@ -187,5 +189,5 @@ body:
       options:
         - label: 我已移除 key、token、账号、真实 MAC 地址、序列号、精确位置/轨迹、通知内容和无关人员信息。
           required: true
-        - label: 我有权公开所附代码、日志、截图、照片或视频，并会注明第三方材料的来源、版本与许可证。
+        - label: 我有权公开所附 Hub 最小复现代码、日志、截图、照片或视频，并会注明第三方材料的来源、版本与许可证；我没有附运动应用产品实现源码。
           required: true

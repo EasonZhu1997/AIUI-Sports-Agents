@@ -11,6 +11,8 @@ body:
 
         **请勿填写或上传：** key、token、账号信息、真实 MAC 地址、序列号、精确位置/运动轨迹、私有仓库地址、未脱敏日志、含旁人的录音录像，以及无权公开的 SDK、固件或素材。安全漏洞请使用上方“私密报告安全漏洞”入口。
 
+        **代码分流：**本 Hub 只接收公共契约、评测、工具、夹具和文档代码，不接收 Run、Bike、Rower、Paddle、Rider 或新运动项目的应用产品实现源码。问卷可先登记需求；未来应用源码须进入对应独立仓，并等待其 CLA 正式启用。
+
   - type: dropdown
     id: participant_role
     attributes:
@@ -76,7 +78,7 @@ body:
         - label: 完成 Reader / Preview / Craft 验证
         - label: 完成 Rokid 真机或 BLE / IMU 外设验证
         - label: 提交脱敏的 L1–L5 证据摘要
-        - label: 修复代码或提交新功能
+        - label: 修复 Hub 公共契约、评测、工具或文档代码（不含应用产品实现）
         - label: 申请把一个新的 AIUI 运动项目纳入 Registry / Benchmark
         - label: 认领适合新手的任务
     validations:

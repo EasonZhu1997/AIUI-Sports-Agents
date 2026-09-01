@@ -3,7 +3,7 @@
   "projectId": "aibike",
   "version": "0.3.80",
   "sourceRevision": "local-unpublished-2026-08-31",
-  "lastUpdated": "2026-08-31",
+  "lastUpdated": "2026-09-01",
   "evidenceLevel": "L2",
   "common": [
     {
@@ -70,7 +70,7 @@
     }
   ],
   "openGates": [
-    "建立首个公开 canonical commit",
+    "建立首个完成双许可审计的 source-available canonical commit",
     "完成 CSC、Cycling Power、FTMS 与 IMU 的 Rokid 真机矩阵",
     "绑定三语 AIX 的版本、UUID、payload hash 与真机证据"
   ]

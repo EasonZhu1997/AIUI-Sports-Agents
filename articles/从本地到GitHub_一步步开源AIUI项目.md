@@ -27,18 +27,19 @@
 
 <https://github.com/EasonZhu1997/AIUI-Sports-Agents>
 
-在仓库名称右侧找到 `Public`。这只表示任何人都可以查看这个仓库，不表示仓库里的每个项目都已经发布完整应用源码，也不表示 AIX、眼镜真机或 AIUI 商店已经通过。
+在仓库名称右侧找到 `Public`。这只表示任何人都可以查看这个仓库，不表示每个文件都允许商用，不表示仓库里的每个项目都已经发布完整应用源码，也不表示 AIX、眼镜真机或 AIUI 商店已经通过。
 
-当前这个仓库是评测、治理和项目索引总仓。Run、Bike、Rower 已经有项目卡，但三个应用的完整源码快照仍需各自通过白名单审计。项目卡不等于应用源码已经公开。
+当前这个仓库是采用 Apache-2.0 的评测、治理和项目索引 Hub。Run、Bike、Rower 已经有项目卡，但三个应用的完整源码快照仍需各自通过白名单审计；未来明确发布的应用源码计划采用 PolyForm 非商业许可与单独商业授权，属于 source-available。项目卡和许可计划都不等于应用源码已经公开或已经授予使用权。
 
-### 第 2 步：先停在 `Code` 页，读完四个位置
+### 第 2 步：先停在 `Code` 页，读完五个位置
 
 不用马上下载。先在 `Code` 页依次看：
 
 1. `README.md`：项目是做什么的、当前能做什么；
 2. `CONTRIBUTING.md`：允许贡献什么、哪些内容不能提交；
 3. `LICENSE`：你可以怎样使用仓库自有代码和文档；
-4. `SECURITY.md`：遇到漏洞时为什么不能直接开公开 Issue。
+4. `LICENSE_POLICY.md`：根仓、应用源码、商业授权和第三方内容分别适用哪一层许可；
+5. `SECURITY.md`：遇到漏洞时为什么不能直接开公开 Issue。
 
 ### 第 3 步：理解顶部几个按钮
 
@@ -63,7 +64,7 @@
 
 ### 2. 开发者
 
-你可以修复解析器、算法、页面状态机、测试和文档。新协议、权限、网络、存储、硬件控制等改动应先开 Issue 对齐范围，再开始写代码。
+你可以修复 Hub 的公共协议契约、评测算法、合成夹具、验证工具、测试和文档。运动应用的算法、页面状态机、产品 UI、连接层和构建工程不进入本 Hub；未来应在对应独立应用仓启用 CLA 后再按其流程贡献。新协议、权限、网络、存储、硬件控制等改动应先开 Issue 对齐范围，再开始写代码。
 
 ### 3. 评测者
 
@@ -349,7 +350,7 @@ SHA-256：
 对应 source commit：
 ```
 
-对实际包重新做密钥、第三方、隐私和内容检查。源码采用 Apache-2.0，不代表包内的字体、SDK、图片或固件也自动采用同一许可证。
+对实际包重新做密钥、第三方、隐私、许可作用域和内容检查。Hub 采用 Apache-2.0、未来应用源码计划采用 PolyForm Noncommercial，都不代表包内字体、SDK、图片、固件或其他第三方内容自动采用同一许可证；AIX 的商业分发还必须符合实际应用源码许可和单独合同。
 
 ### 第 6 步：选择上传或部署到眼镜
 
@@ -672,11 +673,13 @@ npm run audit:local:strict
 npm run export:dry -- --project aibike
 ```
 
+严格审计在存在 blocker 时返回非零；warning 用于提醒你核对仍留在原仓、但被白名单排除的本地材料。预演即使失败也会打印候选数量和 manifest，方便完成审批记录，但失败状态不能被当作通过。
+
 可用项目 ID 为 `smartrun`、`aibike`、`aismartrower`。预演只列出计划文件、总大小和 blocker，不写 `dist/`，也不创建远端仓库。
 
 当前导出器从允许的根文件和 `assets/`、`docs/`、`lib/`、`pages/`、`scripts/`、`test/`、`tools/` 中取文件，并排除 `.git`、`node_modules`、缓存、日志、现场证据、AIX/APK、证书、私钥、数据库和 ZIP 等内容。单个源码文件超过 2,000,000 bytes 时会要求人工复核；这是源码白名单的单文件阈值，不是 AIX 包体上限。
 
-出现 blocker 或 `PUBLIC_EXPORT_STATUS` 不是 `READY` 时就停下处理，不要绕过检查。
+预演会输出候选的 `content manifest SHA-256`。应用仓必须按 [`SOURCE_DISTRIBUTION_APPROVAL.json`](../docs/SOURCE_DISTRIBUTION_APPROVAL.md) 记录真实许可方、贡献者/第三方权利审查、Git 修订、审阅者、日期与该 manifest；出现 blocker 或命令退出非零时就停下处理，不要绕过检查。
 
 ### 第 3 步：生成干净快照，并在快照中复测
 
@@ -723,7 +726,7 @@ git status --short
 git add -A
 git diff --cached --check
 git diff --cached --name-status
-git commit -m "chore: publish initial open-source snapshot"
+git commit -m "chore: publish initial source-available snapshot"
 git remote add origin https://github.com/YOUR_ACCOUNT/YOUR_REPOSITORY.git
 git remote -v
 git push -u origin main

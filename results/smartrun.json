@@ -3,7 +3,7 @@
   "projectId": "smartrun",
   "version": "0.1.114",
   "sourceRevision": "local-unpublished-2026-08-31",
-  "lastUpdated": "2026-08-31",
+  "lastUpdated": "2026-09-01",
   "evidenceLevel": "L2",
   "common": [
     {
@@ -70,7 +70,7 @@
     }
   ],
   "openGates": [
-    "生成经过白名单审计的公开源码快照",
+    "生成经过白名单和双许可审计的 source-available 应用源码快照",
     "绑定 source revision、AIX UUID、Rokid 型号、固件和 host build",
     "完成 HRS/RSC/IMU、录屏、hide/show 与现场跑步对照"
   ]

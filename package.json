@@ -16,8 +16,10 @@
     "node": ">=20 <26"
   },
   "scripts": {
-    "test": "npm run validate",
-    "validate": "node scripts/validate.mjs",
+    "test": "npm run validate && npm run test:export-policy",
+    "validate": "node scripts/validate.mjs && node scripts/validate-licensing.mjs",
+    "validate:licensing": "node scripts/validate-licensing.mjs",
+    "test:export-policy": "node scripts/test-export-policy.mjs",
     "report": "node scripts/report.mjs",
     "audit:local": "node scripts/audit-local.mjs",
     "audit:local:strict": "node scripts/audit-local.mjs --strict",

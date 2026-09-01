@@ -1,0 +1,11 @@
+# Licensing and source-distribution trust boundary
+/LICENSE @EasonZhu1997
+/LICENSE_POLICY.md @EasonZhu1997
+/COMMERCIAL_LICENSE.md @EasonZhu1997
+/CLA.md @EasonZhu1997
+/TRADEMARKS.md @EasonZhu1997
+/registry/projects.json @EasonZhu1997
+/registry/source-approvals/ @EasonZhu1997
+/scripts/audit-local.mjs @EasonZhu1997
+/scripts/export-project.mjs @EasonZhu1997
+/scripts/validate-licensing.mjs @EasonZhu1997
