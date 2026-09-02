@@ -220,7 +220,7 @@ if (preview) {
   for (const copy of ['轻松跑', 'LSD 长距离跑', '法特莱克跑', '间歇跑', '返回训练菜单']) {
     if (!preview.includes(copy)) fail(errors, `training flow missing ${copy}`);
   }
-  for (const copy of ['估算步长', '语音提示', '节拍器', '指导快速结束', '智能体绑定', '心率搜索', '记忆使用 EverMind']) {
+  for (const copy of ['估算步长', '语音提示', '节拍器', '指导快速结束', '智能体绑定', '心率搜索', '长期记忆', '需配置后端']) {
     if (!preview.includes(copy)) fail(errors, `settings flow missing ${copy}`);
   }
   if (!preview.includes("['0.55m', '0.65m', '0.75m', '0.85m', '0.95m', '1.05m', '1.15m', '1.25m', '1.35m', '1.45m']")) {

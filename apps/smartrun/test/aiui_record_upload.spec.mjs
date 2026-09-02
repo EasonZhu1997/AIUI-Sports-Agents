@@ -25,7 +25,7 @@ function enqueue(wx, reply = '完成本次训练。') {
   });
 }
 
-test('明确 ACK 后逐条删除 EverMind 待办', async () => {
+test('明确 ACK 后逐条删除后端待传记录', async () => {
   const wx = storage();
   enqueue(wx);
   const requests = [];

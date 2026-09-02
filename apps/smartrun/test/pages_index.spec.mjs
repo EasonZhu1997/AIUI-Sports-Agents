@@ -434,7 +434,7 @@ test('owner journal 无法清空时不归档旧总结/记忆、不消费提示�
   page.onLoad();
   await flushMicro();
   assert.equal(page.ownerDataBlocked, true);
-  assert.equal(requests.length, 0, 'bootstrap、上传与 EverMind 均必须停止');
+  assert.equal(requests.length, 0, 'bootstrap、上传与远端记忆请求均必须停止');
   assert.equal(llmTouched, false);
   assert.equal(page.data.homeSlogan, '自由开跑，智能相伴');
   assert.equal(page.data.enterText, '按确认键进入');
@@ -1103,7 +1103,7 @@ test('退出提示 3s 过期复原;归来 onShow 也清残留武装', async (t) 
   assert.equal(page.data.enterText, '按确认键进入', 'onShow 清掉过期残留武装');
 });
 
-test('首页后台归档跑后待办:LLM 不可用走规则兜底且不改首页,并发 aiui-record 双写 EverMind', async () => {
+test('首页后台归档跑后待办:LLM 不可用走规则兜底且不改首页,并发 aiui-record 交给配置后端', async () => {
   const page = freshPage();
   seedActiveDeviceIdentity();
   delete globalThis.LanguageModel;
@@ -1131,13 +1131,13 @@ test('首页后台归档跑后待办:LLM 不可用走规则兜底且不改首页
   assert.equal('sloganClass' in page.data, false, '首页不再保留跑后摘要视觉状态');
   assert.equal(wx.store.has('pending_run_summary'), false, '待办一次性消费');
   const record = requests.find((r) => r.url.includes('/coach/aiui-record'));
-  assert.ok(record, '总结必须经 aiui-record 落库并双写 EverMind');
+  assert.ok(record, '总结必须经 aiui-record 交给配置后端持久化');
   assert.equal(record.data.source, 'run-summary');
   assert.ok(record.data.reply.includes('5.00公里'));
   assert.match(record.data.client_record_id, /^air-[a-z0-9]+-[0-9a-f]{8}$/,
     '稳定 AIUI 记录 id 必须发送给后端支持幂等');
   const mem = requests.find((r) => r.url.includes('/coach/memory-context'));
-  assert.ok(mem, '生成前尝试检索 EverMind 记忆');
+  assert.ok(mem, '生成前尝试检索配置后端的远端记忆');
 });
 
 test('首页只有本地记忆和云端待传记录都读回成功后才删除唯一 summary', async () => {
@@ -1204,7 +1204,7 @@ test('无待办时首页口号保持默认,不发总结相关请求', async () =
   assert.equal(requests.filter((r) => r.url.includes('aiui-record')).length, 0);
 });
 
-test('旧版长期记忆关闭值不再生效，EverMind 检索与回写继续运行', async () => {
+test('旧版长期记忆关闭值不再生效，配置后端检索与回写继续运行', async () => {
   const page = freshPage();
   seedActiveDeviceIdentity();
   wx.store.set('run_settings', { memoryContext: false });
@@ -1257,7 +1257,7 @@ test('旧版 AI 总结关闭值不再生效并继续使用大模型', async (t) 
   );
 });
 
-test('没有 EverMind app key 时，下一次 AI 总结仍会读取本地历史上下文', async (t) => {
+test('没有后端 app key 时，下一次 AI 总结仍会读取本地历史上下文', async (t) => {
   const page = freshPage();
   seedActiveDeviceIdentity();
   wx.store.set('local_run_memories', [{
@@ -1312,7 +1312,7 @@ test('首页三条后台链路共用一次匿名登录，不并发注册多个 t
   assert.equal(wx.store.get('coach_token'), 'jwt-one');
 });
 
-test('EverMind 检索返回 401 会清理过期 token，保留本地记忆兜底', async () => {
+test('远端记忆检索返回 401 会清理过期 token，保留本地记忆兜底', async () => {
   const page = freshPage();
   seedActiveDeviceIdentity({ token: 'expired' });
   wx.store.set('coach_token', 'expired');
@@ -1409,7 +1409,7 @@ test('Tier1 LLM 可用:后台生成且不改首页,记录落库用 AI 文本,ses
   assert.equal(page.data.homeSlogan, '自由开跑，智能相伴', 'AI 结果不得改写首页');
   assert.equal(destroyed, 1, '正常返回同样要 destroy session');
   const record = requests.find((r) => r.url.includes('/coach/aiui-record'));
-  assert.ok(record, 'AI 总结必须落库双写 EverMind');
+  assert.ok(record, 'AI 总结必须交给配置后端持久化');
   assert.ok(record.data.reply.includes('注意补水和恢复'), '落库用规则化 AI 意图而非模型原文');
   assert.ok(!record.data.reply.includes('今天节奏稳定'), '模型自由文本不得原样落库');
 });

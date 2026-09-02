@@ -608,8 +608,8 @@ function localizeRunHud() {
     ['<text class="setting-name">估算步长</text>', '<text class="setting-name">Estimated Stride</text>'],
     ['<text class="setting-name">心率搜索</text>', '<text class="setting-name">HR Search</text>'],
     ['<text class="setting-name">语音提示</text>', '<text class="setting-name">Voice Cues</text>'],
-    ['<text class="setting-name">AI 大模型</text>', '<text class="setting-name">AI Model</text>'],
-    ['<text class="setting-value">记忆使用 EverMind</text>', '<text class="setting-value">Memory via EverMind</text>'],
+    ['<text class="setting-name">长期记忆</text>', '<text class="setting-name">Long-term memory</text>'],
+    ['<text class="setting-value">需配置后端</text>', '<text class="setting-value">Backend required</text>'],
     ['<text class="setting-name">智能体绑定</text>', '<text class="setting-name">AIUI Agent Pairing</text>'],
     ['bindfocus="onSettingFocus" bindtap="onSettingTap">返回</button>', 'bindfocus="onSettingFocus" bindtap="onSettingTap">Back</button>'],
     ['<text class="settings-foot">训练设置与设备身份均保存在本机</text>', '<text class="settings-foot">Training settings and device identity are saved locally</text>'],
@@ -833,7 +833,7 @@ function localizeLibraries() {
   replaceText('lib/coach_api.js', [
     ["ctx && ctx !== '暂无运动数据' ? `[实时 ${ctx}] ${q}` : q", "ctx && ctx !== 'No run data' ? `[Live ${ctx}] ${q}` : q"],
     ["parts.push(`[关于我: ${snippets.join('; ')}]`);", "parts.push(`[About me: ${snippets.join('; ')}]`);"],
-    ["parts.push(`[画像: ${sanitizeSnippet(memCtx.profile, 120)}]`);", "parts.push(`[Profile: ${sanitizeSnippet(memCtx.profile, 120)}]`);"],
+    ["parts.push(`[画像: ${sanitizeSnippet(memCtx.profile, MEMORY_PROFILE_MAX)}]`);", "parts.push(`[Profile: ${sanitizeSnippet(memCtx.profile, MEMORY_PROFILE_MAX)}]`);"],
     ["if (ctx && ctx !== '暂无运动数据') parts.push(`[实时: ${ctx}]`);", "if (ctx && ctx !== 'No run data') parts.push(`[Live: ${ctx}]`);"],
   ]);
 
@@ -1238,7 +1238,8 @@ const JA_TEXT_REPLACEMENTS = Object.freeze([
   ['Metronome', 'メトロノーム'],
   ['Voice Cues', '音声ガイド'],
   ['Estimated Stride', '推定歩幅'],
-  ['Memory via EverMind', 'EverMindによる記憶'],
+  ['Long-term memory', '長期記憶'],
+  ['Backend required', '要バックエンド'],
   ['On', 'オン'],
   ['Off', 'オフ'],
   ['Calculating', '計算中'],

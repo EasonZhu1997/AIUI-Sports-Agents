@@ -1388,18 +1388,18 @@ const packagedNormalizeSettingsMatch = packagedSettings.match(
 const packagedNormalizeSettings = stripJsComments(
   packagedNormalizeSettingsMatch ? packagedNormalizeSettingsMatch[1] : '',
 );
-const hasAiEverMindCopy = /<view class="setting-info">\s*<text class="setting-name">(?:AI 大模型|AI Model|AIモデル)<\/text><text class="setting-value">(?:记忆使用 EverMind|Memory via EverMind|EverMindによる記憶)<\/text>\s*<\/view>/.test(packagedRunHud);
-if (!hasAiEverMindCopy
+const hasMemoryBackendCopy = /<view class="setting-info">\s*<text class="setting-name">(?:长期记忆|Long-term memory|長期記憶)<\/text><text class="setting-value">(?:需配置后端|Backend required|要バックエンド)<\/text>\s*<\/view>/.test(packagedRunHud);
+if (!hasMemoryBackendCopy
     || /<button[^>]*data-setting="(?:summary|memory)"|settingAiSummaryClass|settingMemoryClass/.test(packagedRunHud)
     || /key\s*===\s*'(?:summary|memory)'/.test(packagedRunHud)) {
-  fail('AIX Settings must present AI model and EverMind as non-interactive capability copy, never focusable rows');
+  fail('AIX Settings must present long-term memory and its backend requirement as non-interactive capability copy, never focusable rows');
 }
 if (!/memoryContext:\s*true/.test(packagedSettings)
     || !/aiSummary:\s*true/.test(packagedSettings)
     || !/memoryContext:\s*true/.test(packagedNormalizeSettings)
     || !/aiSummary:\s*true/.test(packagedNormalizeSettings)
     || /src\.(?:memoryContext|aiSummary)/.test(packagedNormalizeSettings)) {
-  fail('AIX run settings data layer must force AI summary and EverMind memory on, including legacy stored false values');
+  fail('AIX run settings data layer must keep AI summary and memory-context handling on, including legacy stored false values');
 }
 const packagedMetronomeWav = inspectPcmWav(packagedMetronomeAudio);
 if (!packagedMetronomeWav
@@ -1733,7 +1733,7 @@ const packagedSettingsMarkup = packagedSettingsListStart >= 0
     && packagedSettingsFootStart > packagedSettingsListStart
   ? packagedRunHud.slice(packagedSettingsListStart, packagedSettingsFootStart) : '';
 if (!/data-setting="stride"[\s\S]*data-setting="voice"[\s\S]*data-setting="metronome"[\s\S]*data-setting="guide"[\s\S]*data-setting="binding"[\s\S]*class="setting-info"[\s\S]*data-setting="heart"[\s\S]*data-setting="back"/.test(packagedSettingsMarkup)) {
-  fail('AIX Settings visual order must be Stride, Voice, Metronome, Guide, Binding, passive EverMind, Heart, then the absolute Back control');
+  fail('AIX Settings visual order must be Stride, Voice, Metronome, Guide, Binding, passive memory status, Heart, then the absolute Back control');
 }
 const packagedSettingIndexes = [...packagedSettingsMarkup.matchAll(
   /class="setting-row \{\{ setting[A-Za-z]+Class \}\}"\s+tabindex="(\d)"/g,
@@ -1792,7 +1792,7 @@ if ((packagedSettingsMarkup.match(/<button\b/g) || []).length !== 7
     || !/\boutline-style:\s*solid;/.test(packagedSettingsBackFocusedRule)
     || !/\boutline-offset:\s*-2px;/.test(packagedSettingsBackFocusedRule)
     || /\.setting-info[^,{]*(?:focus|focused)[^{]*\{/.test(packagedSettingsStyle)) {
-  fail('AIX Settings must expose seven interactive targets with inward focus only on the selected target; the AI / EverMind row remains passive');
+  fail('AIX Settings must expose seven interactive targets with inward focus only on the selected target; the long-term-memory row remains passive');
 }
 if (!/const SETTINGS_FOCUS_COUNT = 7;/.test(packagedRunHud)
     || !/raw % SETTINGS_FOCUS_COUNT/.test(packagedSettingFocus)

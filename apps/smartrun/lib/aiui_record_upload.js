@@ -1,4 +1,4 @@
-// Best-effort uploader for the durable AIUI/EverMind record queue.
+// Best-effort uploader for the durable post-run record queue.
 // Page code supplies the current scoped token and owner-generation guard; this
 // module owns only FIFO iteration and explicit-ACK deletion.
 import {

@@ -240,10 +240,10 @@ test('设置有六个配置项和明确返回按钮，快速结束位于节拍�
   assert.match(source, /class="setting-row \{\{ settingHeartRateClass \}\}" tabindex="5" data-setting="heart" data-index="5"/);
   assert.match(source, /class="settings-back \{\{ settingBackClass \}\}" tabindex="6" data-setting="back" data-index="6"/);
   assert.match(source, /<text class="setting-name">节拍器<\/text>/);
-  assert.match(source, /<view class="setting-info">\s*<text class="setting-name">AI 大模型<\/text><text class="setting-value">记忆使用 EverMind<\/text>\s*<\/view>/);
+  assert.match(source, /<view class="setting-info">\s*<text class="setting-name">长期记忆<\/text><text class="setting-value">需配置后端<\/text>\s*<\/view>/);
   assert.doesNotMatch(source, /<button[^>]*data-setting="(?:summary|memory)"|settingAiSummaryClass|settingMemoryClass/);
   assert.doesNotMatch(source, /key === '(?:summary|memory)'/,
-    'AI 跑后总结与 EverMind 记忆必须是固定能力，不能再由设置交互关闭');
+    'AI 跑后总结与长期记忆处理必须是固定能力，不能再由设置交互关闭');
   assert.match(source, /<view class="binding-screen" ink:if="\{\{ surfacePhase === 'binding' \}\}">/);
   assert.match(source, /<text class="binding-label">AIUI ID<\/text>/);
   assert.match(source,
@@ -349,13 +349,13 @@ test('设置保持六个 40px 交互行与一个 24px 说明行，并在页头�
   assert.equal((settingsMarkup.match(/class="setting-row /g) || []).length, 6,
     '设置页必须保持六个 40px 配置行');
   assert.equal((settingsMarkup.match(/class="setting-info"/g) || []).length, 1,
-    '设置页必须只有一个 AI / EverMind 被动说明行');
+    '设置页必须只有一个长期记忆被动说明行');
   assert.match(settingsMarkup,
     /data-setting="stride"[\s\S]*data-setting="voice"[\s\S]*data-setting="metronome"[\s\S]*data-setting="guide"[\s\S]*data-setting="binding"[\s\S]*class="setting-info"[\s\S]*data-setting="heart"[\s\S]*data-setting="back"/,
-    '视觉顺序必须为步长、语音、节拍器、指导快速结束、绑定、EverMind 信息、心率及返回');
-  assert.ok(passiveRow, 'AI / EverMind 必须使用被动 view');
+    '视觉顺序必须为步长、语音、节拍器、指导快速结束、绑定、长期记忆信息、心率及返回');
+  assert.ok(passiveRow, '长期记忆状态必须使用被动 view');
   assert.doesNotMatch(passiveRow[1], /\b(?:tabindex|role|bindfocus|bindtap)\s*=/,
-    '被动 AI / EverMind 行不能注册焦点或点击事件');
+    '被动长期记忆行不能注册焦点或点击事件');
 
   const screenRule = cssBlock(source, '.settings-screen');
   const topRule = cssBlock(source, '.settings-top');
@@ -386,7 +386,7 @@ test('设置保持六个 40px 交互行与一个 24px 说明行，并在页头�
   assert.doesNotMatch(rowRule, /\boutline(?:-[a-z-]+)?\s*:/,
     '未聚焦交互行不能常驻焦点框');
   assert.doesNotMatch(infoRule, /\boutline(?:-[a-z-]+)?\s*:/,
-    '被动 AI / EverMind 行不能绘制焦点框');
+    '被动长期记忆行不能绘制焦点框');
   assert.match(focusedRule, /outline-width:\s*2px\s*;/,
     '只有交互行的 focused modifier 可以绘制焦点框');
   assert.match(backFocusedRule, /outline-width:\s*2px\s*;/);
@@ -394,7 +394,7 @@ test('设置保持六个 40px 交互行与一个 24px 说明行，并在页头�
   assert.doesNotMatch(
     source.slice(source.indexOf('<style>')),
     /\.setting-info[^,{]*(?:focus|focused)[^{]*\{/,
-    '被动 AI / EverMind 行不能拥有可聚焦样式 selector',
+    '被动长期记忆行不能拥有可聚焦样式 selector',
   );
 });
 

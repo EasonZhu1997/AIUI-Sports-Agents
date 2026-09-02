@@ -3268,7 +3268,7 @@ test('首页确认入场保护到期后，首次确认只进入自由跑设备�
   assert.equal(page.runMode, 'free');
 });
 
-test('AI 总结与 EverMind 长期记忆始终开启且不进入设置焦点，说明行保持不可交互', () => {
+test('AI 总结与长期记忆处理始终开启且不进入设置焦点，说明行保持不可交互', () => {
   const page = freshPage();
   wx.store.set('run_settings', {
     strideM: 0.85,
@@ -3291,7 +3291,7 @@ test('AI 总结与 EverMind 长期记忆始终开启且不进入设置焦点，�
   releaseSurfaceGesture(page);
   assert.equal(page.onSettingTap({
     currentTarget: { dataset: { setting: 'memory', index: 4 } },
-  }), false, 'EverMind 长期记忆说明行不响应设置激活');
+  }), false, '长期记忆说明行不响应设置激活');
   assert.equal(page.runSettings.aiSummary, true);
   assert.equal(page.runSettings.memoryContext, true);
 
@@ -3301,7 +3301,9 @@ test('AI 总结与 EverMind 长期记忆始终开启且不进入设置焦点，�
   assert.ok(settingsMarkup, '设置列表模板存在');
   assert.equal((settingsMarkup[0].match(/<button\b/g) || []).length, 7,
     '设置页包含六个设置按钮和一个明确返回按钮');
-  assert.match(settingsMarkup[0], /EverMind/);
+  assert.match(settingsMarkup[0], /长期记忆/);
+  assert.match(settingsMarkup[0], /需配置后端/);
+  assert.doesNotMatch(settingsMarkup[0], /EverMind/);
 });
 
 test('节拍器设置按关闭→160→170→180→关闭循环，逐项持久化并即时试听', (t) => {

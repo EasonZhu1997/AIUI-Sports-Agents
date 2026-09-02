@@ -954,7 +954,7 @@ export default {
     }
   },
 
-  // ── 跑后 AI 总结归档:Tier1 内置 LanguageModel(注入 EverMind 记忆) → Tier2 规则兜底;
+  // ── 跑后 AI 总结归档:Tier1 内置 LanguageModel(可注入后端记忆) → Tier2 规则兜底;
   // 04 总结页是唯一可见跑后界面；这里仅后台落本地记忆与 aiui-record，不改首页 UI。
   async archiveRunSummary() {
     if (this.summaryRunning) return;
@@ -997,7 +997,7 @@ export default {
       const config = resolveCoachBackendConfig(wx, { memoryEnabled });
       let text = '';
       if (!preText && aiSummaryEnabled) {
-        // 本地最近跑步始终先作为上下文；EverMind 可用时再合并远端记忆。
+        // 本地最近跑步始终先作为上下文；配置的后端可用时再合并远端记忆。
         // 因此干净安装没有 app key 也具备真正可用的跨会话记忆。
         let memoryContext = memoryEnabled
           ? buildLocalRunMemoryContext(wx, { language: LOCAL_MEMORY_LANGUAGE }) : '';

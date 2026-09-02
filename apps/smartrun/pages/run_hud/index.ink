@@ -10393,7 +10393,7 @@ export default {
     // Do not put network retrieval on the visible summary critical path. The
     // most recent owner-scoped local summaries are available synchronously and
     // provide deterministic cross-run context; the resulting record continues
-    // to upload to EverMind best-effort in the background.
+    // to upload to the configured memory backend best-effort in the background.
     const memoryContext = buildLocalRunMemoryContext(wx, {
       language: 'zh-CN',
     });
@@ -10828,7 +10828,7 @@ export default {
         <text class="setting-name">智能体绑定</text><text class="setting-value">{{ settingBinding }}</text>
       </button>
       <view class="setting-info">
-        <text class="setting-name">AI 大模型</text><text class="setting-value">记忆使用 EverMind</text>
+        <text class="setting-name">长期记忆</text><text class="setting-value">需配置后端</text>
       </view>
       <button class="setting-row {{ settingHeartRateClass }}" tabindex="5" data-setting="heart" data-index="5" bindfocus="onSettingFocus" bindtap="onSettingTap">
         <text class="setting-name">心率搜索</text><text class="setting-value">{{ settingHeartRate }}</text>

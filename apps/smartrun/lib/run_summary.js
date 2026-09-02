@@ -1,7 +1,7 @@
 // 跑后 AI 总结 —— 纯函数层,可单测:
 //   run_hud 结束跑步时写入待办;下次前台代次在后台走 Tier1 AIUI LanguageModel
-//   (注入 EverMind 记忆上下文)生成 ≤40 字中文总结,失败由规则兜底;
-//   最终文本经后端 aiui-record 落库并双写 EverMind，但不再改写首页 UI。
+//   (可注入配置后端的记忆上下文)生成 ≤40 字中文总结,失败由规则兜底;
+//   最终文本经 aiui-record 交给配置后端持久化，但不再改写首页 UI。
 import { formatDistanceKm, formatElapsed, formatPace } from './format.js';
 import {
   heartRatePolicyConfidence,

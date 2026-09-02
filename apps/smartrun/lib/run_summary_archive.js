@@ -26,7 +26,7 @@ function result(ok, status, extra = {}) {
 }
 
 /**
- * Consume one pending summary into local memory + the durable EverMind queue.
+ * Consume one pending summary into local memory + the durable backend queue.
  *
  * The caller must prove that owner-scoped storage is currently available.
  * Keeping that proof outside the pure transaction prevents an old owner's

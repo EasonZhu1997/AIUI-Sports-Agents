@@ -947,17 +947,17 @@ function scanRunEntryPolicy() {
     /export function normalizeRunSettings\(value\) \{([\s\S]*?)\n\}/,
   );
   const normalizeSettingsBody = stripJsComments(normalizeSettingsMatch ? normalizeSettingsMatch[1] : '');
-  if (!/<view class="setting-info">\s*<text class="setting-name">AI 大模型<\/text><text class="setting-value">记忆使用 EverMind<\/text>\s*<\/view>/.test(text)
+  if (!/<view class="setting-info">\s*<text class="setting-name">长期记忆<\/text><text class="setting-value">需配置后端<\/text>\s*<\/view>/.test(text)
       || /<button[^>]*data-setting="(?:summary|memory)"|settingAiSummaryClass|settingMemoryClass/.test(text)
       || /key\s*===\s*'(?:summary|memory)'/.test(text)) {
-    issues.push('run HUD must present AI model and EverMind as non-interactive capability copy, never focusable Settings rows');
+    issues.push('run HUD must present long-term memory and its backend requirement as non-interactive capability copy, never focusable Settings rows');
   }
   if (!/memoryContext:\s*true/.test(settings)
       || !/aiSummary:\s*true/.test(settings)
       || !/memoryContext:\s*true/.test(normalizeSettingsBody)
       || !/aiSummary:\s*true/.test(normalizeSettingsBody)
       || /src\.(?:memoryContext|aiSummary)/.test(normalizeSettingsBody)) {
-    issues.push('run settings data layer must force AI summary and EverMind memory on, including legacy stored false values');
+    issues.push('run settings data layer must keep AI summary and memory-context handling on, including legacy stored false values');
   }
   let metronomeAudio = null;
   try { metronomeAudio = fs.readFileSync(metronomeAudioPath); } catch (_e) {}
@@ -1176,7 +1176,7 @@ function scanRunEntryPolicy() {
   const settingsMarkup = settingsListStart >= 0 && settingsFootStart > settingsListStart
     ? text.slice(settingsListStart, settingsFootStart) : '';
   if (!/data-setting="stride"[\s\S]*data-setting="voice"[\s\S]*data-setting="metronome"[\s\S]*data-setting="guide"[\s\S]*data-setting="binding"[\s\S]*class="setting-info"[\s\S]*data-setting="heart"[\s\S]*data-setting="back"/.test(settingsMarkup)) {
-    issues.push('run HUD Settings visual order must be Stride, Voice, Metronome, Guide, Binding, passive EverMind, Heart, then the absolute Back control');
+    issues.push('run HUD Settings visual order must be Stride, Voice, Metronome, Guide, Binding, passive memory status, Heart, then the absolute Back control');
   }
   const settingIndexes = [...settingsMarkup.matchAll(/class="setting-row \{\{ setting[A-Za-z]+Class \}\}"\s+tabindex="(\d)"/g)]
     .map((match) => Number(match[1]));
@@ -1227,7 +1227,7 @@ function scanRunEntryPolicy() {
       || !/\boutline-style:\s*solid;/.test(settingsBackFocusedRule)
       || !/\boutline-offset:\s*-2px;/.test(settingsBackFocusedRule)
       || /\.setting-info[^,{]*(?:focus|focused)[^{]*\{/.test(settingsStyle)) {
-    issues.push('run HUD Settings must expose seven interactive targets with inward focus only on the selected target; the AI / EverMind row remains passive');
+    issues.push('run HUD Settings must expose seven interactive targets with inward focus only on the selected target; the long-term-memory row remains passive');
   }
   if (!/const SETTINGS_FOCUS_COUNT = 7;/.test(text)
       || !/raw % SETTINGS_FOCUS_COUNT/.test(settingFocusBody)
@@ -1685,6 +1685,6 @@ console.log('');
 console.log('AIUI workflow notes:');
 console.log('- npm run build:local creates a source .aix and verifies it with @yodaos-pkg/aix.');
 console.log('- Official signing, final packaging, and upload remain in AIUI Studio.');
-console.log('- EverMind credentials and storage routing are backend configuration, not app secrets.');
+console.log('- Memory-backend credentials and storage routing are deployment configuration, not app secrets.');
 
 if (checks.some((ok) => !ok)) process.exit(1);

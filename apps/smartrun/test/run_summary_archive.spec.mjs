@@ -47,7 +47,7 @@ function summary(endedAtMs = 80_000) {
   };
 }
 
-test('沉浸首屏后台归档总结、记忆、EverMind 与 canonical run 队列', () => {
+test('沉浸首屏后台归档总结、本地记忆、后端记录与 canonical run 队列', () => {
   const wx = storage();
   assert.ok(writePendingRunSummary(wx, summary()));
   const archived = archivePendingRunSummary(wx, {

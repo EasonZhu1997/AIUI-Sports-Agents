@@ -1,8 +1,8 @@
 // AIUI 教练后端对接:纯逻辑构造请求 / 解析响应,便于单测;
 // 真正的 wx.request 网络调用在 coach 页里(带 token 与超时/降级)。
-// 主链路:官方 AIUI LanguageModel(DeepSeek)生成回答;后端以低权限设备 token
-// 负责匿名/绑定所有权、EverMind 记忆检索，以及保存 AIUI 已生成的一问一答。
-// 姊妹 APK 项目仍兼容 /coach/chat:由后端 DeepSeek 生成并双写 EverMind。
+// 主链路:官方 AIUI LanguageModel 通过宿主管理的提供方生成回答;后端以低权限设备 token
+// 负责匿名/绑定所有权、可选长期记忆检索，以及保存跑后总结问答记录。
+// 姊妹 APK 项目仍兼容 /coach/chat，由其配置的后端生成并持久化回答。
 
 import { summarizeSnapshot } from './coach.js';
 
@@ -64,7 +64,7 @@ export function buildCoachMessage(question, snapshot) {
 
 /**
  * 构造 APK 兼容 /coach/chat 请求(不发送)。AIUI 主流程不走这里生成回答;
- * 姊妹 APK 项目仍可用该端点让后端 DeepSeek 生成并写入 EverMind。
+ * 姊妹 APK 项目仍可用该端点让其配置的后端生成并持久化回答。
  */
 export function buildChatRequest(opts = {}) {
   const {
