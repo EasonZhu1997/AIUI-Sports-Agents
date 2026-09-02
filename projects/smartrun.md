@@ -5,8 +5,8 @@
 - **当前语义版本**：0.1.114
 - **公开证据等级**：L2（本地测试、AIX/Reader/预览）
 - **核心来源**：标准 HRS、可选 RSC、眼镜 IMU
-- **计划源码分发**：`pending`；未来独立源码仓计划采用 PolyForm Noncommercial 1.0.0，属于 source-available
-- **商业使用**：未来应用源码需另行取得实际权利人的书面商业许可；当前项目卡不授予尚未发布的源码权利
+- **应用源码**：[`apps/smartrun`](../apps/smartrun/)；PolyForm Noncommercial 1.0.0，属于 source-available
+- **商业使用**：必须在开始前取得许可方的单独书面商业许可；根层 Apache-2.0 不覆盖该应用目录
 
 ## 玩法
 
@@ -22,7 +22,6 @@
 
 ## 开放门
 
-- 当前 source-available 应用源码快照尚未生成；
 - Craft/目标 AIUI host 与 Rokid 真机仍需绑定相同版本证据；
 - BLE、IMU、录屏、hide/show 和长时间跑步需完成脱敏真机矩阵；
 - 第三方样例、宣传视频和现场证据不进入首个应用源码快照。

@@ -5,8 +5,8 @@
 - **当前语义版本**：0.3.80
 - **公开证据等级**：L2（本地测试、三语 AIX/Reader/预览）
 - **核心来源**：HRS、CSC、Cycling Power、FTMS、眼镜 IMU
-- **计划源码分发**：`pending`；未来独立源码仓计划采用 PolyForm Noncommercial 1.0.0，属于 source-available
-- **商业使用**：未来应用源码需另行取得实际权利人的书面商业许可；当前项目卡不授予尚未发布的源码权利
+- **应用源码**：[`apps/aibike`](../apps/aibike/)；PolyForm Noncommercial 1.0.0，属于 source-available
+- **商业使用**：必须在开始前取得许可方的单独书面商业许可；根层 Apache-2.0 不覆盖该应用目录
 
 ## 玩法
 
@@ -22,7 +22,6 @@
 
 ## 开放门
 
-- 当前源码尚无可公开 canonical history；
 - 真机 CSC/CPS/FTMS、录屏和生命周期仍需结果卡；
-- source-available 应用源码快照排除 release、release-archive、tmp、现场日志与未确认授权源素材；
+- 公开应用目录继续排除 release、release-archive、tmp、现场日志与未确认授权源素材；
 - AIX 本地验证不等于 Studio 上传、安装或真机发布。

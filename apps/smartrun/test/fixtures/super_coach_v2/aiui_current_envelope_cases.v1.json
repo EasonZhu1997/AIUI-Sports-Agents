@@ -1,0 +1,187 @@
+{
+  "corpus_schema_version": 1,
+  "contract": "smartrun.super_coach.aiui-current-envelope.v1",
+  "merge_semantics": "recursive_objects_replace_arrays_keep_nulls_v1",
+  "now_ms": 1786096800000,
+  "owner": {
+    "ownership_epoch": 4,
+    "data_namespace": "ns_0123456789abcdef01234567",
+    "public_device_id": "sr_0123456789abcdef"
+  },
+  "base_response": {
+    "available": true,
+    "plan": {
+      "schema_version": 2,
+      "workout_id": "wrk_0123456789abcdef01234567",
+      "plan_id": "plan_123",
+      "plan_session_id": "ps_89abcdef0123456789abcdef",
+      "revision": 12,
+      "type": "easy",
+      "title": "轻松跑",
+      "scheduled_date": "2026-08-07",
+      "status": "planned",
+      "target": {
+        "duration_sec": 1800,
+        "distance_m": null,
+        "pace_min_sec_per_km": null,
+        "pace_max_sec_per_km": null,
+        "heart_zone_min": 2,
+        "heart_zone_max": 3,
+        "cadence_min_spm": null,
+        "cadence_max_spm": null
+      },
+      "stages": [
+        {
+          "stage_id": "stg_abcdef0123456789abcdef01",
+          "order": 0,
+          "type": "work",
+          "title": "轻松跑",
+          "duration_sec": 1800,
+          "distance_m": null,
+          "pace_min_sec_per_km": null,
+          "pace_max_sec_per_km": null,
+          "heart_zone_min": 2,
+          "heart_zone_max": 3,
+          "cadence_min_spm": null,
+          "cadence_max_spm": null
+        }
+      ],
+      "issued_at_ms": 1786096790000,
+      "expires_at_ms": 1786183200000,
+      "ownership_epoch": 4,
+      "data_namespace": "ns_0123456789abcdef01234567"
+    },
+    "heart_rate_policy": {
+      "schema_version": 1,
+      "max_hr_bpm": 190,
+      "source": "age_estimate",
+      "issued_at_ms": 1786096790000,
+      "expires_at_ms": 1786183199000
+    },
+    "ownership_epoch": 4,
+    "data_namespace": "ns_0123456789abcdef01234567",
+    "public_device_id": "sr_0123456789abcdef"
+  },
+  "cases": [
+    {
+      "id": "accept_current_workout",
+      "expect": "accept",
+      "overrides": {}
+    },
+    {
+      "id": "accept_no_current_workout",
+      "expect": "accept",
+      "overrides": {
+        "available": false,
+        "plan": null
+      }
+    },
+    {
+      "id": "reject_available_false_with_plan",
+      "expect": "reject",
+      "overrides": {
+        "available": false
+      }
+    },
+    {
+      "id": "reject_available_true_without_plan",
+      "expect": "reject",
+      "overrides": {
+        "plan": null
+      }
+    },
+    {
+      "id": "reject_top_owner_epoch_mismatch",
+      "expect": "reject",
+      "overrides": {
+        "ownership_epoch": 5
+      }
+    },
+    {
+      "id": "reject_plan_owner_epoch_mismatch",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "ownership_epoch": 5
+        }
+      }
+    },
+    {
+      "id": "reject_top_namespace_whitespace",
+      "expect": "reject",
+      "overrides": {
+        "data_namespace": " ns_0123456789abcdef01234567 "
+      }
+    },
+    {
+      "id": "reject_plan_namespace_whitespace",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "data_namespace": " ns_0123456789abcdef01234567 "
+        }
+      }
+    },
+    {
+      "id": "reject_public_device_id_whitespace",
+      "expect": "reject",
+      "overrides": {
+        "public_device_id": " sr_0123456789abcdef "
+      }
+    },
+    {
+      "id": "reject_noncanonical_workout_id",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "workout_id": "wrk_0123456789ABCDEF01234567"
+        }
+      }
+    },
+    {
+      "id": "reject_impossible_calendar_date",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "scheduled_date": "2026-02-30"
+        }
+      }
+    },
+    {
+      "id": "reject_issued_at_or_after_expiry",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "issued_at_ms": 1786183200000
+        }
+      }
+    },
+    {
+      "id": "reject_future_issued_over_skew",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "issued_at_ms": 1786096860001
+        }
+      }
+    },
+    {
+      "id": "reject_expired_at_fetch",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "expires_at_ms": 1786096800000
+        }
+      }
+    },
+    {
+      "id": "reject_remaining_ttl_over_36_hours",
+      "expect": "reject",
+      "overrides": {
+        "plan": {
+          "expires_at_ms": 1786226400001
+        }
+      }
+    }
+  ]
+}

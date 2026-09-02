@@ -11,6 +11,7 @@
       "result": "results/smartrun.json",
       "protocols": ["HRS", "RSC", "IMU"],
       "sourceRepository": null,
+      "sourcePath": null,
       "approvalRecord": null,
       "sourceDistribution": {
         "status": "pending",
@@ -30,6 +31,7 @@
       "result": "results/aibike.json",
       "protocols": ["HRS", "CSC", "CPS", "FTMS", "IMU"],
       "sourceRepository": null,
+      "sourcePath": null,
       "approvalRecord": null,
       "sourceDistribution": {
         "status": "pending",
@@ -49,6 +51,7 @@
       "result": "results/aismartrower.json",
       "protocols": ["FTMS Rower Data", "HRS"],
       "sourceRepository": null,
+      "sourcePath": null,
       "approvalRecord": null,
       "sourceDistribution": {
         "status": "pending",

@@ -11,7 +11,7 @@ body:
 
         公开材料不得包含 key、真实 MAC 地址、序列号、精确位置/运动轨迹、私有链接或未授权素材。设备可使用本次测试的随机别名，例如 `rower-a`、`hrs-b`。
 
-        本表单只接收 Hub 的最小复现、脱敏证据和公开契约反馈，不得附 Run、Bike、Rower、Paddle 或 Rider 的产品实现源码。应用源码贡献须等待对应独立仓及正式贡献规则开放。
+        本表单接收最小复现、脱敏证据和公开契约反馈。请勿直接粘贴大段 Run、Bike、Rower、Paddle 或 Rider 产品源码；`apps/` 应用代码贡献须等待正式 CLA 与贡献规则启用。
 
   - type: dropdown
     id: report_kind

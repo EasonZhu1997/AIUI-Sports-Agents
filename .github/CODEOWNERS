@@ -6,6 +6,9 @@
 /TRADEMARKS.md @EasonZhu1997
 /registry/projects.json @EasonZhu1997
 /registry/source-approvals/ @EasonZhu1997
+/apps/ @EasonZhu1997
 /scripts/audit-local.mjs @EasonZhu1997
 /scripts/export-project.mjs @EasonZhu1997
+/scripts/source-manifest.mjs @EasonZhu1997
+/scripts/validate.mjs @EasonZhu1997
 /scripts/validate-licensing.mjs @EasonZhu1997

@@ -1,0 +1,434 @@
+{
+  "corpus_schema_version": 1,
+  "contract": "smartrun.super_coach.plan.v2",
+  "merge_semantics": "recursive_objects_replace_arrays_keep_nulls_v1",
+  "now_ms": 1786096800000,
+  "owner": {
+    "ownership_epoch": 4,
+    "data_namespace": "ns_0123456789abcdef01234567",
+    "public_device_id": "sr_0123456789abcdef"
+  },
+  "base_plan": {
+    "schema_version": 2,
+    "workout_id": "wrk_0123456789abcdef01234567",
+    "plan_id": "plan_123",
+    "plan_session_id": "ps_89abcdef0123456789abcdef",
+    "revision": 12,
+    "type": "easy",
+    "title": "轻松跑",
+    "scheduled_date": "2026-08-07",
+    "status": "planned",
+    "target": {
+      "duration_sec": 1800,
+      "distance_m": 5000,
+      "pace_min_sec_per_km": 300,
+      "pace_max_sec_per_km": 360,
+      "heart_zone_min": 2,
+      "heart_zone_max": 3,
+      "cadence_min_spm": 160,
+      "cadence_max_spm": 180
+    },
+    "stages": [
+      {
+        "stage_id": "stg_abcdef0123456789abcdef01",
+        "order": 0,
+        "type": "work",
+        "title": "轻松跑",
+        "duration_sec": 1800,
+        "distance_m": 5000,
+        "pace_min_sec_per_km": 300,
+        "pace_max_sec_per_km": 360,
+        "heart_zone_min": 2,
+        "heart_zone_max": 3,
+        "cadence_min_spm": 160,
+        "cadence_max_spm": 180
+      }
+    ],
+    "issued_at_ms": 1786096790000,
+    "expires_at_ms": 1786183200000,
+    "ownership_epoch": 4,
+    "data_namespace": "ns_0123456789abcdef01234567"
+  },
+  "cases": [
+    {
+      "id": "accept_single_stage_canonical",
+      "expect": "accept",
+      "overrides": {}
+    },
+    {
+      "id": "accept_mixed_stage_null_aggregate",
+      "expect": "accept",
+      "overrides": {
+        "type": "interval",
+        "title": "混合间歇跑",
+        "status": "accepted",
+        "target": {
+          "duration_sec": null,
+          "distance_m": null,
+          "pace_min_sec_per_km": null,
+          "pace_max_sec_per_km": null,
+          "heart_zone_min": 2,
+          "heart_zone_max": 4,
+          "cadence_min_spm": null,
+          "cadence_max_spm": null
+        },
+        "stages": [
+          {
+            "stage_id": "stg_000000000000000000000001",
+            "order": 0,
+            "type": "warmup",
+            "title": "热身",
+            "duration_sec": 600,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": 1,
+            "heart_zone_max": 2,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          },
+          {
+            "stage_id": "stg_000000000000000000000002",
+            "order": 1,
+            "type": "work",
+            "title": "快速段",
+            "duration_sec": null,
+            "distance_m": 400,
+            "pace_min_sec_per_km": 240,
+            "pace_max_sec_per_km": 300,
+            "heart_zone_min": 3,
+            "heart_zone_max": 4,
+            "cadence_min_spm": 170,
+            "cadence_max_spm": 190
+          },
+          {
+            "stage_id": "stg_000000000000000000000003",
+            "order": 2,
+            "type": "recovery",
+            "title": "恢复",
+            "duration_sec": 30,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          },
+          {
+            "stage_id": "stg_000000000000000000000004",
+            "order": 3,
+            "type": "cooldown",
+            "title": "放松",
+            "duration_sec": 600,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": 1,
+            "heart_zone_max": 2,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "accept_numeric_minimums",
+      "expect": "accept",
+      "overrides": {
+        "plan_id": "plan_1",
+        "plan_session_id": "ps_000000000000000000000001",
+        "revision": 1,
+        "type": "slow_jog",
+        "title": "最小边界",
+        "target": {
+          "duration_sec": 60,
+          "distance_m": 100,
+          "pace_min_sec_per_km": 120,
+          "pace_max_sec_per_km": 120,
+          "heart_zone_min": 1,
+          "heart_zone_max": 1,
+          "cadence_min_spm": 40,
+          "cadence_max_spm": 40
+        },
+        "stages": [
+          {
+            "stage_id": "stg_000000000000000000000010",
+            "order": 0,
+            "type": "free",
+            "title": "最小阶段",
+            "duration_sec": 10,
+            "distance_m": 20,
+            "pace_min_sec_per_km": 120,
+            "pace_max_sec_per_km": 120,
+            "heart_zone_min": 1,
+            "heart_zone_max": 1,
+            "cadence_min_spm": 40,
+            "cadence_max_spm": 40
+          }
+        ]
+      }
+    },
+    {
+      "id": "accept_numeric_maximums",
+      "expect": "accept",
+      "overrides": {
+        "plan_id": "plan_9999999999999999999",
+        "plan_session_id": "ps_ffffffffffffffffffffffff",
+        "revision": 1000000000,
+        "type": "long",
+        "title": "最大边界",
+        "target": {
+          "duration_sec": 86400,
+          "distance_m": 200000,
+          "pace_min_sec_per_km": 3600,
+          "pace_max_sec_per_km": 3600,
+          "heart_zone_min": 5,
+          "heart_zone_max": 5,
+          "cadence_min_spm": 300,
+          "cadence_max_spm": 300
+        },
+        "stages": [
+          {
+            "stage_id": "stg_ffffffffffffffffffffffff",
+            "order": 0,
+            "type": "work",
+            "title": "最大阶段",
+            "duration_sec": 86400,
+            "distance_m": 200000,
+            "pace_min_sec_per_km": 3600,
+            "pace_max_sec_per_km": 3600,
+            "heart_zone_min": 5,
+            "heart_zone_max": 5,
+            "cadence_min_spm": 300,
+            "cadence_max_spm": 300
+          }
+        ]
+      }
+    },
+    {
+      "id": "reject_unknown_schema",
+      "expect": "reject",
+      "overrides": {
+        "schema_version": 3
+      }
+    },
+    {
+      "id": "reject_noncanonical_plan_id",
+      "expect": "reject",
+      "overrides": {
+        "plan_id": "plan_01"
+      }
+    },
+    {
+      "id": "reject_noncanonical_plan_session_id",
+      "expect": "reject",
+      "overrides": {
+        "plan_session_id": "ps_89ABCDEF0123456789abcdef"
+      }
+    },
+    {
+      "id": "reject_unknown_plan_type",
+      "expect": "reject",
+      "overrides": {
+        "type": "mystery_run"
+      }
+    },
+    {
+      "id": "reject_unknown_stage_type",
+      "expect": "reject",
+      "overrides": {
+        "stages": [
+          {
+            "stage_id": "stg_abcdef0123456789abcdef01",
+            "order": 0,
+            "type": "sprint",
+            "title": "未知阶段",
+            "duration_sec": 60,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "reject_noncontiguous_stage_order",
+      "expect": "reject",
+      "overrides": {
+        "stages": [
+          {
+            "stage_id": "stg_abcdef0123456789abcdef01",
+            "order": 1,
+            "type": "work",
+            "title": "顺序错误",
+            "duration_sec": 60,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "reject_duplicate_stage_id",
+      "expect": "reject",
+      "overrides": {
+        "stages": [
+          {
+            "stage_id": "stg_abcdef0123456789abcdef01",
+            "order": 0,
+            "type": "work",
+            "title": "第一段",
+            "duration_sec": 60,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          },
+          {
+            "stage_id": "stg_abcdef0123456789abcdef01",
+            "order": 1,
+            "type": "recovery",
+            "title": "重复 ID",
+            "duration_sec": 30,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "reject_stage_without_completion_bound",
+      "expect": "reject",
+      "overrides": {
+        "stages": [
+          {
+            "stage_id": "stg_abcdef0123456789abcdef01",
+            "order": 0,
+            "type": "work",
+            "title": "无边界阶段",
+            "duration_sec": null,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "reject_stage_below_minimum",
+      "expect": "reject",
+      "overrides": {
+        "stages": [
+          {
+            "stage_id": "stg_abcdef0123456789abcdef01",
+            "order": 0,
+            "type": "work",
+            "title": "过短阶段",
+            "duration_sec": 9,
+            "distance_m": null,
+            "pace_min_sec_per_km": null,
+            "pace_max_sec_per_km": null,
+            "heart_zone_min": null,
+            "heart_zone_max": null,
+            "cadence_min_spm": null,
+            "cadence_max_spm": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "reject_aggregate_below_minimum",
+      "expect": "reject",
+      "overrides": {
+        "target": {
+          "duration_sec": 59
+        }
+      }
+    },
+    {
+      "id": "reject_reversed_ranges",
+      "expect": "reject",
+      "overrides": {
+        "target": {
+          "pace_min_sec_per_km": 500,
+          "pace_max_sec_per_km": 300
+        }
+      }
+    },
+    {
+      "id": "reject_numeric_string",
+      "expect": "reject",
+      "overrides": {
+        "target": {
+          "duration_sec": "1800"
+        }
+      }
+    },
+    {
+      "id": "reject_boolean_numeric",
+      "expect": "reject",
+      "overrides": {
+        "target": {
+          "duration_sec": true
+        }
+      }
+    },
+    {
+      "id": "reject_schema_v1_with_stages",
+      "expect": "reject",
+      "overrides": {
+        "schema_version": 1
+      }
+    },
+    {
+      "id": "reject_empty_stages",
+      "expect": "reject",
+      "overrides": {
+        "stages": []
+      }
+    },
+    {
+      "id": "reject_impossible_calendar_date",
+      "expect": "reject",
+      "overrides": {
+        "scheduled_date": "2026-02-30"
+      }
+    },
+    {
+      "id": "reject_schema_v2_null_target",
+      "expect": "reject",
+      "overrides": {
+        "target": null
+      }
+    },
+    {
+      "id": "reject_unknown_status",
+      "expect": "reject",
+      "overrides": {
+        "status": "running"
+      }
+    }
+  ]
+}

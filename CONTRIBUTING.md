@@ -1,6 +1,6 @@
 # 贡献指南
 
-感谢你帮助 AIUI Sports Agents 变得更可信、更可复现。这个 Hub 接受评测与验证工具、公共契约、测试、文档、无障碍改进和经过脱敏的验证结果；不接受任何运动应用的产品实现源码，也不接受把未经授权的源码、素材、设备数据或二进制包直接搬进仓库。
+感谢你帮助 AIUI Sports Agents 变得更可信、更可复现。这个主仓包含根层 Hub 与 `apps/` 下三套应用源码。Hub 接受评测与验证工具、公共契约、测试、文档、无障碍改进和经过脱敏的验证结果；应用源码目前可以阅读和非商业使用，但在 CLA 与权利核验流程正式启用前暂不接收外部应用代码 PR。任何范围都不接受未经授权的源码、素材、设备数据或二进制包。
 
 参与即表示你同意遵守 [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)、[PRIVACY.md](./PRIVACY.md) 与 [SECURITY.md](./SECURITY.md)。
 
@@ -20,7 +20,7 @@
 3. 阅读 [开源边界](./docs/OPEN_SOURCE_BOUNDARIES.md) 和 [证据等级](./docs/EVIDENCE_LEVELS.md)。
 4. 只从有权再许可的干净源码开始。不要复制现有私有仓库的完整 Git 历史、构建缓存、签名材料或现场日志。
 
-根仓贡献按 Apache-2.0 接收。未来运动应用源码将进入各自独立、明确标识的 source-available 仓库；首批 Run、Bike、Rower 计划采用 PolyForm Noncommercial 1.0.0 与单独商业许可。任何应用源码贡献只有在对应仓库启用经法律审阅的 CLA 后才会接收。详见 [许可作用域](./LICENSE_POLICY.md) 与 [CLA 边界](./CLA.md)。
+根层 Hub 贡献按 Apache-2.0 接收。`apps/smartrun`、`apps/aibike`、`apps/aismartrower` 是采用 PolyForm Noncommercial 1.0.0 与单独商业许可的 source-available 目录。任何应用源码贡献只有在经法律审阅的 CLA 和签署流程正式启用后才会接收。详见 [许可作用域](./LICENSE_POLICY.md) 与 [CLA 边界](./CLA.md)。
 
 ## 可以贡献什么
 
@@ -37,7 +37,7 @@
 - 无来源说明的复制代码、生成资产或二进制文件；
 - 把估算值写成实测值、把本地预览写成真机通过，或删除失败/不可用状态的实现；
 - 未经单独治理决策而加入的设备控制、自动配对、后台上传或默认联网；
-- 任一运动应用的算法、页面状态机、产品 UI、构建工程或其他产品实现源码；这些内容必须在未来对应应用仓按其许可和 CLA 提交；
+- 未经维护者明确邀请、且未完成正式 CLA/权利流程的运动应用算法、页面状态机、产品 UI、构建工程或其他 `apps/` 实现改动；
 - Rower 对 Fitness Machine Control Point `0x2AD9` 的发现、订阅或写入。当前划船机范围只允许只读遥测。
 
 ## 分支与提交

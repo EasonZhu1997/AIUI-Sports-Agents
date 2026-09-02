@@ -288,6 +288,7 @@ function checkRegistry(text) {
     }
     const hasRepository = typeof project?.sourceRepository === 'string'
       && project.sourceRepository.trim().length > 0;
+    const expectedSourcePath = `apps/${label}`;
     const distribution = project?.sourceDistribution;
     const distributionStatus = distribution?.status;
     if (!distribution || typeof distribution !== 'object' || Array.isArray(distribution)) {
@@ -315,6 +316,9 @@ function checkRegistry(text) {
       if (distributionStatus === 'pending' && project?.approvalRecord !== null) {
         errors.push(`registry/projects.json:${label}: pending application source must not advertise approvalRecord`);
       }
+      if (distributionStatus === 'pending' && project?.sourcePath !== null) {
+        errors.push(`registry/projects.json:${label}: pending application source must not advertise sourcePath`);
+      }
       if (distributionStatus === 'ready'
           && isPlaceholderIdentity(distribution?.licensor)) {
         errors.push(`registry/projects.json:${label}: ready application source requires a named licensor`);
@@ -338,8 +342,66 @@ function checkRegistry(text) {
     if (project?.approvalRecord !== expectedApprovalRecord) {
       errors.push(`registry/projects.json:${label}: published application source requires its authoritative Hub approval record`);
     }
+    if (project?.sourcePath !== expectedSourcePath) {
+      errors.push(`registry/projects.json:${label}: published application source requires sourcePath ${expectedSourcePath}`);
+    }
   }
   return { unpublished, published };
+}
+
+async function checkPublishedApplications(registryText) {
+  let registry;
+  try {
+    registry = JSON.parse(registryText ?? 'null');
+  } catch {
+    return;
+  }
+  if (!Array.isArray(registry?.projects)) return;
+  const canonicalPolyForm = await readRequired(polyFormPath);
+  for (const project of registry.projects) {
+    if (project?.sourceDistribution?.status !== 'published') continue;
+    const sourcePath = project.sourcePath;
+    if (typeof sourcePath !== 'string' || sourcePath !== `apps/${project.id}`) continue;
+    const required = [
+      'LICENSE',
+      'COPYRIGHT',
+      'COMMERCIAL_LICENSE.md',
+      'TRADEMARKS.md',
+      'package.json',
+      'SOURCE_DISTRIBUTION_APPROVAL.json',
+    ];
+    const appFiles = new Map(await Promise.all(required.map(async (name) => [
+      name,
+      await readRequired(`${sourcePath}/${name}`),
+    ])));
+    const appLicense = appFiles.get('LICENSE');
+    if (canonicalPolyForm && appLicense && normalize(appLicense) !== normalize(canonicalPolyForm)) {
+      errors.push(`${sourcePath}/LICENSE: must exactly match canonical PolyForm Noncommercial 1.0.0`);
+    }
+    const licensor = project.sourceDistribution.licensor;
+    const copyright = appFiles.get('COPYRIGHT');
+    if (copyright && !copyright.split(/\r?\n/).includes(`Required Notice: Copyright ${licensor}`)) {
+      errors.push(`${sourcePath}/COPYRIGHT: Required Notice must match Registry licensor`);
+    }
+    const commercial = appFiles.get('COMMERCIAL_LICENSE.md');
+    if (commercial && !commercial.split(/\r?\n/).includes(`Commercial Licensor: ${licensor}`)) {
+      errors.push(`${sourcePath}/COMMERCIAL_LICENSE.md: Commercial Licensor must match Registry`);
+    }
+    const packageText = appFiles.get('package.json');
+    if (packageText) {
+      try {
+        const packageJson = JSON.parse(packageText);
+        if (!packageJson || typeof packageJson !== 'object' || Array.isArray(packageJson)
+            || packageJson.version !== project.version
+            || packageJson.license !== 'PolyForm-Noncommercial-1.0.0'
+            || packageJson.repository?.directory !== sourcePath) {
+          errors.push(`${sourcePath}/package.json: version, license, and repository.directory must match Registry`);
+        }
+      } catch (error) {
+        errors.push(`${sourcePath}/package.json: invalid JSON (${error.message})`);
+      }
+    }
+  }
 }
 
 checkNodeVersion();
@@ -375,6 +437,7 @@ if (polyForm) checkPolyFormTemplate(polyForm);
 checkPolicyDocuments(files);
 checkHubSurfaces(files);
 const registrySummary = checkRegistry(files.get('registry/projects.json'));
+await checkPublishedApplications(files.get('registry/projects.json'));
 
 if (errors.length > 0) {
   console.error(`Licensing boundary validation failed with ${errors.length} issue(s):`);

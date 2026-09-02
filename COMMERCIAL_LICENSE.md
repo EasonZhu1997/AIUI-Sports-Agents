@@ -4,9 +4,9 @@
 
 ## 适用范围
 
-本流程仅面向未来独立发布、并明确采用 [PolyForm Noncommercial License 1.0.0](./licenses/PolyForm-Noncommercial-1.0.0.md) 的 AISmartRun、AIBike、AISmartRower 等应用源码。
+本流程面向 `apps/smartrun`、`apps/aibike`、`apps/aismartrower` 中明确采用 [PolyForm Noncommercial License 1.0.0](./licenses/PolyForm-Noncommercial-1.0.0.md) 的应用源码，以及未来作出同等清晰标记的应用分发。
 
-当前 `AIUI-Sports-Agents` 评测与治理 Hub 继续采用 [Apache License 2.0](./LICENSE)。对当前 Hub 的合规商业使用不需要购买本项目的额外商业许可。完整边界见 [`LICENSE_POLICY.md`](./LICENSE_POLICY.md)。
+当前 `AIUI-Sports-Agents` 根层评测与治理 Hub 继续采用 [Apache License 2.0](./LICENSE)。对 `apps/` 之外根层 Hub 的合规商业使用不需要购买本项目的额外商业许可。完整边界见 [`LICENSE_POLICY.md`](./LICENSE_POLICY.md)。
 
 ## 哪些场景应先咨询商业许可
 

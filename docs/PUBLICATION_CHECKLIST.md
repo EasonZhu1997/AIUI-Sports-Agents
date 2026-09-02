@@ -7,11 +7,11 @@
 - [ ] 记录源 commit、项目版本、目标内容和负责人。
 - [ ] 从明确白名单建立新的暂存树，没有复制原私有仓库 `.git`。
 - [ ] 每个文件可归类为自有作品、已登记第三方内容或已授权证据。
-- [ ] 明确本次是 Apache-2.0 Hub 发布，还是 PolyForm/商业双许可的独立应用源码发布；没有把两层混在同一根许可下。
+- [ ] 明确本次是 Apache-2.0 根层 Hub 变更，还是 `apps/` 下 PolyForm/商业双许可应用源码变更；没有把两层混在同一许可作用域。
 - [ ] 许可证、准确法定授权主体、版权、NOTICE、商业授权入口、CLA 权利链与商标说明和实际暂存内容一致。
-- [ ] 应用源码使用未经修改的 PolyForm Noncommercial 1.0.0；独立 `COPYRIGHT` 中的 `Required Notice:` 行与 Registry 的实际许可方一致；当前 Hub 仍保持 Apache-2.0。
+- [ ] 应用源码使用未经修改的 PolyForm Noncommercial 1.0.0；应用目录 `COPYRIGHT` 中的 `Required Notice:` 行与 Registry 的实际许可方一致；根层 Hub 仍保持 Apache-2.0。
 - [ ] 应用仓 `SOURCE_DISTRIBUTION_APPROVAL.json` 已绑定项目、版本、许可方、贡献者/第三方权利状态、Git 修订、审阅者/日期和当前候选 manifest；不是可长期残留的裸 `READY` 标记。
-- [ ] 应用仓审批副本与 Hub 权威路径 `registry/source-approvals/<project-id>.json` 逐字段一致，Registry 的 `approvalRecord` 精确指向该记录，且审批经过独立维护评审。
+- [ ] 应用目录审批副本与 Hub 权威路径 `registry/source-approvals/<project-id>.json` 逐字段一致，Registry 的 `approvalRecord` 精确指向该记录，且审批经过独立维护评审。
 - [ ] Hub Registry、权威审批记录和导出器均已跟踪、提交并与当前 Hub HEAD 一致；没有用未提交的本地修改临时放行。
 - [ ] GitHub ruleset 或 branch protection 已实际启用并验证：必须经 Pull Request、必要审批与 CODEOWNERS 审阅；管理员绕过策略符合发布治理。
 - [ ] 没有来源不明的代码、图片、字体、音频、视频、GIF、数据或二进制。

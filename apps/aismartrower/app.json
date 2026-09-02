@@ -1,0 +1,8 @@
+{
+  "pages": ["pages/index/index", "pages/rower_hud/index"],
+  "permissions": [],
+  "window": {
+    "navigationBarTitleText": "划船机教练",
+    "viewport": { "width": "device-width" }
+  }
+}

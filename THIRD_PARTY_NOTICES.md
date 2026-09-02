@@ -1,11 +1,11 @@
 # 第三方代码、素材与标识说明
 
-根目录的 Apache License 2.0 只覆盖当前 Hub 中贡献者有权按该许可证提供的作品。未来应用源码使用的 PolyForm Noncommercial 或商业合同也只能覆盖实际权利人有权许可的部分。任何一层都不会把第三方代码、字体、图片、GIF、音频、视频、训练内容、协议规范、SDK、固件、商标或硬件证据重新许可。
+根目录的 Apache License 2.0 只覆盖根层 Hub 中贡献者有权按该许可证提供的作品，不覆盖 `apps/` 下带独立许可证的应用源码。应用目录使用的 PolyForm Noncommercial 或商业合同也只能覆盖实际权利人有权许可的部分。任何一层都不会把第三方代码、字体、图片、GIF、音频、视频、训练内容、协议规范、SDK、固件、商标或硬件证据重新许可。
 
 ## 四类内容必须分开审核
 
 1. **Hub 自有代码与文档**：确认作者或贡献者有权以 Apache-2.0 提供，并保留来源记录。
-2. **未来应用原创源码**：发布前确认准确法定授权主体、PolyForm 适用范围、商业再许可权和贡献者 CLA；不得把已经按 Apache 或第三方条款获得的部分包装成排他商业权。
+2. **应用原创源码**：进入或更新 `apps/` 前确认准确法定授权主体、PolyForm 适用范围、商业再许可权和贡献者权利；不得把已经按 Apache 或第三方条款获得的部分包装成排他商业权。
 3. **第三方依赖与资产**：保留原始许可证、版权和 NOTICE，检查再分发与修改条件；来源或权利不明时不得纳入发布白名单。
 4. **硬件测试证据**：照片、视频、日志和设备截图按独立证据材料管理。公开摘要不等于开放原始媒体的再使用权。
 
@@ -22,7 +22,7 @@
 
 | 名称 | 版本/提交 | 文件或目录 | 来源 | 许可证 | 修改 | 发布物是否包含 |
 | --- | --- | --- | --- | --- | --- | --- |
-| PolyForm Noncommercial License text | `1.0.0` tag | `licenses/PolyForm-Noncommercial-1.0.0.md` | [PolyForm Project official repository](https://github.com/polyformproject/polyform-licenses/blob/1.0.0/PolyForm-Noncommercial-1.0.0.md) | [License-text grant](https://github.com/polyformproject/polyform-licenses/blob/1.0.0/README.md#license) | 否；保持官方原文与校验 hash | 是，仅作未来应用源码许可证参考文本 |
+| PolyForm Noncommercial License text | `1.0.0` tag | `licenses/PolyForm-Noncommercial-1.0.0.md` 与三个 `apps/*/LICENSE` | [PolyForm Project official repository](https://github.com/polyformproject/polyform-licenses/blob/1.0.0/PolyForm-Noncommercial-1.0.0.md) | [License-text grant](https://github.com/polyformproject/polyform-licenses/blob/1.0.0/README.md#license) | 否；保持官方原文与校验 hash | 是，作为应用源码许可证正文 |
 
 还必须确认：
 

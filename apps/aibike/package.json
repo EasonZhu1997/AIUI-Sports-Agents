@@ -1,0 +1,44 @@
+{
+  "name": "AIBike",
+  "version": "0.3.80",
+  "description": "AIBike is a cycling HUD for Rokid Glasses with verified sensor metrics, local summaries, and privacy-bounded field telemetry.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EasonZhu1997/AIUI-Sports-Agents.git",
+    "directory": "apps/aibike"
+  },
+  "main": "app.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20 <26"
+  },
+  "scripts": {
+    "dev": "node tools/aiui_doctor.mjs",
+    "start": "npm run dev",
+    "test": "node scripts/run_tests.mjs",
+    "validate": "npm test && npm run doctor:aiui",
+    "build:audio": "node tools/build_cadence_assets.mjs",
+    "pack:aix:cn": "node tools/pack_aix.mjs --cn",
+    "pack:aix:ja": "node tools/pack_aix.mjs --ja",
+    "pack:aix:en": "node tools/pack_aix.mjs --en",
+    "pack:aix": "npm run pack:aix:cn && npm run pack:aix:ja && npm run pack:aix:en",
+    "inspect:aix:cn": "node tools/inspect_aix.mjs --cn",
+    "inspect:aix:ja": "node tools/inspect_aix.mjs --ja",
+    "inspect:aix:en": "node tools/inspect_aix.mjs --en",
+    "inspect:aix": "npm run inspect:aix:cn && npm run inspect:aix:ja && npm run inspect:aix:en",
+    "build:cn": "npm run build:audio && npm run pack:aix:cn && npm run inspect:aix:cn",
+    "build:ja": "npm run build:audio && npm run pack:aix:ja && npm run inspect:aix:ja",
+    "build:en": "npm run build:audio && npm run pack:aix:en && npm run inspect:aix:en",
+    "build:local": "npm run build:audio && npm run pack:aix && npm run inspect:aix",
+    "build": "npm run build:local",
+    "doctor:aiui": "node tools/aiui_doctor.mjs",
+    "logs:extract": "node tools/extract_local_field_log.mjs"
+  },
+  "devDependencies": {
+    "@yodaos-pkg/aix": "^0.7.0",
+    "@yodaos-pkg/aix-cli": "0.8.2",
+    "@yodaos-pkg/create-aiui-agent": "^2.1.2",
+    "@yodaos-pkg/ink": "0.16.1"
+  }
+}

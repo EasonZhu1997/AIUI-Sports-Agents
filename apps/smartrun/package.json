@@ -1,0 +1,60 @@
+{
+  "name": "@aiui-sports/aismartrun-aix",
+  "version": "0.1.114",
+  "description": "SmartRun tracks free runs on Rokid Glasses, connects compatible heart-rate devices, and shows cadence, pace, distance, time and run summaries.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "author": "Yixiao Zhu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EasonZhu1997/AIUI-Sports-Agents.git",
+    "directory": "apps/smartrun"
+  },
+  "homepage": "https://github.com/EasonZhu1997/AIUI-Sports-Agents/tree/main/apps/smartrun#readme",
+  "bugs": {
+    "url": "https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues"
+  },
+  "main": "app.js",
+  "type": "module",
+  "packageManager": "npm@11.9.0",
+  "engines": {
+    "node": ">=24.14.0 <25",
+    "npm": ">=11.9.0 <12"
+  },
+  "scripts": {
+    "dev": "node tools/aiui_doctor.mjs",
+    "start": "npm run dev",
+    "test": "node scripts/run_tests.mjs",
+    "test:coverage": "node scripts/run_tests.mjs --coverage",
+    "build:metronome": "node tools/build_metronome_assets.mjs",
+    "pack:aix": "node tools/pack_aix.mjs",
+    "pack:aix:en": "node tools/pack_aix_en.mjs",
+    "pack:aix:ja": "node tools/pack_aix_ja.mjs",
+    "inspect:aix": "node tools/inspect_aix.mjs",
+    "inspect:aix:en": "node tools/inspect_aix.mjs --en",
+    "inspect:aix:ja": "node tools/inspect_aix.mjs --ja",
+    "build:local": "npm run pack:aix && npm run inspect:aix",
+    "build": "npm run build:local",
+    "build:en": "npm run pack:aix:en && npm run inspect:aix:en",
+    "build:ja": "npm run pack:aix:ja && npm run inspect:aix:ja",
+    "build:all": "npm run build:local && npm run build:en && npm run build:ja",
+    "doctor:aiui": "node tools/aiui_doctor.mjs",
+    "preview:check": "node tools/validate_previews.mjs",
+    "preview:aix": "npm run build:local && node tools/preview_aix.mjs --launch",
+    "preview:aix:serve": "node tools/preview_aix.mjs",
+    "preview:aix:dev": "node tools/preview_aix.mjs --source --dev --launch",
+    "preview:aix:html": "npm run build:local && node tools/preview_aix.mjs --html-out tmp/aix-official-preview.html",
+    "probe:hr:mac": "swift -swift-version 5 tools/mac_hr_probe.swift",
+    "probe:rsc:mac": "swift -swift-version 5 tools/mac_rsc_probe.swift",
+    "simulate:hr:mac": "swift -swift-version 5 tools/mac_hr_simulator.swift",
+    "logs:extract": "node tools/extract_running_local_field_log.mjs",
+    "verify:release": "node tools/verify_release.mjs",
+    "verify:beta": "node tools/beta_release.mjs",
+    "scaffold:aiui": "node tools/scaffold_aiui.mjs",
+    "validate:public": "node scripts/validate_public_repo.mjs"
+  },
+  "devDependencies": {
+    "@yodaos-pkg/aix": "^0.7.0",
+    "@yodaos-pkg/aix-cli": "^0.8.2",
+    "@yodaos-pkg/create-aiui-agent": "2.1.2"
+  }
+}

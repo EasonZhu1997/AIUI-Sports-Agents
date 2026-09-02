@@ -55,7 +55,7 @@
 
 ## 许可证关系与官方参考
 
-Apache License 2.0 第 6 节明确不授予许可方的商号、商标、服务标志或产品名称使用权，仅保留合理描述来源和复制 NOTICE 所需的惯常使用。未来应用源码的 PolyForm 或商业许可也不会自动授予商标权，除非书面合同明确说明。
+Apache License 2.0 第 6 节明确不授予许可方的商号、商标、服务标志或产品名称使用权，仅保留合理描述来源和复制 NOTICE 所需的惯常使用。`apps/` 应用源码的 PolyForm 或商业许可也不会自动授予商标权，除非书面合同明确说明。
 
 - Apache License 2.0：<https://www.apache.org/licenses/LICENSE-2.0>
 - OSI Open Source Definition：<https://opensource.org/osd>

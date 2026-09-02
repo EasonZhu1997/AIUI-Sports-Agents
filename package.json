@@ -2,7 +2,7 @@
   "name": "@aiui-sports/agents-benchmark",
   "version": "0.1.0",
   "private": true,
-  "description": "Evidence-first benchmark and governance hub for AIUI sports agents.",
+  "description": "Monorepo for three source-available AIUI sports apps plus an Apache-2.0 evidence and governance Hub.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EasonZhu1997/AIUI-Sports-Agents.git"
@@ -21,6 +21,7 @@
     "validate:licensing": "node scripts/validate-licensing.mjs",
     "test:export-policy": "node scripts/test-export-policy.mjs",
     "report": "node scripts/report.mjs",
+    "source:manifest": "node scripts/source-manifest.mjs",
     "audit:local": "node scripts/audit-local.mjs",
     "audit:local:strict": "node scripts/audit-local.mjs --strict",
     "export:dry": "node scripts/export-project.mjs",

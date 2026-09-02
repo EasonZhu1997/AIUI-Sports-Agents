@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+release/
+captures/
+archive/
+assets/
+coverage/
+.nyc_output/
+dist/
+build/
+*.aix
+*.zip
+npm-debug.log*
+*.local

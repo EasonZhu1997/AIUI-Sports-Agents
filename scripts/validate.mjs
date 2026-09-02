@@ -1,4 +1,5 @@
 import { execFile } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { promisify } from 'node:util';
@@ -67,6 +68,11 @@ const requiredPublicFiles = [
   'scripts/validate.mjs',
   'scripts/validate-licensing.mjs',
   'scripts/test-export-policy.mjs',
+  'scripts/source-manifest.mjs',
+  'apps/README.md',
+  'assets/README.md',
+  'assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
 ];
 const forbiddenExtensions = new Set([
   '.aix', '.apk', '.aab', '.pem', '.key', '.jks', '.keystore', '.p12', '.pfx', '.db', '.docx', '.jsonl', '.pdf', '.zip',
@@ -123,6 +129,10 @@ function isJsonObject(value) {
 
 function isHexString(value, length) {
   return typeof value === 'string' && new RegExp(`^[0-9a-f]{${length}}$`, 'i').test(value);
+}
+
+function sha256(data) {
+  return createHash('sha256').update(data).digest('hex');
 }
 
 function isRealIsoDate(value) {
@@ -220,6 +230,108 @@ function checkProtectedApproval(approval, project, distribution) {
       || !isRealIsoDate(approval?.reviewedAt)
       || isPlaceholderIdentity(approval?.reviewedBy)) {
     errors.push(`${prefix}: review metadata is incomplete or contains a placeholder`);
+  }
+}
+
+async function checkIntegratedApplication(project, distribution, publicPaths) {
+  const prefix = `project:${project.id}`;
+  const expectedSourcePath = `apps/${project.id}`;
+  if (project.sourcePath !== null && project.sourcePath !== expectedSourcePath) {
+    errors.push(`${prefix}.sourcePath: must be null or ${expectedSourcePath}`);
+  }
+  if (distribution?.status === 'pending' && project.sourcePath !== null) {
+    errors.push(`${prefix}: pending source distribution cannot advertise an integrated sourcePath`);
+    return;
+  }
+  if (distribution?.status !== 'published') return;
+  if (project.sourcePath !== expectedSourcePath) {
+    errors.push(`${prefix}: published integrated source requires sourcePath ${expectedSourcePath}`);
+    return;
+  }
+
+  const required = [
+    'README.md',
+    'LICENSE',
+    'COPYRIGHT',
+    'COMMERCIAL_LICENSE.md',
+    'TRADEMARKS.md',
+    'package.json',
+    'SOURCE_DISTRIBUTION_APPROVAL.json',
+  ].map((name) => `${expectedSourcePath}/${name}`);
+  for (const relative of required) {
+    if (!publicPaths.has(relative)) errors.push(`${prefix}: integrated source is missing tracked ${relative}`);
+  }
+
+  const licensePath = `${expectedSourcePath}/LICENSE`;
+  const referenceLicense = publicDataByPath.get('licenses/PolyForm-Noncommercial-1.0.0.md');
+  const appLicense = publicDataByPath.get(licensePath);
+  if (!referenceLicense || !appLicense || !appLicense.equals(referenceLicense)) {
+    errors.push(`${prefix}: integrated source LICENSE must exactly match the canonical PolyForm text`);
+  }
+
+  const packagePath = `${expectedSourcePath}/package.json`;
+  let appPackage = null;
+  try {
+    appPackage = JSON.parse(publicDataByPath.get(packagePath)?.toString('utf8') ?? 'null');
+  } catch (error) {
+    errors.push(`${prefix}: integrated package.json is invalid (${error.message})`);
+  }
+  if (!isJsonObject(appPackage)
+      || appPackage.version !== project.version
+      || appPackage.license !== communityLicense) {
+    errors.push(`${prefix}: integrated package version/license must match Registry and PolyForm`);
+  }
+
+  const sourceApprovalPath = `${expectedSourcePath}/SOURCE_DISTRIBUTION_APPROVAL.json`;
+  const centralApprovalPath = `registry/source-approvals/${project.id}.json`;
+  const sourceApprovalData = publicDataByPath.get(sourceApprovalPath);
+  const centralApprovalData = publicDataByPath.get(centralApprovalPath);
+  if (!sourceApprovalData || !centralApprovalData || !sourceApprovalData.equals(centralApprovalData)) {
+    errors.push(`${prefix}: application and authoritative Hub approval records must be byte-identical`);
+    return;
+  }
+  let approval = null;
+  try {
+    approval = JSON.parse(sourceApprovalData.toString('utf8'));
+  } catch (error) {
+    errors.push(`${prefix}: application approval is invalid JSON (${error.message})`);
+    return;
+  }
+  if (!isJsonObject(approval)) {
+    errors.push(`${prefix}: application approval must be a JSON object`);
+    return;
+  }
+
+  const manifestInput = [...publicPaths]
+    .filter((relative) => relative.startsWith(`${expectedSourcePath}/`)
+      && relative !== sourceApprovalPath)
+    .sort()
+    .map((relative) => {
+      const data = publicDataByPath.get(relative);
+      return `${relative.slice(expectedSourcePath.length + 1)}\0${data.length}\0${sha256(data)}\n`;
+    })
+    .join('');
+  if (approval.contentManifestSha256 !== sha256(manifestInput)) {
+    errors.push(`${prefix}: approval manifest does not match integrated source bytes`);
+  }
+
+  if (capturedIndexTree && isHexString(approval.reviewedSourceRevision, 40)) {
+    try {
+      const { stdout } = await execFileAsync('git', [
+        '-C', root, 'diff', '--name-only', '-z',
+        approval.reviewedSourceRevision, capturedIndexTree, '--', expectedSourcePath,
+      ], {
+        encoding: 'utf8',
+        maxBuffer: 10 * 1024 * 1024,
+        env: { ...process.env, GIT_NO_REPLACE_OBJECTS: '1' },
+      });
+      const changed = stdout.split('\0').filter(Boolean);
+      if (changed.length !== 1 || changed[0] !== sourceApprovalPath) {
+        errors.push(`${prefix}: only the application approval record may change after reviewedSourceRevision`);
+      }
+    } catch (error) {
+      errors.push(`${prefix}: reviewed source revision cannot be compared (${error.message})`);
+    }
   }
 }
 
@@ -334,6 +446,19 @@ for (const relativePath of requiredPublicFiles) {
   }
 }
 
+const readmeText = publicDataByPath.get('README.md')?.toString('utf8') ?? '';
+for (const requiredFragment of [
+  'apps/smartrun',
+  'apps/aibike',
+  'apps/aismartrower',
+  'assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
+]) {
+  if (!readmeText.includes(requiredFragment)) {
+    errors.push(`README.md: homepage must expose ${requiredFragment}`);
+  }
+}
+
 const registry = await readJson('registry/projects.json');
 const approvalExample = await readJson('registry/source-distribution-approval.example.json');
 const projectIds = new Set();
@@ -407,6 +532,7 @@ if (!isJsonObject(registry)) {
           errors.push(`${prefix}: published source distribution requires sourceRepository`);
         }
       }
+      await checkIntegratedApplication(project, distribution, publicPaths);
       if (typeof project.approvalRecord === 'string') {
         if (canonicalGitIndex && !publicPaths.has(project.approvalRecord)) {
           errors.push(`${prefix}.approvalRecord: referenced approval is not staged or tracked in the Git index`);

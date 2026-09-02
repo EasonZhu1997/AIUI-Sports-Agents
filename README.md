@@ -2,37 +2,55 @@
 
 <img src="assets/brand/hero.svg" alt="AIUI Sports Agents：跑步、骑行与划船机的证据优先运动 Agent" width="100%">
 
-<p><strong>面向智能眼镜运动 Agent 的公开评测、证据与治理枢纽</strong></p>
+<p><strong>一个公开主仓，集成跑步、骑行与划船机三套智能眼镜运动 Agent</strong></p>
 
 <p>
   <a href="https://github.com/EasonZhu1997/AIUI-Sports-Agents/actions/workflows/validate.yml"><img src="https://github.com/EasonZhu1997/AIUI-Sports-Agents/actions/workflows/validate.yml/badge.svg" alt="Validate"></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/EasonZhu1997/AIUI-Sports-Agents?style=flat-square" alt="Hub license: Apache-2.0"></a>
-  <a href="LICENSE_POLICY.md"><img src="https://img.shields.io/badge/planned_app_source-PolyForm_NC-F59E0B?style=flat-square" alt="Planned application source license: PolyForm Noncommercial"></a>
+  <a href="LICENSE_POLICY.md"><img src="https://img.shields.io/badge/app_source-PolyForm_NC-F59E0B?style=flat-square" alt="Application source license: PolyForm Noncommercial"></a>
   <img src="https://img.shields.io/badge/Node.js-20--25-339933?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 20–25">
   <a href="benchmark/evidence-levels.md"><img src="https://img.shields.io/badge/public_evidence-L2-8B5CF6?style=flat-square" alt="Current public evidence L2"></a>
   <a href="README.en.md"><img src="https://img.shields.io/badge/README-English-1677ff?style=flat-square" alt="English README"></a>
 </p>
 
-[项目矩阵](#项目矩阵) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md) · [文档中心](#文档中心) · [路线图](ROADMAP.md)
+[三套-Agent](#三套-agent一个主仓) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
 
 </div>
 
 # AIUI Sports Agents
 
-AIUI Sports Agents 用一套公开、可复核的方法，组织智能眼镜上的跑步、骑行、户外皮划艇与划船机 Agent，并把“源码、包、预览、宿主、真机、平台”六个阶段分别记录。
+AIUI Sports Agents 在同一个公开仓库中提供智能眼镜上的跑步、骑行与划船机 Agent 源码，同时登记 AISmartPaddle 孵化项目，并用一套可复核的方法分别记录“源码、包、预览、宿主、真机、平台”六个阶段。
 
 > [!IMPORTANT]
-> 当前公开 Hub 的评测规范、项目卡、机器可读结果、治理文档和维护工具采用 Apache-2.0。AISmartRun、AIBike、AISmartRower、AISmartPaddle 的应用源码与 AIX 尚未公开；未来各自明确标识的应用源码计划采用 PolyForm Noncommercial 1.0.0，商业使用须另行取得书面商业授权。两层许可互不覆盖，项目卡和 L2 证据也不代表 Rokid 真机通过、AIUI Studio 已提审或商店已上架。
+> 仓库根层的评测规范、项目卡、机器可读结果、治理文档和维护工具采用 Apache-2.0；`apps/smartrun`、`apps/aibike`、`apps/aismartrower` 三个目录内的应用源码分别采用 PolyForm Noncommercial 1.0.0，商业使用须在开始前另行取得书面商业授权。AISmartPaddle 当前只有项目卡与 L2 上下文，应用源码仍为 `pending`。根许可证不覆盖三个明确标识的应用目录；源码公开也不代表 AIX 已上传、Rokid 真机通过、AIUI Studio 已提审或商店已上架。
 
 ## 为什么做这个项目
 
-AIUI Sports Agents 不把跑步、骑行、皮划艇和划船机硬塞进一个大应用。四个垂直产品独立运行、独立验证、独立发布，但共享一套可以公开复核的证据语言。
+AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，但不把不同运动硬塞进一个运行时；Paddle 以 Incubating 项目卡保留在同一评测体系中。各垂直产品独立构建、独立运行、独立验证，共享一个 GitHub 入口和一套可以公开复核的证据语言。
 
 | **Measured First** | **Honest Degradation** | **Evidence Bound** |
 | --- | --- | --- |
 | 真实传感器数据优先，来源必须可说明。 | 估算必须标注；拿不到的数据保持 `unavailable`。 | 每项能力都绑定版本、环境、包身份与证据等级。 |
 
 共同方法可以复用，共同指标可以横向比较；不同运动的专项分不合并成一个没有意义的总排名。
+
+## 三套 Agent，一个主仓
+
+|  | AISmartRun | AIBike | AISmartRower |
+| --- | --- | --- | --- |
+| 运动 | 跑步 | 骑行 | 室内划船机 |
+| 核心通道 | HRS / RSC / IMU | HRS / CSC / CPS / FTMS / IMU | FTMS Rower Data / HRS |
+| 应用源码 | [`apps/smartrun`](apps/smartrun/) | [`apps/aibike`](apps/aibike/) | [`apps/aismartrower`](apps/aismartrower/) |
+| 项目与结果 | [项目卡](projects/smartrun.md) · [L2 结果](results/smartrun.json) | [项目卡](projects/aibike.md) · [L2 结果](results/aibike.json) | [项目卡](projects/aismartrower.md) · [L2 结果](results/aismartrower.json) |
+| 当前边界 | Garmin/标准 BLE HRS；RSC 同包真机待验 | 多协议骑行源仲裁；真机门仍开放 | 只读遥测；禁止 `0x2AD9` 控制 |
+
+三套应用可以分别进入各自目录测试和构建；仓库根目录负责统一导航、评测、许可边界与贡献入口。
+
+<p align="center">
+  <img src="assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png" alt="跑步、骑行和划船机三套 Agent 汇入同一个公开 Hub 的暖橙色四格图" width="78%">
+</p>
+
+<p align="center"><em>三套独立 Agent，共用一个公开入口；这张关系图用于解释项目结构，不作为设备或真机证据。</em></p>
 
 ## 项目矩阵
 
@@ -45,7 +63,7 @@ AIUI Sports Agents 不把跑步、骑行、皮划艇和划船机硬塞进一个�
 | [AISmartRower](projects/aismartrower.md) | 划船机 · FTMS Rower Data / HRS | `labs` | `0.0.1` | `L2` | [Common 2P / 4~ · Sport 0P / 2~ / 2B](results/aismartrower.json) | 4 |
 | [AISmartPaddle](projects/aismartpaddle.md) | 皮划艇 + 划船机 · GPS / HRS / IMU / FTMS | `incubating` | `0.3.1` | `L2` | [Common 2P / 4~ · Sport 1P / 3~ / 2B](results/aismartpaddle.json) | 5 |
 
-`P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。四个项目的 `sourceRepository` 当前均为空，`sourceDistribution.status` 均为 `pending`；计划许可证不等于已经发布或授予应用源码权利，普通访问者现在不能从本仓直接构建四个运动应用。
+`P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。Run、Bike、Rower 三套应用源码已集成在 `apps/`，Paddle 源码仍为 `pending`；四张项目卡的公开证据都停留在 `L2`，源码可构建不等于 Craft、无线电、真机或平台门已经通过。
 
 > AISmartRower 当前仅允许读取标准 FTMS Rower Data 与可选 HRS；Fitness Machine Control Point `0x2AD9` 保持关闭，不控制器械。
 
@@ -61,6 +79,17 @@ npm run report
 ```
 
 `validate` 检查项目登记、42 个评测项的数据结构和公开文件边界；它不是“42 个端到端测试全部通过”。`report` 根据当前结果文件生成有证据等级约束的项目摘要。
+
+进入应用目录可分别安装依赖并运行该应用自己的回归；例如：
+
+```bash
+cd apps/smartrun
+npm ci
+npm test
+npm run doctor:aiui
+```
+
+Bike 与 Rower 的准确命令写在各自 README。构建产生的 `.aix` 保持在本地，不会由仓库命令自动上传、安装、提审或上架。
 
 预期报告：
 
@@ -81,7 +110,8 @@ AISmartPaddle incubating 0.3.1    L2
 | --- | --- | --- |
 | 浏览者 / 评测者 | 阅读项目卡、复现 Common 与 Sport 评测、核对结果边界 | [Benchmark](benchmark/README.md) · [项目矩阵](#项目矩阵) |
 | 体验者 / 真机测试者 | 提交体验反馈、兼容性问题或脱敏的 Reader / Craft / 真机证据 | [体验与贡献问卷](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=contribution-survey.yml) · [Bug 与真机证据](https://github.com/EasonZhu1997/AIUI-Sports-Agents/issues/new?template=bug-and-device-evidence.yml) |
-| Hub 代码 / 文档贡献者 | 先用 Issue 对齐范围，再 Fork、建分支、测试并提交 Apache-2.0 Pull Request；应用源码不提交到本 Hub | [贡献指南](CONTRIBUTING.md) · [手把手图文教程](articles/从本地到GitHub_一步步开源AIUI项目.md) |
+| Hub 代码 / 文档贡献者 | 先用 Issue 对齐范围，再 Fork、建分支、测试并提交 Apache-2.0 Pull Request | [贡献指南](CONTRIBUTING.md) · [手把手图文教程](articles/从本地到GitHub_一步步开源AIUI项目.md) |
+| 应用源码贡献者 | 先提交 Issue；在应用 CLA/权利流程正式启用前，不直接接收 `apps/` 下的外部代码 PR | [应用源码目录](apps/) · [CLA 草案边界](CLA.md) |
 | 项目维护者 | 审计相邻私有源码、预演白名单导出、维护结果卡与发布边界 | [开源边界](docs/OPEN_SOURCE_BOUNDARIES.md) · [发布清单](docs/PUBLICATION_CHECKLIST.md) |
 
 GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创建 AIUI Studio 智能体或提交平台审核。
@@ -100,6 +130,14 @@ GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创
 - AIUI Studio 提审，不等于审核通过或已上架。
 
 每次结果都应保留失败、跳过、不可用与 Open gates，而不是只展示最好的一次。
+
+## 技术架构
+
+<p align="center">
+  <img src="assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png" alt="Run、Bike、Rower 三套 AIX 与共享评测、证据等级和 AIUI 发布边界的蓝墨技术架构图" width="72%">
+</p>
+
+图中三条运行链彼此独立：Run 处理 HRS/RSC 与 IMU 回退，Bike 处理 HRS/CSC/CPS/FTMS 与来源仲裁，Rower 只读取 FTMS Rower Data 与可选 HRS。共享层提供评测语言、证据门、隐私与许可规则，不代替各应用的运行时。
 
 ## 评测体系
 
@@ -129,22 +167,23 @@ GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创
 
 ```text
 AIUI-Sports-Agents/
+├── apps/        Run、Bike、Rower 三套独立应用源码（各自 PolyForm NC）
 ├── projects/    项目卡：范围、版本、协议与开放门
 ├── results/     机器可读的项目结果
 ├── benchmark/   Common、专项指标与证据等级
 ├── contracts/   可复核的协议与安全边界
 ├── docs/        开源、隐私、硬件证据与发布规则
-├── licenses/    未来应用源码使用的标准许可证参考文本
+├── licenses/    应用源码使用的标准许可证参考文本
 ├── scripts/     验证、报告、本地审计与白名单导出
 ├── articles/    参与开源和 AIUI 提交流程文章
 └── assets/      本项目原创品牌资产
 ```
 
-四套运动应用不会在这里合并成一个单体。运动算法、页面状态机、权限和硬件验收分别维护；只有经过多个项目验证的稳定基础设施，才考虑进入共享层。
+Run、Bike、Rower 三套运动应用已经集成在这个主仓中，但不会合并成一个单体；Paddle 目前仅保留孵化项目上下文。运动算法、页面状态机、权限和硬件验收分别维护；只有经过多个项目验证的稳定基础设施，才考虑进入共享层。
 
 ## 维护者工具
 
-下面的命令依赖维护者本机相邻的私有应用源码。普通访问者 clone 本仓后不需要执行。
+下面的白名单导出工具用于维护未来新增的相邻私有项目；当前三套已集成应用的普通访问者不需要执行。
 
 仅在配置不存在时创建本地映射：
 
@@ -180,10 +219,10 @@ npm run export:local -- --project aibike
 
 | 当前已经公开 | 下一步方向 |
 | --- | --- |
-| 统一 Registry、四张项目卡与机器可读结果 | 为 Run、Bike、Rower、Paddle 生成经过白名单审计的独立源码快照 |
+| 一个公开主仓内的 Run、Bike、Rower 三套非商业源码快照，以及 Paddle 孵化项目卡 | 继续收紧可复现构建、依赖来源与贡献者权利门；Paddle 源码另行白名单审计 |
 | 42 个登记评测项及自动结构验证 | 补齐绑定设备、固件、Host 与包身份的 L4 真机矩阵 |
 | Common / Sport / L1–L5 评测方法 | 建立可重复的 L5 现场对照、误差与失败报告 |
-| Hub 的 Apache-2.0、贡献、安全、隐私与治理规则 | 为四套应用建立 PolyForm 非商业源码许可、商业书面授权与贡献者权利链 |
+| Hub Apache-2.0 与三个应用目录的 PolyForm 非商业许可边界 | 启用经法律审阅的商业合同与应用贡献者 CLA 流程；Paddle 发布前另建权利链 |
 
 [完整路线图](ROADMAP.md) 描述方向，不是发布日期、平台审核或发布承诺。
 
@@ -204,8 +243,9 @@ npm run export:local -- --project aibike
 - 开始贡献前，请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。
 - 安全漏洞、账号、个人数据或危险设备控制问题，请使用 [Private vulnerability reporting](https://github.com/EasonZhu1997/AIUI-Sports-Agents/security/advisories/new)，不要创建公开 Issue。
 - 公开材料不得包含 key、token、真实 MAC、序列号、轨迹、未脱敏日志或无权再分发的 SDK、固件和素材；详见 [PRIVACY.md](PRIVACY.md)。
-- 当前 Hub 中明确属于本仓库的代码、文档与原创品牌资产采用 [Apache License 2.0](LICENSE)，允许在满足其条件时商用；不能用“商用需授权”追溯限制这些 Apache 版本。
-- 未来 Run、Bike、Rower、Paddle 各自明确标识的应用源码计划采用 [PolyForm Noncommercial 1.0.0](licenses/PolyForm-Noncommercial-1.0.0.md)；商业使用须按 [商业授权流程](COMMERCIAL_LICENSE.md)取得单独书面许可。应用源码当前仍未发布。
+- 当前 Hub 中明确属于根层的代码、文档与原创品牌资产采用 [Apache License 2.0](LICENSE)，允许在满足其条件时商用；不能用“商用需授权”追溯限制这些 Apache 版本。
+- `apps/smartrun`、`apps/aibike`、`apps/aismartrower` 各自明确标识的应用源码采用目录内未经修改的 [PolyForm Noncommercial 1.0.0](licenses/PolyForm-Noncommercial-1.0.0.md)；商业使用须按对应目录与根层的[商业授权流程](COMMERCIAL_LICENSE.md)取得单独书面许可。
+- AISmartPaddle 当前只公开 Apache-2.0 的 Hub 项目卡、结果和评测上下文；其应用源码尚未发布，未来许可不能从当前项目卡推定。
 - 许可范围、历史授权与贡献者权利链的说明见 [LICENSE_POLICY.md](LICENSE_POLICY.md)；真正权利以取得具体版本时附带的许可证和已签书面合同为准。第三方内容保持原许可证，项目名称和 Logo 的使用还受 [TRADEMARKS.md](TRADEMARKS.md) 约束。
 
 <div align="center">

@@ -17,7 +17,7 @@ for (const project of registry.projects) {
   };
   const source = project.sourceDistribution;
   const sourceSummary = source
-    ? `${source.status ?? 'invalid'} · ${source.communityLicense ?? 'invalid'}`
+    ? `${source.status ?? 'invalid'} · ${project.sourcePath ?? 'no public path'} · ${source.communityLicense ?? 'invalid'}`
     : 'invalid';
   console.log(`| ${project.name} | ${project.sport} | ${project.status} | ${project.version} | ${result.evidenceLevel} | ${summarize(result.common)} | ${summarize(result.sportSpecific)} | ${result.openGates.length} | ${sourceSummary} |`);
 }
