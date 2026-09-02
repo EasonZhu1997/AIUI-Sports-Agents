@@ -1,12 +1,22 @@
+<div align="center">
+
+<img src="assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png" alt="AIUI Sports Agents repository overview: Run, Bike, and Rower source share one Hub but remain independent runtimes; Paddle is an incubating project card, and hardware and platform gates still need separate evidence" width="100%">
+
+</div>
+
 # AIUI Sports Agents
 
 AIUI Sports Agents integrates three smart-glasses sports applications in one public repository:
 
-| Application | Sport and protocols | Source |
-| --- | --- | --- |
-| AISmartRun | Running · HRS / RSC / IMU | [`apps/smartrun`](apps/smartrun/) |
-| AIBike | Cycling · HRS / CSC / CPS / FTMS / IMU | [`apps/aibike`](apps/aibike/) |
-| AISmartRower | Indoor rowing · FTMS Rower Data / HRS | [`apps/aismartrower`](apps/aismartrower/) |
+<table>
+  <tr>
+    <td align="center" width="33%"><a href="projects/smartrun.md"><img src="assets/project-icons/smartrun-orange.png" alt="AISmartRun project icon" width="80"></a><br><strong>AISmartRun</strong><br>Running · HRS / RSC / IMU<br><a href="apps/smartrun/">Source</a></td>
+    <td align="center" width="33%"><a href="projects/aibike.md"><img src="assets/project-icons/aibike-orange.png" alt="AIBike project icon" width="80"></a><br><strong>AIBike</strong><br>Cycling · HRS / CSC / CPS / FTMS / IMU<br><a href="apps/aibike/">Source</a></td>
+    <td align="center" width="33%"><a href="projects/aismartrower.md"><img src="assets/project-icons/aismartrower-orange.svg" alt="AISmartRower project icon" width="80"></a><br><strong>AISmartRower</strong><br>Indoor rowing · FTMS Rower Data / HRS<br><a href="apps/aismartrower/">Source</a></td>
+  </tr>
+</table>
+
+<p><a href="projects/aismartpaddle.md"><img src="assets/project-icons/aismartpaddle-orange.png" alt="AISmartPaddle incubating project icon" width="64" align="middle"></a> <strong>AISmartPaddle</strong> is <code>INCUBATING · SOURCE PENDING</code>: only its project card and L2 result context are published.</p>
 
 The applications share one GitHub entry point, benchmark, evidence language, and governance model. They remain separate AIX runtimes with independent sport logic, tests, builds, and hardware gates; this is not one monolithic multi-sport app. AISmartPaddle is also registered as an incubating benchmark project, but its application source is not included.
 

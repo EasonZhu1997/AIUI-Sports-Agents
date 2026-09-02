@@ -1,5 +1,7 @@
 # AIBike
 
+<img src="../assets/project-icons/aibike-orange.png" alt="AIBike 骑行项目图标" width="96">
+
 - **运动**：骑行
 - **当前轨道**：Candidate
 - **当前语义版本**：0.3.80

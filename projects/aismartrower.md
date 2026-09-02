@@ -1,5 +1,7 @@
 # AISmartRower
 
+<img src="../assets/project-icons/aismartrower-orange.svg" alt="AISmartRower 室内划船机项目图标" width="96">
+
 - **运动**：室内划船机
 - **当前轨道**：Labs
 - **当前语义版本**：0.0.1

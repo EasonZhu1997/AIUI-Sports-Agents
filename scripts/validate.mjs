@@ -71,7 +71,13 @@ const requiredPublicFiles = [
   'scripts/source-manifest.mjs',
   'apps/README.md',
   'assets/README.md',
+  'assets/project-icons/README.md',
+  'assets/project-icons/smartrun-orange.png',
+  'assets/project-icons/aibike-orange.png',
+  'assets/project-icons/aismartrower-orange.svg',
+  'assets/project-icons/aismartpaddle-orange.png',
   'assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png',
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
 ];
 const forbiddenExtensions = new Set([
@@ -451,11 +457,28 @@ for (const requiredFragment of [
   'apps/smartrun',
   'apps/aibike',
   'apps/aismartrower',
+  'assets/project-icons/smartrun-orange.png',
+  'assets/project-icons/aibike-orange.png',
+  'assets/project-icons/aismartrower-orange.svg',
+  'assets/project-icons/aismartpaddle-orange.png',
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
 ]) {
   if (!readmeText.includes(requiredFragment)) {
     errors.push(`README.md: homepage must expose ${requiredFragment}`);
+  }
+}
+
+for (const [projectPage, expectedIcon] of Object.entries({
+  'projects/smartrun.md': '../assets/project-icons/smartrun-orange.png',
+  'projects/aibike.md': '../assets/project-icons/aibike-orange.png',
+  'projects/aismartrower.md': '../assets/project-icons/aismartrower-orange.svg',
+  'projects/aismartpaddle.md': '../assets/project-icons/aismartpaddle-orange.png',
+})) {
+  const pageText = publicDataByPath.get(projectPage)?.toString('utf8') ?? '';
+  if (!pageText.includes(expectedIcon)) {
+    errors.push(`${projectPage}: project page must expose its corresponding icon ${expectedIcon}`);
   }
 }
 

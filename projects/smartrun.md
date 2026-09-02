@@ -1,5 +1,7 @@
 # AISmartRun
 
+<img src="../assets/project-icons/smartrun-orange.png" alt="AISmartRun 跑步项目图标" width="96">
+
 - **运动**：跑步
 - **当前轨道**：Candidate
 - **当前语义版本**：0.1.114

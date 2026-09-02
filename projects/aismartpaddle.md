@@ -1,5 +1,9 @@
 # AISmartPaddle
 
+<img src="../assets/project-icons/aismartpaddle-orange.png" alt="AISmartPaddle 皮划艇孵化项目图标" width="96">
+
+> **Incubating · Source pending**：图标只标识项目；应用源码与 AIX 当前没有在 Hub 中发布。
+
 - **运动**：户外皮划艇与室内划船机，两个证据域严格隔离
 - **当前轨道**：Incubating
 - **当前语义版本**：0.3.1

@@ -1,6 +1,6 @@
 <div align="center" id="readme-top">
 
-<img src="assets/brand/hero.svg" alt="AIUI Sports Agents：跑步、骑行与划船机的证据优先运动 Agent" width="100%">
+<img src="assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png" alt="AIUI Sports Agents 同仓独立架构：跑步、骑行和划船机三套源码位于同一 Hub 但分别运行，Paddle 仅为孵化项目卡；四个项目共享评测语言，真机和平台状态仍需独立证据" width="100%">
 
 <p><strong>一个公开主仓，集成跑步、骑行与划船机三套智能眼镜运动 Agent</strong></p>
 
@@ -36,13 +36,34 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
 
 ## 三套 Agent，一个主仓
 
-|  | AISmartRun | AIBike | AISmartRower |
-| --- | --- | --- | --- |
-| 运动 | 跑步 | 骑行 | 室内划船机 |
-| 核心通道 | HRS / RSC / IMU | HRS / CSC / CPS / FTMS / IMU | FTMS Rower Data / HRS |
-| 应用源码 | [`apps/smartrun`](apps/smartrun/) | [`apps/aibike`](apps/aibike/) | [`apps/aismartrower`](apps/aismartrower/) |
-| 项目与结果 | [项目卡](projects/smartrun.md) · [L2 结果](results/smartrun.json) | [项目卡](projects/aibike.md) · [L2 结果](results/aibike.json) | [项目卡](projects/aismartrower.md) · [L2 结果](results/aismartrower.json) |
-| 当前边界 | Garmin/标准 BLE HRS；RSC 同包真机待验 | 多协议骑行源仲裁；真机门仍开放 | 只读遥测；禁止 `0x2AD9` 控制 |
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="projects/smartrun.md"><img src="assets/project-icons/smartrun-orange.png" alt="AISmartRun 跑步项目图标" width="88"></a><br>
+      <strong>AISmartRun</strong><br>跑步
+    </td>
+    <td align="center" width="33%">
+      <a href="projects/aibike.md"><img src="assets/project-icons/aibike-orange.png" alt="AIBike 骑行项目图标" width="88"></a><br>
+      <strong>AIBike</strong><br>骑行
+    </td>
+    <td align="center" width="33%">
+      <a href="projects/aismartrower.md"><img src="assets/project-icons/aismartrower-orange.svg" alt="AISmartRower 室内划船机项目图标" width="88"></a><br>
+      <strong>AISmartRower</strong><br>室内划船机
+    </td>
+  </tr>
+  <tr>
+    <td><code>HRS · RSC · IMU</code><br><a href="apps/smartrun/">应用源码</a> · <a href="projects/smartrun.md">项目卡</a> · <a href="results/smartrun.json">L2 结果</a><br>标准 BLE HRS；RSC 同包真机待验。</td>
+    <td><code>HRS · CSC · CPS · FTMS · IMU</code><br><a href="apps/aibike/">应用源码</a> · <a href="projects/aibike.md">项目卡</a> · <a href="results/aibike.json">L2 结果</a><br>多协议来源仲裁；真机门仍开放。</td>
+    <td><code>FTMS Rower Data · HRS</code><br><a href="apps/aismartrower/">应用源码</a> · <a href="projects/aismartrower.md">项目卡</a> · <a href="results/aismartrower.json">L2 结果</a><br>只读遥测；禁止 <code>0x2AD9</code> 控制。</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center" width="112"><a href="projects/aismartpaddle.md"><img src="assets/project-icons/aismartpaddle-orange.png" alt="AISmartPaddle 皮划艇孵化项目图标" width="80"></a></td>
+    <td><strong>AISmartPaddle · 孵化项目</strong><br><code>INCUBATING · SOURCE PENDING</code><br>当前只公开<a href="projects/aismartpaddle.md">项目卡</a>与 <a href="results/aismartpaddle.json">L2 结果</a>，不提供应用源码或 AIX。图标只标识项目，不表示源码已发布。</td>
+  </tr>
+</table>
 
 三套应用可以分别进入各自目录测试和构建；仓库根目录负责统一导航、评测、许可边界与贡献入口。
 
@@ -253,7 +274,5 @@ npm run export:local -- --project aibike
 <img src="assets/brand/logo.svg" alt="AIUI Sports Agents logo" width="92">
 
 **Evidence before claims. Honest data before impressive demos.**
-
-本项目不暗示 Rokid、AIUI 或设备厂商官方背书。
 
 </div>
