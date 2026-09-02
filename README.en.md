@@ -22,6 +22,23 @@ The applications share one GitHub entry point, benchmark, evidence language, and
 
 ![Blue-ink relationship map: three independent sports agents share one public Hub, Paddle remains source-pending, and hardware validation stays separate from AIUI Studio review](assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png)
 
+## Optional EverMind-oriented boundary (AISmartRun only)
+
+What this repository can verify is an EverMind-oriented client/backend contract, not an EverMind SDK or an accepted production-service integration. AISmartRun's BLE / IMU loop, HUD, and deterministic rule summary do not require a custom backend. `coach_base_url` gates only the coach-backend path; AIUI `LanguageModel` is a separate host-managed capability that may contact a network model provider and must not be described as offline.
+
+```text
+Default immersive page: sensors -> local history -> AIUI host model / rule fallback -> queued summary
+Compatibility home:      backend context -> AIUI host model / rule fallback -> queued summary
+Outside this repository: HTTPS coach backend <-> optional operator connection to EverMind memory
+```
+
+AISmartRun provides `memory-context` and `aiui-record` request contracts, a bounded queue, and fallback behavior for its fixed post-run summary flow. The default immersive page first uses local recent-run memory; a separate compatibility-home path can request remote context before summary generation. Neither path proves that an operator's backend actually uses EverMind. AIBike and AISmartRower have no EverMind runtime dependency. [Raven](https://github.com/EverMind-AI/Raven) is an independent EverMind open-source Agent Harness and is linked only as a related project; it is not a dependency of this repository or its AIX builds.
+
+> [!CAUTION]
+> This is a developer integration contract, not a production privacy-compliance claim. The current public UI has no separate opt-in/off control for the AIUI model or network memory, and no user choice to retain or delete already queued records. Add those controls before enabling a model provider or preconfiguring a backend in an end-user build.
+
+See the [AISmartRun implementation boundary](apps/smartrun/README.md#evermind-oriented-backend-contract), [EverMind](https://evermind.ai), the [EverMind GitHub organization](https://github.com/EverMind-AI), [Raven discussions](https://github.com/EverMind-AI/Raven/discussions), and the [EverMind community entry](https://github.com/EverMind-AI/EverOS/discussions/67). This repository is maintained independently by EasonZhu1997. These links and technical-compatibility statements do not imply an official partnership, certification, or endorsement by EverMind-AI, and they do not grant commercial rights to this project; see [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md).
+
 ## License boundary
 
 The repository root benchmark, governance tools, project cards, and documentation are open source under Apache-2.0. The application source under `apps/smartrun`, `apps/aibike`, and `apps/aismartrower` is source-available under each directory's unmodified PolyForm Noncommercial 1.0.0 license. Commercial use of an application requires a separate written commercial agreement before use. The root Apache license does not override those clearly marked nested licenses.

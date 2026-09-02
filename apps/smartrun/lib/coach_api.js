@@ -6,8 +6,9 @@
 
 import { summarizeSnapshot } from './coach.js';
 
-// 公开源码默认离线。只有用户或开发者显式写入 HTTPS coach_base_url 后，
-// 页面请求包装器才允许访问该地址。仓库不内置生产服务地址或密钥。
+// 自建教练后端默认关闭。只有用户或开发者显式写入 HTTPS coach_base_url 后，
+// 页面请求包装器才允许访问该地址。AIUI LanguageModel 是宿主管理的独立网络链，
+// 不受此 key 控制；仓库不内置教练后端的生产地址或密钥。
 export const DEFAULT_BASE_URL = '';
 export const CHAT_PATH = '/api/coach-svc/coach/chat';
 export const AIUI_RECORD_PATH = '/api/coach-svc/coach/aiui-record';
@@ -160,6 +161,15 @@ export function parseAnonLoginResponse(resp) {
 // 本端点只从后端"检索记忆"(不跑 LLM),把用户历史记忆+画像注入
 // AIUI 官方 LanguageModel prompt。best-effort,取不到不影响主流程。
 export const MEMORY_CONTEXT_PATH = '/api/coach-svc/coach/memory-context';
+const MEMORY_CONTEXT_ITEMS_MAX = 5;
+const MEMORY_SNIPPET_MAX = 80;
+const MEMORY_PROFILE_MAX = 120;
+
+// 记忆内容来自仓库外后端，进入任何 AIUI prompt 前先去换行/方括号并限长，
+// 防止跨行指令、闭合框架或超长上下文直接污染固定跑后总结提示词。
+function sanitizeSnippet(value, max) {
+  return String(value ?? '').replace(/[\r\n\[\]]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+}
 
 /** 构造记忆检索请求(不发送)。 */
 export function buildMemoryContextRequest(opts = {}) {
@@ -183,18 +193,16 @@ export function parseMemoryContext(resp) {
   if (!resp || resp.statusCode !== 200 || !resp.data) return null;
   const d = resp.data;
   return {
-    memories: Array.isArray(d.memories) ? d.memories : [],
-    profile: typeof d.profile === 'string' ? d.profile : '',
+    memories: Array.isArray(d.memories)
+      ? d.memories.filter((item) => typeof item === 'string')
+        .map((item) => sanitizeSnippet(item, MEMORY_SNIPPET_MAX))
+        .filter(Boolean)
+        .slice(0, MEMORY_CONTEXT_ITEMS_MAX)
+      : [],
+    profile: typeof d.profile === 'string'
+      ? sanitizeSnippet(d.profile, MEMORY_PROFILE_MAX)
+      : '',
   };
-}
-
-// 单条记忆注入上限:后端已截断,这里再守一道,防超长记忆吃掉眼镜端小模型的上下文。
-const MEMORY_SNIPPET_MAX = 80;
-
-// 记忆内容来自后端存储,注入 prompt 前消毒:去换行和方括号,
-// 防止跨行/闭合括号的内容越出 [关于我: ...] 框架污染系统约束。
-function sanitizeSnippet(value, max) {
-  return String(value ?? '').replace(/[\r\n\[\]]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
 }
 
 /** 把记忆 + 画像 + 实时快照拼进用户问题,喂给眼镜内置模型(有记忆则个性化,没有也能答)。 */
@@ -202,12 +210,14 @@ export function buildAugmentedQuestion(question, snapshot, memCtx) {
   const q = String(question || '').trim();
   const parts = [];
   if (memCtx && Array.isArray(memCtx.memories) && memCtx.memories.length) {
-    const snippets = memCtx.memories.slice(0, 5)
+    const snippets = memCtx.memories.slice(0, MEMORY_CONTEXT_ITEMS_MAX)
       .map((m) => sanitizeSnippet(m, MEMORY_SNIPPET_MAX))
       .filter((m) => m.length > 0);
     if (snippets.length) parts.push(`[关于我: ${snippets.join('; ')}]`);
   }
-  if (memCtx && memCtx.profile) parts.push(`[画像: ${sanitizeSnippet(memCtx.profile, 120)}]`);
+  if (memCtx && memCtx.profile) {
+    parts.push(`[画像: ${sanitizeSnippet(memCtx.profile, MEMORY_PROFILE_MAX)}]`);
+  }
   const ctx = summarizeSnapshot(snapshot);
   if (ctx && ctx !== '暂无运动数据') parts.push(`[实时: ${ctx}]`);
   return parts.length ? `${parts.join(' ')} ${q}` : q;

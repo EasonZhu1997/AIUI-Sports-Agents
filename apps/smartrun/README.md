@@ -62,13 +62,41 @@ Generated `.aix` packages remain local under `release/` and are ignored by Git.
 This repository does not upload to AIUI Studio, install to glasses, submit for
 review, or publish to a store.
 
-## Offline by default
+## Coach backend disabled by default
 
 The public source contains no production backend URL or shared key. Its request
-wrappers reject non-HTTPS URLs, so network features stay inactive until a
-developer or user explicitly writes an HTTPS `coach_base_url` to app
-storage. Bluetooth running, IMU fallback, HUD timing, and local summaries do
-not require that backend.
+wrappers reject non-HTTPS URLs, so the custom coach-backend paths stay inactive
+until a developer or user explicitly writes an HTTPS `coach_base_url` to app
+storage. AIUI `LanguageModel` is separate from that setting: its prompt uses a
+host-managed, OpenAI-compatible network transport when the host reports the
+capability as available. Bluetooth running, IMU fallback, HUD timing, and the
+deterministic rule-summary fallback do not require either network path.
+
+## EverMind-oriented backend contract
+
+AISmartRun contains an EverMind-oriented client/backend contract for fixed
+post-run summaries; it does not vendor an EverMind or Raven SDK. The default
+immersive page builds summary context from recent local runs, invokes AIUI
+LanguageModel (with a local rule fallback), and queues the resulting fixed
+post-run summary for best-effort upload. A
+separate compatibility-home path can request remote `memory-context` before
+generating that fixed summary. Both coach-backend request paths require an
+explicitly configured HTTPS `coach_base_url`.
+
+The public source includes the request builders, queue, ownership guards, and
+tests. It does not include an EverMind service, coach-backend implementation,
+production endpoint, shared credential, Raven runtime dependency, or evidence
+that a particular operator backend routes these records to EverMind. That
+external routing is a deployment responsibility. A failed network operation
+does not block Bluetooth, IMU, HUD, or local-summary behavior. This contract
+currently applies only to AISmartRun. See [PRIVACY.md](PRIVACY.md) before
+operating a configured backend.
+
+The current public UI does not provide a separate AIUI-model or network-memory
+consent/off control, or a retain/delete choice for already queued records.
+Treat this as a developer integration point, not a production privacy-ready
+deployment. Add those user-visible controls before enabling a model provider
+or preconfiguring a backend for end users.
 
 ## Source map
 

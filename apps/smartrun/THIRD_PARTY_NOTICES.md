@@ -26,3 +26,11 @@ is an original project asset. No Garmin, Rokid, or AIUI logo is included.
 Garmin, AIUI, and Rokid are referenced descriptively. Their trademarks remain
 with their respective owners. No vendor partnership or certification is
 claimed.
+
+## EverMind references
+
+EverMind is referenced to describe an optional long-term-memory connection
+through an operator-configured HTTPS backend. Raven is linked as a separate
+EverMind open-source project for related reading. No EverMind or Raven code,
+service, logo, or SDK is vendored as part of this application, and neither name
+is a statement of partnership, certification, or commercial authorization.
