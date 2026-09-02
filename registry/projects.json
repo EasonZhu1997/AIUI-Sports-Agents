@@ -62,7 +62,7 @@
       "id": "aismartpaddle",
       "name": "AISmartPaddle",
       "sport": "kayaking-and-indoor-rowing",
-      "status": "candidate",
+      "status": "incubating",
       "version": "0.3.1",
       "profile": "projects/aismartpaddle.md",
       "result": "results/aismartpaddle.json",

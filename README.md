@@ -43,7 +43,7 @@ AIUI Sports Agents 不把跑步、骑行、皮划艇和划船机硬塞进一个�
 | [AISmartRun](projects/smartrun.md) | 跑步 · HRS / RSC / IMU | `candidate` | `0.1.114` | `L2` | [Common 2P / 4~ · Sport 0P / 4~](results/smartrun.json) | 3 |
 | [AIBike](projects/aibike.md) | 骑行 · HRS / CSC / CPS / FTMS / IMU | `candidate` | `0.3.80` | `L2` | [Common 2P / 4~ · Sport 1P / 3~](results/aibike.json) | 3 |
 | [AISmartRower](projects/aismartrower.md) | 划船机 · FTMS Rower Data / HRS | `labs` | `0.0.1` | `L2` | [Common 2P / 4~ · Sport 0P / 2~ / 2B](results/aismartrower.json) | 4 |
-| [AISmartPaddle](projects/aismartpaddle.md) | 皮划艇 + 划船机 · GPS / HRS / IMU / FTMS | `candidate` | `0.3.1` | `L2` | [Common 2P / 4~ · Sport 1P / 3~ / 2B](results/aismartpaddle.json) | 5 |
+| [AISmartPaddle](projects/aismartpaddle.md) | 皮划艇 + 划船机 · GPS / HRS / IMU / FTMS | `incubating` | `0.3.1` | `L2` | [Common 2P / 4~ · Sport 1P / 3~ / 2B](results/aismartpaddle.json) | 5 |
 
 `P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。四个项目的 `sourceRepository` 当前均为空，`sourceDistribution.status` 均为 `pending`；计划许可证不等于已经发布或授予应用源码权利，普通访问者现在不能从本仓直接构建四个运动应用。
 
@@ -68,7 +68,7 @@ npm run report
 AISmartRun    candidate  0.1.114  L2
 AIBike        candidate  0.3.80   L2
 AISmartRower  labs       0.0.1    L2
-AISmartPaddle candidate  0.3.1    L2
+AISmartPaddle incubating 0.3.1    L2
 ```
 
 <p align="right"><a href="#readme-top">返回顶部 ↑</a></p>

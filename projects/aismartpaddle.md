@@ -1,7 +1,7 @@
 # AISmartPaddle
 
 - **运动**：户外皮划艇与室内划船机，两个证据域严格隔离
-- **当前轨道**：Candidate
+- **当前轨道**：Incubating
 - **当前语义版本**：0.3.1
 - **AIUI 兼容探针**：0.16.1
 - **公开证据等级**：L2（本地测试、Doctor、Preview、AIX Reader/Inspector）
