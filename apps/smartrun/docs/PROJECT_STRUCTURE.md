@@ -7,7 +7,7 @@ AISmartRun 是面向 Rokid Glasses 的跑步 AIX。它以眼镜 IMU 作为可独
 ## 源码地图
 
 ```text
-AIUI_AISmartRun_AIX_Public/
+apps/smartrun/
 ├── AGENTS.md                 # AIX 身份、权限和运行边界
 ├── app.js
 ├── app.json                  # 两条页面路由；不申请定位权限
