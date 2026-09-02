@@ -57,6 +57,25 @@
         "commercialAuthorization": "written-agreement-required",
         "licensor": null
       }
+    },
+    {
+      "id": "aismartpaddle",
+      "name": "AISmartPaddle",
+      "sport": "kayaking-and-indoor-rowing",
+      "status": "incubating",
+      "version": "0.3.1",
+      "profile": "projects/aismartpaddle.md",
+      "result": "results/aismartpaddle.json",
+      "protocols": ["GPS", "HRS", "IMU", "FTMS Rower Data"],
+      "sourceRepository": null,
+      "approvalRecord": null,
+      "sourceDistribution": {
+        "status": "pending",
+        "model": "source-available-dual-license",
+        "communityLicense": "PolyForm-Noncommercial-1.0.0",
+        "commercialAuthorization": "written-agreement-required",
+        "licensor": null
+      }
     }
   ]
 }

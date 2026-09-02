@@ -1,5 +1,6 @@
 {
   "smartrun": "../../AIUI_AISmartRun",
   "aibike": "../../AIUI_AIBike",
-  "aismartrower": "../../AIUI_AISmartRower"
+  "aismartrower": "../../AIUI_AISmartRower",
+  "aismartpaddle": "../../AIUI_AISmartPaddle"
 }
