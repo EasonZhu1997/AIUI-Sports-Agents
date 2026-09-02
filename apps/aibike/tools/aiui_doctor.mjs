@@ -128,9 +128,10 @@ const checks = [
       && lock.packages?.['']?.license === pkg.license
       && agents.includes('- **Author**: Yixiao Zhu'),
     `${pkg.name || 'missing'} ${pkg.version || 'missing'}`),
-  check('PolyForm and required copyright notice',
+  check('PolyForm, required copyright notice and commercial licensor',
     read('LICENSE').includes('# PolyForm Noncommercial License 1.0.0')
-      && read('COPYRIGHT').includes('Required Notice: Copyright (c) 2026 Yixiao Zhu.')),
+      && read('COPYRIGHT').split(/\r?\n/).includes('Required Notice: Copyright Yixiao Zhu')
+      && read('COMMERCIAL_LICENSE.md').split(/\r?\n/).includes('Commercial Licensor: Yixiao Zhu')),
   check('minimal public permissions',
     JSON.stringify(app.permissions) === JSON.stringify([])
       && JSON.stringify(manifestPermissions(agents)) === JSON.stringify(REQUIRED_PERMISSIONS),
