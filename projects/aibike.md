@@ -23,5 +23,4 @@
 ## 开放门
 
 - 真机 CSC/CPS/FTMS、录屏和生命周期仍需结果卡；
-- 公开应用目录继续排除 release、release-archive、tmp、现场日志与未确认授权源素材；
 - AIX 本地验证不等于 Studio 上传、安装或真机发布。

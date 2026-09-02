@@ -10,15 +10,15 @@
       "profile": "projects/smartrun.md",
       "result": "results/smartrun.json",
       "protocols": ["HRS", "RSC", "IMU"],
-      "sourceRepository": null,
-      "sourcePath": null,
-      "approvalRecord": null,
+      "sourceRepository": "https://github.com/EasonZhu1997/AIUI-Sports-Agents",
+      "sourcePath": "apps/smartrun",
+      "approvalRecord": "registry/source-approvals/smartrun.json",
       "sourceDistribution": {
-        "status": "pending",
+        "status": "published",
         "model": "source-available-dual-license",
         "communityLicense": "PolyForm-Noncommercial-1.0.0",
         "commercialAuthorization": "written-agreement-required",
-        "licensor": null
+        "licensor": "Yixiao Zhu"
       }
     },
     {
@@ -30,15 +30,15 @@
       "profile": "projects/aibike.md",
       "result": "results/aibike.json",
       "protocols": ["HRS", "CSC", "CPS", "FTMS", "IMU"],
-      "sourceRepository": null,
-      "sourcePath": null,
-      "approvalRecord": null,
+      "sourceRepository": "https://github.com/EasonZhu1997/AIUI-Sports-Agents",
+      "sourcePath": "apps/aibike",
+      "approvalRecord": "registry/source-approvals/aibike.json",
       "sourceDistribution": {
-        "status": "pending",
+        "status": "published",
         "model": "source-available-dual-license",
         "communityLicense": "PolyForm-Noncommercial-1.0.0",
         "commercialAuthorization": "written-agreement-required",
-        "licensor": null
+        "licensor": "Yixiao Zhu"
       }
     },
     {
@@ -50,15 +50,15 @@
       "profile": "projects/aismartrower.md",
       "result": "results/aismartrower.json",
       "protocols": ["FTMS Rower Data", "HRS"],
-      "sourceRepository": null,
-      "sourcePath": null,
-      "approvalRecord": null,
+      "sourceRepository": "https://github.com/EasonZhu1997/AIUI-Sports-Agents",
+      "sourcePath": "apps/aismartrower",
+      "approvalRecord": "registry/source-approvals/aismartrower.json",
       "sourceDistribution": {
-        "status": "pending",
+        "status": "published",
         "model": "source-available-dual-license",
         "communityLicense": "PolyForm-Noncommercial-1.0.0",
         "commercialAuthorization": "written-agreement-required",
-        "licensor": null
+        "licensor": "Yixiao Zhu"
       }
     },
     {
@@ -71,6 +71,7 @@
       "result": "results/aismartpaddle.json",
       "protocols": ["GPS", "HRS", "IMU", "FTMS Rower Data"],
       "sourceRepository": null,
+      "sourcePath": null,
       "approvalRecord": null,
       "sourceDistribution": {
         "status": "pending",

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "ready",
+  "projectId": "aibike",
+  "version": "0.3.80",
+  "licensor": "Yixiao Zhu",
+  "contributorRightsStatus": "verified",
+  "contributorRightsBasis": "sole-author",
+  "thirdPartyRightsStatus": "verified",
+  "reviewedSourceRevision": "00a85488dc079c74392349d4b4117b2774ee2646",
+  "contentManifestSha256": "6e187e31630f46037d2a5595f3418eef09f46dd72a8da96c571b794b8f0f88b4",
+  "reviewedBy": "Yixiao Zhu",
+  "reviewedAt": "2026-09-02"
+}

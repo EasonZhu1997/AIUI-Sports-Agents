@@ -24,10 +24,8 @@ HUD 展示活动时长、500m 配速、桨频、距离、功率和当前心率�
 
 ## 开放门
 
-- Rokid 真机 FTMS 广告、Feature、Notify、首包和持续流；
-- FTMS 已连接时的第二条 HRS GATT；
-- 双链路 15 分钟交错、单路断开、hide/show 与幂等清理；
+- 完成 Rokid 真机 FTMS 广告、Feature、Notify、首包、持续流、第二条 HRS GATT，以及双链路 15 分钟、单路断开、hide/show 与幂等清理；
 - 已观测的 KS/WMX 双字节阻力形状已有窄范围兼容与回归向量；仍需在同一设备上重跑持续流，并补不同活动状态与固件证据；
-- 原始 captures、固件 ZIP 和 release 不进入公开应用源码目录。
+- 保持 Fitness Machine Control Point `0x2AD9` 关闭；若未来确需控制，必须另立安全契约并完成物理效果验收。
 
 公共 GATT 轮廓见 [FTMS Rower Profile](../contracts/ftms-rower-profile.md)。
