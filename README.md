@@ -140,7 +140,7 @@ GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创
 ## 证据优先工作流
 
 <p align="center">
-  <img src="articles/images/open-source-guide/06-release-gates.svg" alt="源码、构建、预览、Craft Host、真机与平台审核是六道独立证据门" width="92%">
+  <img src="articles/images/open-source-guide/06-release-gates-blue-ink.png" alt="蓝墨纸绘：源码、构建、预览、Craft Host、真机与平台审核是六道独立证据门" width="92%">
 </p>
 
 一次成功只能证明它真正覆盖的那一门：
@@ -271,7 +271,7 @@ npm run export:local -- --project aibike
 
 <div align="center">
 
-<img src="assets/brand/logo-blue-ink.png" alt="AIUI Sports Agents 蓝墨纸绘 Logo：智能眼镜、运动数据波形与跑步、骑行、室内划船机三个节点" width="92">
+<img src="assets/brand/logo-retro-wearable-mascot.png" alt="AIUI Sports Agents 复古运动科技形象：佩戴智能眼镜与运动手表的站立运动者" width="112">
 
 **Evidence before claims. Honest data before impressive demos.**
 
