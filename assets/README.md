@@ -2,7 +2,7 @@
 
 The following project-produced documentation assets are published under the repository root Apache-2.0 license:
 
-- `brand/hero.svg` and `brand/logo.svg`;
+- `brand/hero.svg` and `brand/logo-blue-ink.png`;
 - `architecture/aiui-sports-agents-agent-hub-blue-ink.png`;
 - `architecture/aiui-sports-agents-home-overview-handdrawn-v3.png` and
   `architecture/aiui-sports-agents-technical-architecture-handdrawn.png`.

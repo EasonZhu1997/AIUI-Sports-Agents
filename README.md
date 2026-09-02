@@ -271,7 +271,7 @@ npm run export:local -- --project aibike
 
 <div align="center">
 
-<img src="assets/brand/logo.svg" alt="AIUI Sports Agents logo" width="92">
+<img src="assets/brand/logo-blue-ink.png" alt="AIUI Sports Agents 蓝墨纸绘 Logo：智能眼镜、运动数据波形与跑步、骑行、室内划船机三个节点" width="92">
 
 **Evidence before claims. Honest data before impressive demos.**
 
