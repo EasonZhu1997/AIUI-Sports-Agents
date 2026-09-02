@@ -1,5 +1,7 @@
 # AIBike commercial licensing
 
+Commercial Licensor: Yixiao Zhu
+
 AIBike is publicly available under the PolyForm Noncommercial License 1.0.0.
 That public license does not grant commercial-use rights.
 
