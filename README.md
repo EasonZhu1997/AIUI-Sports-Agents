@@ -85,6 +85,14 @@ AISmartRun 的运动采集、HUD 与规则总结保持独立；配置 HTTPS 教�
 
 [实现边界](apps/smartrun/README.md#evermind-oriented-backend-contract) · [EverMind 官网](https://evermind.ai) · [GitHub](https://github.com/EverMind-AI) · [Raven](https://github.com/EverMind-AI/Raven) · [技术讨论](https://github.com/EverMind-AI/Raven/discussions)
 
+## 多运动与 Agent 陪练总览
+
+<p align="center">
+  <img src="assets/marketing/aiui-sports-agents-evermind-rokid-overview.png" alt="AIUI Sports Agents 多运动总览：跑步、骑行、室内划船机与皮划艇，支持 Agent 陪练、EverMind 长期记忆衔接、Garmin 等 BLE 数据源，并运行于 Rokid AI Glasses" width="100%">
+</p>
+
+跑步、骑行、室内划船机与皮划艇是当前公开项目覆盖的运动方向；Agent 陪练把实时指标、规则总结与可选长期记忆衔接到同一体验中，更多运动正在支持中。
+
 ## 项目矩阵
 
 公开状态快照更新于 **2026-09-02**。

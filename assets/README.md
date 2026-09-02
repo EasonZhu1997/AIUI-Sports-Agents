@@ -6,8 +6,11 @@ The following project-produced documentation assets are published under the repo
 - `architecture/aiui-sports-agents-agent-hub-blue-ink.png`;
 - `architecture/aiui-sports-agents-home-overview-handdrawn-v3.png` and
   `architecture/aiui-sports-agents-technical-architecture-handdrawn.png`.
+- `marketing/aiui-sports-agents-evermind-rokid-overview.png`.
 
 The blue-ink diagrams explain the relationship among Run, Bike, Rower, Paddle, the shared Hub, licensing scopes, and the separate evidence gates. They are not screenshots, benchmark evidence, device certification, or a statement of platform approval. Product and protocol names inside them are descriptive compatibility references; third-party marks remain with their owners.
+
+The marketing overview presents the current multi-sport product direction, Agent coaching, and the documented integration relationships in one visual.
 
 Only files explicitly tracked in Git are part of this public asset set. Drafts and unrelated local artwork in the same workspace are not published by this statement.
 
