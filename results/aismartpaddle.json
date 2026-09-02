@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "projectId": "aismartpaddle",
+  "version": "0.3.1",
+  "sourceRevision": "9c31dfa0802440640ccdaf48fb1c121e0c18f017",
+  "lastUpdated": "2026-09-02",
+  "evidenceLevel": "L2",
+  "common": [
+    {
+      "id": "closed-loop",
+      "status": "partial",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "户外与室内完整流程已有本地自动化和 Preview；Rokid、真实水面及物理划船机闭环未完成。"
+    },
+    {
+      "id": "data-truth",
+      "status": "pass",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md", "benchmark/paddling.md", "benchmark/indoor-rowing.md"],
+      "notes": "在 L1/L2 范围内，GPS、FTMS、HRS 与实验 IMU 来源隔离，缺失、静止、实测和过期分开表达。"
+    },
+    {
+      "id": "agent-decision",
+      "status": "partial",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "本地确定性训练与总结存在；Hermes 现场链路及水上提示有效性仍需真机证据。"
+    },
+    {
+      "id": "lifecycle",
+      "status": "partial",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "自动化覆盖代次、迟到回调、hide/show、断流、重连和幂等清理；目标 Host 与真实无线链路待验证。"
+    },
+    {
+      "id": "offline-privacy",
+      "status": "pass",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md", "PRIVACY.md"],
+      "notes": "核心运动和本地总结离线可用；公开上下文不含坐标、轨迹、设备标识、凭据或原始传感器数据。"
+    },
+    {
+      "id": "reproducibility",
+      "status": "partial",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "本地 canonical source commit、AIX 文件名/UUID、source/payload 树和包 SHA 已绑定；源码仓仍未公开。"
+    }
+  ],
+  "sportSpecific": [
+    {
+      "id": "kayak-gps-distance",
+      "status": "partial",
+      "evidence": ["benchmark/paddling.md"],
+      "notes": "本地确定性路径、静止、折返、转向、断流和覆盖门通过；真实水上与 Garmin FIT 对照未完成。"
+    },
+    {
+      "id": "experimental-stroke-estimate",
+      "status": "blocked",
+      "evidence": ["benchmark/paddling.md"],
+      "notes": "实验桨频默认关闭；开启后的水上转头、岸边空划与人工视频倍率校准尚无现场证据。"
+    },
+    {
+      "id": "ftms-rower-data",
+      "status": "partial",
+      "evidence": ["benchmark/indoor-rowing.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "Feature、flags、分片、范围、首包、silent/stale 与重连有本地回归；物理标准 FTMS 划船机未验证。"
+    },
+    {
+      "id": "physical-rower-liveness",
+      "status": "blocked",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "需要 Rokid Glasses 与物理划船机达到首个合法数据集、持续流、断流和同对象重连。"
+    },
+    {
+      "id": "dual-mode-isolation",
+      "status": "pass",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "在 L1/L2 范围内，户外 GPS/IMU/HRS 与室内 FTMS 的会话、指标、总结和历史 schema 互不混用。"
+    },
+    {
+      "id": "summary-integrity",
+      "status": "partial",
+      "evidence": ["projects/aismartpaddle.md", "results/evidence/aismartpaddle-v0.3.1-l2.md"],
+      "notes": "本地聚合、证据三态、写后读回与损坏基线拒绝有自动化；长时真机与现场参考对照待补。"
+    }
+  ],
+  "openGates": [
+    "本地 canonical Git history 已建立但未公开；仍需完成双许可与第三方权利审批",
+    "完成 Craft 与 Rokid Glasses AIUI 0.16.1 的 480x352 入口、焦点、按键和生命周期验证",
+    "完成物理标准 FTMS 划船机的 Feature、flags、首包、静默、stale、断流、重连与总结",
+    "完成真实水上 GPS、Garmin FIT 与实验桨频人工视频对照",
+    "完成 Hermes Paddle 身份域、天气和聚合训练回执的真机隐私链路"
+  ]
+}

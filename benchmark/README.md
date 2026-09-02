@@ -25,6 +25,7 @@ AIUI Sports Agents 的评测不是一张把不同运动强行排序的总榜，�
 - [跑步](running.md)
 - [骑行](cycling.md)
 - [划船机](indoor-rowing.md)
+- [户外皮划艇](paddling.md)
 
 ## 证据等级
 
