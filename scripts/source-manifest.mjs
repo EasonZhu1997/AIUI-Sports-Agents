@@ -25,9 +25,11 @@ const entries = indexOutput.split('\0').filter(Boolean).map((record) => {
   const tab = record.indexOf('\t');
   const [mode, oid, stage] = record.slice(0, tab).split(' ');
   return { mode, oid, stage, relative: record.slice(tab + 1) };
-}).filter((entry) => entry.relative !== approvalPath).sort((left, right) => (
-  left.relative.localeCompare(right.relative)
-));
+}).filter((entry) => entry.relative !== approvalPath).sort((left, right) => {
+  if (left.relative < right.relative) return -1;
+  if (left.relative > right.relative) return 1;
+  return 0;
+});
 
 if (entries.length === 0) {
   console.error(`${sourcePath}: no tracked source files found in the Git index`);
