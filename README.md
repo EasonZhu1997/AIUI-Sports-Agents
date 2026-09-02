@@ -58,9 +58,9 @@ AIUI Sports Agents 把三套源码集成在一个主仓，但不把跑步、骑�
 
 | 项目 | 运动与协议 | Track | 版本 | 公开证据 | 结果摘要 | Open gates |
 | --- | --- | --- | ---: | --- | --- | ---: |
-| [AISmartRun](projects/smartrun.md) | 跑步 · HRS / RSC / IMU | `candidate` | `0.1.114` | `L2` | [Common 2P / 4~ · Sport 0P / 4~](results/smartrun.json) | 3 |
-| [AIBike](projects/aibike.md) | 骑行 · HRS / CSC / CPS / FTMS / IMU | `candidate` | `0.3.80` | `L2` | [Common 2P / 4~ · Sport 1P / 3~](results/aibike.json) | 3 |
-| [AISmartRower](projects/aismartrower.md) | 划船机 · FTMS Rower Data / HRS | `labs` | `0.0.1` | `L2` | [Common 2P / 4~ · Sport 0P / 2~ / 2B](results/aismartrower.json) | 4 |
+| [AISmartRun](projects/smartrun.md) | 跑步 · HRS / RSC / IMU | `candidate` | `0.1.114` | `L2` | [Common 2P / 4~ · Sport 0P / 4~](results/smartrun.json) | 2 |
+| [AIBike](projects/aibike.md) | 骑行 · HRS / CSC / CPS / FTMS / IMU | `candidate` | `0.3.80` | `L2` | [Common 2P / 4~ · Sport 1P / 3~](results/aibike.json) | 2 |
+| [AISmartRower](projects/aismartrower.md) | 划船机 · FTMS Rower Data / HRS | `labs` | `0.0.1` | `L2` | [Common 2P / 4~ · Sport 0P / 2~ / 2B](results/aismartrower.json) | 3 |
 
 `P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。三套应用源码已集成在 `apps/`，但公开证据仍停留在 `L2`；源码可构建不等于 Craft、无线电、真机或平台门已经通过。
 

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "projectId": "aismartrower",
   "version": "0.0.1",
-  "sourceRevision": "local-unpublished-2026-08-31",
-  "lastUpdated": "2026-09-01",
+  "sourceRevision": "64eff09867c77d609fc22a509b4a2e4ff3071330",
+  "lastUpdated": "2026-09-02",
   "evidenceLevel": "L2",
   "common": [
     {
@@ -40,7 +40,7 @@
       "id": "reproducibility",
       "status": "partial",
       "evidence": ["projects/aismartrower.md"],
-      "notes": "已有本地测试和 AIX 工具；公开 canonical revision 尚未建立。"
+      "notes": "公开 monorepo 基线已由审批记录和确定性内容 manifest 绑定；Rokid 双 GATT 与持续流仍待真机验证。"
     }
   ],
   "sportSpecific": [
@@ -70,7 +70,6 @@
     }
   ],
   "openGates": [
-    "建立首个完成双许可审计的 source-available canonical commit",
     "在同一划船机上复测具名兼容的持续流，并补齐不同活动状态与固件向量",
     "完成 Rokid FTMS 首包、持续流、第二条 HRS GATT 与双清理",
     "保持 Control Point 关闭，除非另行完成加密、indication 和物理效果验收"
