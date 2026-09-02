@@ -47,7 +47,7 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
       <strong>AIBike</strong><br>骑行
     </td>
     <td align="center" width="33%">
-      <a href="projects/aismartrower.md"><img src="assets/project-icons/aismartrower-orange.svg" alt="AISmartRower 室内划船机项目图标" width="88"></a><br>
+      <a href="projects/aismartrower.md"><img src="assets/project-icons/aismartrower-orange.png" alt="AISmartRower 室内划船机项目图标" width="88"></a><br>
       <strong>AISmartRower</strong><br>室内划船机
     </td>
   </tr>

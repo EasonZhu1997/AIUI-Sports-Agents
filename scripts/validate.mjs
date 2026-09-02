@@ -74,7 +74,7 @@ const requiredPublicFiles = [
   'assets/project-icons/README.md',
   'assets/project-icons/smartrun-orange.png',
   'assets/project-icons/aibike-orange.png',
-  'assets/project-icons/aismartrower-orange.svg',
+  'assets/project-icons/aismartrower-orange.png',
   'assets/project-icons/aismartpaddle-orange.png',
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
@@ -459,7 +459,7 @@ for (const requiredFragment of [
   'apps/aismartrower',
   'assets/project-icons/smartrun-orange.png',
   'assets/project-icons/aibike-orange.png',
-  'assets/project-icons/aismartrower-orange.svg',
+  'assets/project-icons/aismartrower-orange.png',
   'assets/project-icons/aismartpaddle-orange.png',
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
@@ -473,7 +473,7 @@ for (const requiredFragment of [
 for (const [projectPage, expectedIcon] of Object.entries({
   'projects/smartrun.md': '../assets/project-icons/smartrun-orange.png',
   'projects/aibike.md': '../assets/project-icons/aibike-orange.png',
-  'projects/aismartrower.md': '../assets/project-icons/aismartrower-orange.svg',
+  'projects/aismartrower.md': '../assets/project-icons/aismartrower-orange.png',
   'projects/aismartpaddle.md': '../assets/project-icons/aismartpaddle-orange.png',
 })) {
   const pageText = publicDataByPath.get(projectPage)?.toString('utf8') ?? '';

@@ -12,7 +12,7 @@ AIUI Sports Agents integrates three smart-glasses sports applications in one pub
   <tr>
     <td align="center" width="33%"><a href="projects/smartrun.md"><img src="assets/project-icons/smartrun-orange.png" alt="AISmartRun project icon" width="80"></a><br><strong>AISmartRun</strong><br>Running · HRS / RSC / IMU<br><a href="apps/smartrun/">Source</a></td>
     <td align="center" width="33%"><a href="projects/aibike.md"><img src="assets/project-icons/aibike-orange.png" alt="AIBike project icon" width="80"></a><br><strong>AIBike</strong><br>Cycling · HRS / CSC / CPS / FTMS / IMU<br><a href="apps/aibike/">Source</a></td>
-    <td align="center" width="33%"><a href="projects/aismartrower.md"><img src="assets/project-icons/aismartrower-orange.svg" alt="AISmartRower project icon" width="80"></a><br><strong>AISmartRower</strong><br>Indoor rowing · FTMS Rower Data / HRS<br><a href="apps/aismartrower/">Source</a></td>
+    <td align="center" width="33%"><a href="projects/aismartrower.md"><img src="assets/project-icons/aismartrower-orange.png" alt="AISmartRower indoor rowing project icon" width="80"></a><br><strong>AISmartRower</strong><br>Indoor rowing · FTMS Rower Data / HRS<br><a href="apps/aismartrower/">Source</a></td>
   </tr>
 </table>
 

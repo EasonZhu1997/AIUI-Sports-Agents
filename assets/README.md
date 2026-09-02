@@ -11,10 +11,8 @@ The blue-ink diagrams explain the relationship among Run, Bike, Rower, Paddle, t
 
 Only files explicitly tracked in Git are part of this public asset set. Drafts and unrelated local artwork in the same workspace are not published by this statement.
 
-The project owner confirmed that the orange Run, Bike, and Paddle artwork under
-`project-icons/` is owner-created and authorized for direct use in this Hub.
-The orange indoor Rower SVG was drawn specifically for this Hub because no
-matching orange Rower artwork existed; Rower and Paddle deliberately use
-different equipment shapes.
+The project owner confirmed that the orange Run, Bike, Rower, and Paddle artwork
+under `project-icons/` is owner-created and authorized for direct use in this
+Hub. Rower and Paddle deliberately use different equipment shapes.
 Their use is governed by `TRADEMARKS.md`, and the detailed provenance and
 non-evidence boundary is recorded in `project-icons/README.md`.
