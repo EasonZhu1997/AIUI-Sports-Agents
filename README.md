@@ -53,7 +53,7 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
   </tr>
   <tr>
     <td><code>HRS · RSC · IMU</code><br><a href="apps/smartrun/">应用源码</a> · <a href="projects/smartrun.md">项目卡</a> · <a href="results/smartrun.json">L2 结果</a><br>标准 BLE HRS；RSC 同包真机待验。</td>
-    <td><code>HRS · CSC · CPS · FTMS · IMU</code><br><a href="apps/aibike/">应用源码</a> · <a href="projects/aibike.md">项目卡</a> · <a href="results/aibike.json">L2 结果</a><br>多协议来源仲裁；真机门仍开放。</td>
+    <td><code>HRS · CSC · CPS · FTMS · IMU</code><br><a href="apps/aibike/">应用源码</a> · <a href="projects/aibike.md">项目卡</a> · <a href="results/aibike.json">L2 结果</a><br>多协议来源仲裁；真机验证尚未完成。</td>
     <td><code>FTMS Rower Data · HRS</code><br><a href="apps/aismartrower/">应用源码</a> · <a href="projects/aismartrower.md">项目卡</a> · <a href="results/aismartrower.json">L2 结果</a><br>只读遥测；禁止 <code>0x2AD9</code> 控制。</td>
   </tr>
 </table>
@@ -84,7 +84,7 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
 | [AISmartRower](projects/aismartrower.md) | 划船机 · FTMS Rower Data / HRS | `labs` | `0.0.1` | `L2` | [Common 2P / 4~ · Sport 0P / 2~ / 2B](results/aismartrower.json) | 3 |
 | [AISmartPaddle](projects/aismartpaddle.md) | 皮划艇 + 划船机 · GPS / HRS / IMU / FTMS | `incubating` | `0.3.1` | `L2` | [Common 2P / 4~ · Sport 1P / 3~ / 2B](results/aismartpaddle.json) | 5 |
 
-`P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。Run、Bike、Rower 三套应用源码已集成在 `apps/`，Paddle 源码仍为 `pending`；四张项目卡的公开证据都停留在 `L2`，源码可构建不等于 Craft、无线电、真机或平台门已经通过。
+`P` = pass，`~` = partial，`B` = blocked。所有结果只在表中证据等级内成立。Run、Bike、Rower 三套应用源码已集成在 `apps/`，Paddle 源码仍为 `pending`；四张项目卡的公开证据都停留在 `L2`。源码可构建不等于 Craft、无线电或真机验证已经完成，也不等于平台审核已经通过。
 
 > AISmartRower 当前仅允许读取标准 FTMS Rower Data 与可选 HRS；Fitness Machine Control Point `0x2AD9` 保持关闭，不控制器械。
 
@@ -140,10 +140,10 @@ GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创
 ## 证据优先工作流
 
 <p align="center">
-  <img src="articles/images/open-source-guide/06-release-gates-blue-ink.png" alt="蓝墨纸绘：源码、构建、预览、Craft Host、真机与平台审核是六道独立证据门" width="92%">
+  <img src="articles/images/open-source-guide/06-release-stages-blue-ink-v2.png" alt="蓝墨纸绘：源码、构建、预览、Craft Host、真机与平台审核是六个独立证据阶段" width="92%">
 </p>
 
-一次成功只能证明它真正覆盖的那一门：
+一次成功只能证明它真正覆盖的那个阶段：
 
 - GitHub 源码可读，不等于 AIX 可生成；
 - AIX 与 Reader / Preview 可检查，不等于 Craft 或 Rokid 真机通过；
@@ -158,7 +158,7 @@ GitHub 问卷只用于开源协作，不会自动生成 AIX、上传眼镜、创
   <img src="assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png" alt="Run、Bike、Rower 三套 AIX 与共享评测、证据等级和 AIUI 发布边界的蓝墨技术架构图" width="72%">
 </p>
 
-图中三条运行链彼此独立：Run 处理 HRS/RSC 与 IMU 回退，Bike 处理 HRS/CSC/CPS/FTMS 与来源仲裁，Rower 只读取 FTMS Rower Data 与可选 HRS。共享层提供评测语言、证据门、隐私与许可规则，不代替各应用的运行时。
+图中三条运行链彼此独立：Run 处理 HRS/RSC 与 IMU 回退，Bike 处理 HRS/CSC/CPS/FTMS 与来源仲裁，Rower 只读取 FTMS Rower Data 与可选 HRS。共享层提供评测语言、证据阶段定义、隐私与许可规则，不代替各应用的运行时。
 
 ## 评测体系
 

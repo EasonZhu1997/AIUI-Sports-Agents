@@ -386,7 +386,7 @@ SHA-256：
 - AIUI Studio 的真实流程是填写“创建智能体”表单，然后从项目卡执行“提审”；
 - 如果你拿到的是某次活动、飞书或第三方问卷，必须按那个具体链接和当时字段填写，不能把它当成通用 Studio 提交流程。
 
-![蓝墨纸绘：源码、AIX、真机与平台的独立门](images/open-source-guide/06-release-gates-blue-ink.png)
+![蓝墨纸绘：源码、AIX、真机与平台的独立阶段](images/open-source-guide/06-release-stages-blue-ink-v2.png)
 
 ### 第 1 步：打开 AIUI Studio 项目空间
 
