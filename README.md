@@ -82,8 +82,6 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
 AISmartRun 的运动采集、HUD 与规则总结保持独立；配置 HTTPS 教练后端后，可通过 `memory-context` 读取长期记忆上下文，并通过 `aiui-record` 归档跑后总结。是否将该后端连接到 EverMind 由部署方决定，仓库不内置生产地址或密钥。
 
 - **AISmartRun**：提供客户端契约、有限队列与失败降级。
-- **AIBike / AISmartRower**：没有 EverMind 运行时依赖。
-- **Raven**：相关阅读，不参与本仓库或三套 AIX 的构建。
 
 [实现边界](apps/smartrun/README.md#evermind-oriented-backend-contract) · [EverMind 官网](https://evermind.ai) · [GitHub](https://github.com/EverMind-AI) · [Raven](https://github.com/EverMind-AI/Raven) · [技术讨论](https://github.com/EverMind-AI/Raven/discussions)
 

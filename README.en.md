@@ -31,8 +31,6 @@ The applications share one GitHub entry point, benchmark, evidence language, and
 AISmartRun keeps sensor collection, its HUD, and deterministic summaries independent. When an HTTPS coach backend is configured, it can request long-term context through `memory-context` and archive post-run summaries through `aiui-record`. Routing that backend to EverMind remains a deployment choice; this repository ships no production endpoint or key.
 
 - **AISmartRun:** client contracts, a bounded queue, and failure fallback.
-- **AIBike / AISmartRower:** no EverMind runtime dependency.
-- **Raven:** related reading only; it does not participate in this repository or its AIX builds.
 
 [Implementation boundary](apps/smartrun/README.md#evermind-oriented-backend-contract) · [EverMind](https://evermind.ai) · [GitHub](https://github.com/EverMind-AI) · [Raven](https://github.com/EverMind-AI/Raven) · [Discussions](https://github.com/EverMind-AI/Raven/discussions)
 
