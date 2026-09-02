@@ -464,7 +464,8 @@ for (const requiredFragment of [
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
-  '## AISmartRun 的可选 EverMind 对接边界',
+  '## AISmartRun 的 EverMind 长期记忆衔接',
+  'https://avatars.githubusercontent.com/u/229275294?v=4',
   'https://github.com/EverMind-AI',
   'apps/smartrun/README.md#evermind-oriented-backend-contract',
 ]) {

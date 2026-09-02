@@ -12,8 +12,9 @@ Mapping:
 - `aibike-orange.png`: owner-created road cyclist, SHA-256
   `24b5a74afa74b76b4d7db1184fa88c2b54fa49973edeeab4fa8ad95910c34a62`;
 - `aismartrower-orange.png`: owner-created indoor rowing machine with flywheel,
-  rail, and seated rowing figure, SHA-256
-  `daece02cd722f12157cdff953b910252d7584dd8feaff0a002f8decdc62934b4`;
+  rail, and seated rowing figure; square-corner orange background with the
+  athlete on the left and flywheel on the right; SHA-256
+  `1f42ef81779fcac8386e5a317ff628cc094ce4a5995d911f9dff288150c037da`;
 - `aismartpaddle-orange.png`: owner-created kayak and double-bladed paddle,
   SHA-256 `38951ad25decc782f607ce79b10678477e133ac578bea185333880cbadc90d6e`.
 

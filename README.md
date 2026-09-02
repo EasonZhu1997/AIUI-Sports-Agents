@@ -13,7 +13,7 @@
   <a href="README.en.md"><img src="https://img.shields.io/badge/README-English-1677ff?style=flat-square" alt="English README"></a>
 </p>
 
-[三套 Agent](#三套-agent一个主仓) · [AISmartRun 记忆衔接](#aismartrun-的可选-evermind-对接边界) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
+[三套 Agent](#三套-agent一个主仓) · [AISmartRun 记忆衔接](#aismartrun-的-evermind-长期记忆衔接) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
 
 </div>
 
@@ -52,7 +52,7 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
     </td>
   </tr>
   <tr>
-    <td><code>HRS · RSC · IMU</code><br><a href="apps/smartrun/">应用源码</a> · <a href="projects/smartrun.md">项目卡</a> · <a href="results/smartrun.json">L2 结果</a><br>标准 BLE HRS；可选 EverMind-oriented 后端契约；RSC 同包真机待验。</td>
+    <td><code>HRS · RSC · IMU</code><br><a href="apps/smartrun/">应用源码</a> · <a href="projects/smartrun.md">项目卡</a> · <a href="results/smartrun.json">L2 结果</a><br>标准 BLE HRS；面向 EverMind 的可选记忆后端契约；RSC 同包真机待验。</td>
     <td><code>HRS · CSC · CPS · FTMS · IMU</code><br><a href="apps/aibike/">应用源码</a> · <a href="projects/aibike.md">项目卡</a> · <a href="results/aibike.json">L2 结果</a><br>多协议来源仲裁；真机验证尚未完成。</td>
     <td><code>FTMS Rower Data · HRS</code><br><a href="apps/aismartrower/">应用源码</a> · <a href="projects/aismartrower.md">项目卡</a> · <a href="results/aismartrower.json">L2 结果</a><br>只读遥测；禁止 <code>0x2AD9</code> 控制。</td>
   </tr>
@@ -73,26 +73,19 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
 
 <p align="center"><em>三套独立 Agent，共用一个公开入口；蓝墨关系图用于解释项目结构、许可与证据边界，不作为设备或真机证据。</em></p>
 
-## AISmartRun 的可选 EverMind 对接边界
+## AISmartRun 的 EverMind 长期记忆衔接
 
-本仓库可以核验的是一组“面向 EverMind 长期记忆用途”的客户端后端契约，不是 EverMind SDK，也不是已经验收的生产服务集成。AISmartRun 的 BLE / IMU、HUD 与确定性规则总结不依赖自建后端。`coach_base_url` 只控制教练后端链；AIUI `LanguageModel` 是另一条由宿主管理、可能访问网络模型提供方的链，不能被描述为离线能力。
+<p align="center">
+  <a href="https://evermind.ai"><img src="https://avatars.githubusercontent.com/u/229275294?v=4" alt="EverMind" width="76"></a>
+</p>
 
-```text
-默认沉浸页：传感器状态 → 本地历史 → AIUI 宿主模型 / 规则兜底 → 待传总结
-兼容首页：  教练后端上下文 → AIUI 宿主模型 / 规则兜底 → 待传总结
-仓库外：    HTTPS 教练后端 ⇄（部署方可选择接入）EverMind 长期记忆
-```
+AISmartRun 的运动采集、HUD 与规则总结保持独立；配置 HTTPS 教练后端后，可通过 `memory-context` 读取长期记忆上下文，并通过 `aiui-record` 归档跑后总结。是否将该后端连接到 EverMind 由部署方决定，仓库不内置生产地址或密钥。
 
-| 范围 | 当前关系 | 公开边界 |
-| --- | --- | --- |
-| **AISmartRun** | 提供固定跑后总结所需的 `memory-context` / `aiui-record` 客户端契约、队列与降级逻辑 | 默认沉浸页先用本地最近记录；兼容首页可在总结前请求远端上下文；两条路径都不证明后端实际使用 EverMind |
-| **AIBike / AISmartRower** | 保持独立的本地运动运行时 | 当前没有 EverMind 运行时依赖 |
-| **Raven** | EverMind 的独立开源 Agent Harness，可作为相关项目阅读 | 不是本仓库依赖，也不参与三套 AIX 的构建、运行或发布 |
+- **AISmartRun**：提供客户端契约、有限队列与失败降级。
+- **AIBike / AISmartRower**：没有 EverMind 运行时依赖。
+- **Raven**：相关阅读，不参与本仓库或三套 AIX 的构建。
 
-> [!CAUTION]
-> 这是一条可供开发者继续实现的集成契约，不是可直接用于生产的隐私合规声明。当前公开 UI 没有 AIUI 模型或网络记忆的独立同意/关闭开关，也没有“保留或删除既有待传记录”的用户选择；面向终端用户启用模型提供方或预配置后端前，必须先补齐这些能力。
-
-进一步查看 [AISmartRun 实现边界](apps/smartrun/README.md#evermind-oriented-backend-contract)。EverMind 的公开入口包括 [官网](https://evermind.ai)、[GitHub](https://github.com/EverMind-AI)、[Raven](https://github.com/EverMind-AI/Raven)、[技术讨论](https://github.com/EverMind-AI/Raven/discussions)与[社区入口](https://github.com/EverMind-AI/EverOS/discussions/67)。本仓库由 EasonZhu1997 独立维护；这些链接与技术衔接说明不代表本仓库与 EverMind-AI 存在官方合作关系，也不代表 EverMind-AI 对本仓库的认证或背书。上述入口不授予本项目的商业使用权，商业授权仍以 [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md) 为准。
+[实现边界](apps/smartrun/README.md#evermind-oriented-backend-contract) · [EverMind 官网](https://evermind.ai) · [GitHub](https://github.com/EverMind-AI) · [Raven](https://github.com/EverMind-AI/Raven) · [技术讨论](https://github.com/EverMind-AI/Raven/discussions)
 
 ## 项目矩阵
 
