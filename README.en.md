@@ -20,7 +20,7 @@ AIUI Sports Agents integrates three smart-glasses sports applications in one pub
 
 The applications share one GitHub entry point, benchmark, evidence language, and governance model. They remain separate AIX runtimes with independent sport logic, tests, builds, and hardware gates; this is not one monolithic multi-sport app. AISmartPaddle is also registered as an incubating benchmark project, but its application source is not included.
 
-![Three independent sports agents connected through one public Hub](assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png)
+![Blue-ink relationship map: three independent sports agents share one public Hub, Paddle remains source-pending, and hardware validation stays separate from AIUI Studio review](assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png)
 
 ## License boundary
 

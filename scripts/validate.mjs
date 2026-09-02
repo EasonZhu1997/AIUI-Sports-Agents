@@ -76,7 +76,7 @@ const requiredPublicFiles = [
   'assets/project-icons/aibike-orange.png',
   'assets/project-icons/aismartrower-orange.svg',
   'assets/project-icons/aismartpaddle-orange.png',
-  'assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
 ];
@@ -462,7 +462,7 @@ for (const requiredFragment of [
   'assets/project-icons/aismartrower-orange.svg',
   'assets/project-icons/aismartpaddle-orange.png',
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
-  'assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
 ]) {
   if (!readmeText.includes(requiredFragment)) {

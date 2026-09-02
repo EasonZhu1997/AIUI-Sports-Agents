@@ -68,10 +68,10 @@ AIUI Sports Agents 把 Run、Bike、Rower 三套源码集成在一个主仓，�
 三套应用可以分别进入各自目录测试和构建；仓库根目录负责统一导航、评测、许可边界与贡献入口。
 
 <p align="center">
-  <img src="assets/dialogue-comics/aiui-sports-agents-friendly-future-comic.png" alt="跑步、骑行和划船机三套 Agent 汇入同一个公开 Hub 的暖橙色四格图" width="78%">
+  <img src="assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png" alt="蓝墨纸绘关系图：跑步、骑行与室内划船机三套独立 Agent 同仓集成并共享公开 Hub，Paddle 仅登记项目卡，真机验证链与 AIUI Studio 提审链彼此独立" width="92%">
 </p>
 
-<p align="center"><em>三套独立 Agent，共用一个公开入口；这张关系图用于解释项目结构，不作为设备或真机证据。</em></p>
+<p align="center"><em>三套独立 Agent，共用一个公开入口；蓝墨关系图用于解释项目结构、许可与证据边界，不作为设备或真机证据。</em></p>
 
 ## 项目矩阵
 
