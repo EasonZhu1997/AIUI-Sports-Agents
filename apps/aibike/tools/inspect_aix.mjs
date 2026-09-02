@@ -610,7 +610,7 @@ if (!sportsIdentity.includes("SPORTS_HERMES_BASE_URL = ''")
 const license = readText(reader, 'LICENSE');
 const copyright = readText(reader, 'COPYRIGHT');
 if (!license.includes('# PolyForm Noncommercial License 1.0.0')
-    || !copyright.includes('Required Notice: Copyright (c) 2026 Yixiao Zhu.')) {
+    || !copyright.split(/\r?\n/).includes('Required Notice: Copyright Yixiao Zhu')) {
   fail('AIX must carry the PolyForm terms and Yixiao Zhu required notice');
 }
 
