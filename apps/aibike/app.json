@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ride_hud/index"
+  ],
+  "permissions": [],
+  "window": {
+    "navigationBarTitleText": "AIBike",
+    "viewport": {
+      "width": "device-width"
+    }
+  }
+}

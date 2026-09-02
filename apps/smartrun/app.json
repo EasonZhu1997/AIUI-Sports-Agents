@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/run_hud/index",
+    "pages/index/index"
+  ],
+  "engine": ">=0.15.0, <0.17.0",
+  "permissions": [],
+  "window": {
+    "navigationBarTitleText": "跑步教练",
+    "viewport": {
+      "width": "device-width"
+    }
+  }
+}

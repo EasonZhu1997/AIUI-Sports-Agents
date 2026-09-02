@@ -20,7 +20,7 @@
 
 ## 这个开源项目具体怎么玩
 
-先分清许可层：当前评测、治理和公共工具 Hub 采用 Apache-2.0；Run、Bike、Rower 的完整应用源码尚未发布，未来独立源码仓计划采用 PolyForm Noncommercial 1.0.0 与单独书面商业许可，属于 source-available。公开可查看不等于应用源码已经发布，也不等于获得商业使用权。
+先分清许可层：当前根层评测、治理和公共工具 Hub 采用 Apache-2.0；Run、Bike、Rower 的完整应用源码已位于 `apps/`，分别采用 PolyForm Noncommercial 1.0.0 与单独书面商业许可，属于 source-available。公开可查看不等于获得商业使用权。
 
 你可以用四种方式参与。
 

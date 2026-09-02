@@ -1,0 +1,42 @@
+name: BLE compatibility evidence
+description: Share a redacted HRS/RSC reproduction or device result.
+title: "[BLE] "
+labels: [bluetooth, evidence]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include tokens, full device identifiers, or private health/activity records.
+  - type: input
+    id: revision
+    attributes:
+      label: Source revision
+      placeholder: Commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Evidence environment
+      options:
+        - Rokid glasses
+        - Desktop BLE probe
+        - Simulator or unit test
+    validations:
+      required: true
+  - type: dropdown
+    id: channel
+    attributes:
+      label: Bluetooth channel
+      options:
+        - HRS 0x180D / 0x2A37
+        - RSC 0x1814 / 0x2A53
+        - HRS and RSC
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Redacted result and reproduction
+      description: State first valid packet, freshness, fallback, and open real-device gates.
+    validations:
+      required: true

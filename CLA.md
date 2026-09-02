@@ -1,12 +1,12 @@
-# 未来双许可应用源码贡献者许可协议（CLA）草案
+# 双许可应用源码贡献者许可协议（CLA）草案
 
 > **状态：草案，未启用，不得签署或依赖。**本草案必须先由适用法域的知识产权律师审阅，并补齐项目接收方法律主体、适用法律、签署权限、隐私告知、记录保存和正式接受流程。维护者发布明确的启用版本与生效日期之前，提交 PR、勾选复选框、评论“同意”或引用本文均不构成接受本 CLA。
 
 ## 1. 严格适用范围
 
-本草案只计划用于未来独立发布、采用“PolyForm Noncommercial 1.0.0 + 单独商业许可”双许可模式的 AISmartRun、AIBike、AISmartRower 等应用源码仓库。
+本草案只计划用于采用“PolyForm Noncommercial 1.0.0 + 单独商业许可”双许可模式的 `apps/smartrun`、`apps/aibike`、`apps/aismartrower` 等应用源码目录。
 
-本草案不适用于当前 `AIUI-Sports-Agents` 开放源代码评测与治理 Hub，也不改变当前 Hub 的 [Apache License 2.0](./LICENSE) 或 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。在本 CLA 正式启用之前，不应依据本草案接收未来双许可应用源码的外部贡献。
+本草案不适用于 `AIUI-Sports-Agents` 根层开放源代码评测与治理 Hub，也不改变根层 Hub 的 [Apache License 2.0](./LICENSE) 或 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。在本 CLA 正式启用之前，不应依据本草案接收 `apps/` 双许可应用源码的外部贡献。
 
 ## 2. 启用前必须确定的当事人
 
@@ -70,14 +70,14 @@ GitHub 用户名只是身份线索，不能替代真实姓名或实体名称、�
 3. 区分个人贡献与代表公司的贡献，并验证实体签署权限；
 4. 提供隐私告知、身份核验、授权证明和接受记录的保存期限；
 5. 建立可审计的签名或 CLA 服务，保存文本版本、身份、时间戳和覆盖仓库；
-6. 在目标应用仓库的贡献指南和 PR 检查中明确启用日期与适用范围；
+6. 在目标应用目录的贡献指南和 PR 检查中明确启用日期与适用范围；
 7. 对启用前贡献单独完成权利追溯，不能把新 CLA 自动套用到历史提交。
 
 完成上述步骤后，只有正式流程记录的接受才有效。若贡献者无权接受或不同意最终 CLA，不应合并其贡献。
 
 ## 9. 术语说明
 
-本草案中的“source-available”表示源码可以查看，但使用受到非商业等限制；它不等于符合 [Open Source Initiative 定义](https://opensource.org/osd)的“open source”。当前 Hub 的 Apache-2.0 与未来应用源码的双许可边界见 [`LICENSE_POLICY.md`](./LICENSE_POLICY.md)。
+本草案中的“source-available”表示源码可以查看，但使用受到非商业等限制；它不等于符合 [Open Source Initiative 定义](https://opensource.org/osd)的“open source”。根层 Hub 的 Apache-2.0 与 `apps/` 应用源码的双许可边界见 [`LICENSE_POLICY.md`](./LICENSE_POLICY.md)。
 
 ## 官方参考
 
