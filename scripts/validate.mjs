@@ -37,6 +37,7 @@ const requiredCommon = new Set([
 ]);
 const requiredPublicFiles = [
   'README.md',
+  'README.zh-CN.md',
   'README.en.md',
   'LICENSE',
   'LICENSE_POLICY.md',
@@ -466,13 +467,28 @@ for (const requiredFragment of [
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
   'assets/marketing/aiui-sports-agents-future-ecosystem.png',
-  '## AISmartRun 的 EverMind 长期记忆衔接',
+  '## EverMind long-term memory bridge for AISmartRun',
+  'README.zh-CN.md',
   'https://avatars.githubusercontent.com/u/229275294?v=4',
   'https://github.com/EverMind-AI',
   'apps/smartrun/README.md#evermind-oriented-backend-contract',
 ]) {
   if (!readmeText.includes(requiredFragment)) {
     errors.push(`README.md: homepage must expose ${requiredFragment}`);
+  }
+}
+
+const chineseReadmeText = publicDataByPath.get('README.zh-CN.md')?.toString('utf8') ?? '';
+for (const requiredFragment of [
+  'README.md',
+  '## AISmartRun 的 EverMind 长期记忆衔接',
+  'assets/marketing/aiui-sports-agents-future-ecosystem.png',
+  'apps/smartrun',
+  'apps/aibike',
+  'apps/aismartrower',
+]) {
+  if (!chineseReadmeText.includes(requiredFragment)) {
+    errors.push(`README.zh-CN.md: Chinese README must expose ${requiredFragment}`);
   }
 }
 

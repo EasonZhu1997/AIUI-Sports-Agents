@@ -228,6 +228,7 @@ function checkHubSurfaces(files) {
 
   const authoritativeSurfaces = [
     'README.md',
+    'README.zh-CN.md',
     'README.en.md',
     'CONTRIBUTING.md',
     'GOVERNANCE.md',
@@ -412,6 +413,7 @@ const requiredPaths = [
   ...requiredPolicyFiles,
   'package.json',
   'README.md',
+  'README.zh-CN.md',
   'README.en.md',
   'CONTRIBUTING.md',
   'GOVERNANCE.md',
