@@ -13,7 +13,7 @@
   <a href="README.en.md"><img src="https://img.shields.io/badge/README-English-1677ff?style=flat-square" alt="English README"></a>
 </p>
 
-[三套 Agent](#三套-agent一个主仓) · [AISmartRun 记忆衔接](#aismartrun-的-evermind-长期记忆衔接) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
+[三套 Agent](#三套-agent一个主仓) · [AISmartRun 记忆衔接](#aismartrun-的-evermind-长期记忆衔接) · [未来生态](#未来运动生态展望) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
 
 </div>
 
@@ -92,6 +92,14 @@ AISmartRun 的运动采集、HUD 与规则总结保持独立；配置 HTTPS 教�
 </p>
 
 跑步、骑行、室内划船机与皮划艇是当前公开项目覆盖的运动方向；Agent 陪练把实时指标、规则总结与可选长期记忆衔接到同一体验中，更多运动正在支持中。
+
+## 未来运动生态展望
+
+<p align="center">
+  <img src="assets/marketing/aiui-sports-agents-future-ecosystem.png" alt="AIUI Sports Agents 未来运动生态概念图：规划连接更多运动设备，并探索攀岩、越野跑、CityWalk、登山、徒步与 GPX 路线能力" width="100%">
+</p>
+
+下一阶段将继续扩展专业设备接入、户外运动场景与 GPX 路线能力；具体支持以对应版本和实测结果为准。
 
 ## 项目矩阵
 

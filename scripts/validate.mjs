@@ -79,6 +79,7 @@ const requiredPublicFiles = [
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
+  'assets/marketing/aiui-sports-agents-future-ecosystem.png',
 ];
 const forbiddenExtensions = new Set([
   '.aix', '.apk', '.aab', '.pem', '.key', '.jks', '.keystore', '.p12', '.pfx', '.db', '.docx', '.jsonl', '.pdf', '.zip',
@@ -464,6 +465,7 @@ for (const requiredFragment of [
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
+  'assets/marketing/aiui-sports-agents-future-ecosystem.png',
   '## AISmartRun 的 EverMind 长期记忆衔接',
   'https://avatars.githubusercontent.com/u/229275294?v=4',
   'https://github.com/EverMind-AI',

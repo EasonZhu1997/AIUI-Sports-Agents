@@ -34,6 +34,22 @@ AISmartRun keeps sensor collection, its HUD, and deterministic summaries indepen
 
 [Implementation boundary](apps/smartrun/README.md#evermind-oriented-backend-contract) · [EverMind](https://evermind.ai) · [GitHub](https://github.com/EverMind-AI) · [Raven](https://github.com/EverMind-AI/Raven) · [Discussions](https://github.com/EverMind-AI/Raven/discussions)
 
+## Multi-sport and Agent coaching overview
+
+<p align="center">
+  <img src="assets/marketing/aiui-sports-agents-evermind-rokid-overview-en.png" alt="AIUI Sports Agents overview for running, cycling, indoor rowing, and kayaking, with Agent coaching, optional EverMind long-term memory, Garmin and other BLE data sources, and Rokid AI Glasses" width="100%">
+</p>
+
+Running, cycling, indoor rowing, and kayaking are the current public project directions. Agent coaching connects live metrics, deterministic summaries, and optional long-term memory in one experience, with more sports coming soon.
+
+## Future Sports Ecosystem
+
+<p align="center">
+  <img src="assets/marketing/aiui-sports-agents-future-ecosystem.png" alt="AIUI Sports Agents future ecosystem concept covering additional sports devices, outdoor activities, and planned GPX route features" width="100%">
+</p>
+
+The next stage explores more professional-device connections, outdoor sports, and GPX route capabilities; support remains subject to version-specific implementation and validation.
+
 ## License boundary
 
 The repository root benchmark, governance tools, project cards, and documentation are open source under Apache-2.0. The application source under `apps/smartrun`, `apps/aibike`, and `apps/aismartrower` is source-available under each directory's unmodified PolyForm Noncommercial 1.0.0 license. Commercial use of an application requires a separate written commercial agreement before use. The root Apache license does not override those clearly marked nested licenses.
