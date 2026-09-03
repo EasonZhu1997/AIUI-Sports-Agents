@@ -2,7 +2,7 @@
 
 <p><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
 
-<img src="assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png" alt="AIUI Sports Agents repository architecture: independent Run, Bike, and Rower source trees share one Hub while remaining separate runtimes; Paddle is an incubating project card, and hardware and platform status require independent evidence" width="100%">
+<img src="assets/architecture/aiui-sports-agents-home-overview-handdrawn-en-v1.png" alt="AIUI Sports Agents repository architecture: independent Run, Bike, and Rower source trees share one Hub while remaining separate runtimes; Paddle is an incubating project card, and hardware and platform status require independent evidence" width="100%">
 
 <p><strong>One public Hub integrating three smart-glasses sports Agents for running, cycling, and indoor rowing</strong></p>
 
@@ -15,7 +15,7 @@
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/README-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1677ff?style=flat-square" alt="简体中文 README"></a>
 </p>
 
-[Three Agents](#three-agents-one-hub) · [AISmartRun memory bridge](#evermind-long-term-memory-bridge-for-aismartrun) · [Future ecosystem](#future-sports-ecosystem) · [Project matrix](#project-matrix) · [Architecture](#technical-architecture) · [Quick start](#quick-start) · [Contributing](#how-to-participate) · [Benchmarks](#benchmark-system) · [Licensing](LICENSE_POLICY.md)
+[Three Agents](#three-agents-one-hub) · [AISmartRun memory bridge](#evermind-long-term-memory-bridge-for-aismartrun) · [Future ecosystem](#future-sports-ecosystem) · [Outreach plan](#21-day-running-outreach-plan) · [Project matrix](#project-matrix) · [Architecture](#technical-architecture) · [Quick start](#quick-start) · [Contributing](#how-to-participate) · [Benchmarks](#benchmark-system) · [Licensing](LICENSE_POLICY.md)
 
 </div>
 
@@ -70,7 +70,7 @@ Shared methods can be reused and common metrics can be compared across projects.
 Each of the three applications can be tested and built from its own directory. The repository root provides shared navigation, benchmarks, licensing boundaries, and contribution entry points.
 
 <p align="center">
-  <img src="assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png" alt="Blue-ink relationship map: three independent Agents for running, cycling, and indoor rowing share one public Hub; Paddle is registered only as a project card, while hardware validation and AIUI Studio submission remain separate evidence chains" width="92%">
+  <img src="assets/architecture/aiui-sports-agents-agent-hub-blue-ink-en-v1.png" alt="Blue-ink relationship map: three independent Agents for running, cycling, and indoor rowing share one public Hub; Paddle is registered only as a project card, while hardware validation and AIUI Studio submission remain separate evidence chains" width="92%">
 </p>
 
 <p align="center"><em>Three independent Agents, one public entry point. This blue-ink relationship map explains the project structure, licensing, and evidence boundaries; it is not device or hardware evidence.</em></p>
@@ -98,10 +98,18 @@ Running, cycling, indoor rowing, and kayaking are the sports directions currentl
 ## Future Sports Ecosystem
 
 <p align="center">
-  <img src="assets/marketing/aiui-sports-agents-future-ecosystem.png" alt="AIUI Sports Agents future sports ecosystem concept: plans to connect more sports devices and explore climbing, trail running, CityWalk travel, mountaineering, hiking, and GPX route capabilities" width="100%">
+  <img src="assets/marketing/aiui-sports-agents-future-ecosystem-en-v1.png" alt="AIUI Sports Agents future sports ecosystem concept: plans to connect more sports devices and explore climbing, trail running, CityWalk travel, mountaineering, hiking, and GPX route capabilities" width="100%">
 </p>
 
 The next stage will continue to explore professional-device integrations, outdoor sports scenarios, and GPX route capabilities. Actual support is subject to the relevant version and test results.
+
+## 21-Day Running Outreach Plan
+
+<p align="center">
+  <img src="assets/marketing/aiui-smartrun-21day-market-plan-en-v1.png" alt="AISmartRun 21-day running outreach plan for target users, three weekly stages, proposed partner models, a growth loop, and measurable outcomes" width="100%">
+</p>
+
+The first outreach cycle focuses on one running scenario: help target users connect, complete a first run, train consistently, and share results over 21 days. The partnerships shown are proposed collaboration models.
 
 ## Project matrix
 
@@ -170,7 +178,7 @@ The GitHub survey is only for open-source collaboration. It does not automatical
 ## Evidence-first workflow
 
 <p align="center">
-  <img src="articles/images/open-source-guide/06-release-stages-blue-ink-v2.png" alt="Blue-ink diagram: source, build, preview, Craft/Host, hardware, and platform review are six independent evidence stages" width="92%">
+  <img src="articles/images/open-source-guide/06-release-stages-blue-ink-en-v1.png" alt="Blue-ink diagram: source, build, preview, Craft/Host, hardware, and platform review are six independent evidence stages" width="92%">
 </p>
 
 A success proves only the stage it actually covers:
@@ -185,7 +193,7 @@ Every result should retain failures, skipped checks, unavailable data, and open 
 ## Technical architecture
 
 <p align="center">
-  <img src="assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png" alt="Blue-ink technical architecture of three Run, Bike, and Rower AIX applications with shared benchmarks, evidence levels, and AIUI release boundaries" width="72%">
+  <img src="assets/architecture/aiui-sports-agents-technical-architecture-handdrawn-en-v1.png" alt="Blue-ink technical architecture of three Run, Bike, and Rower AIX applications with shared benchmarks, evidence levels, and AIUI release boundaries" width="72%">
 </p>
 
 The three runtime paths in the diagram remain independent: Run handles HRS/RSC with IMU fallback, Bike handles HRS/CSC/CPS/FTMS with source arbitration, and Rower only reads FTMS Rower Data and optional HRS. The shared layer defines benchmark language, evidence stages, privacy, and licensing rules; it does not replace an application's runtime.

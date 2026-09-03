@@ -15,7 +15,7 @@
   <a href="README.md"><img src="https://img.shields.io/badge/README-English-1677ff?style=flat-square" alt="English README"></a>
 </p>
 
-[三套 Agent](#三套-agent一个主仓) · [AISmartRun 记忆衔接](#aismartrun-的-evermind-长期记忆衔接) · [未来生态](#未来运动生态展望) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
+[三套 Agent](#三套-agent一个主仓) · [AISmartRun 记忆衔接](#aismartrun-的-evermind-长期记忆衔接) · [未来生态](#未来运动生态展望) · [市场计划](#21-天跑步触达计划) · [项目矩阵](#项目矩阵) · [技术架构](#技术架构) · [快速开始](#快速开始) · [如何参与](#如何参与) · [评测体系](#评测体系) · [许可边界](LICENSE_POLICY.md)
 
 </div>
 
@@ -102,6 +102,14 @@ AISmartRun 的运动采集、HUD 与规则总结保持独立；配置 HTTPS 教�
 </p>
 
 下一阶段将继续扩展专业设备接入、户外运动场景与 GPX 路线能力；具体支持以对应版本和实测结果为准。
+
+## 21 天跑步触达计划
+
+<p align="center">
+  <img src="assets/marketing/aiui-smartrun-21day-market-plan-v3.png" alt="AISmartRun 21 天跑步触达计划：目标用户、三周训练节奏、四类拟合作方式、增长闭环与核心指标" width="100%">
+</p>
+
+首轮触达先聚焦跑步场景，用 21 天完成连接、首跑、持续训练与分享；图中的合作方式均为拟合作方向。
 
 ## 项目矩阵
 

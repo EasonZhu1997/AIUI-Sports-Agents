@@ -78,9 +78,19 @@ const requiredPublicFiles = [
   'assets/project-icons/aismartrower-orange.png',
   'assets/project-icons/aismartpaddle-orange.png',
   'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink-en-v1.png',
   'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-en-v1.png',
   'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn-en-v1.png',
+  'assets/marketing/aiui-sports-agents-evermind-rokid-overview.png',
+  'assets/marketing/aiui-sports-agents-evermind-rokid-overview-en.png',
   'assets/marketing/aiui-sports-agents-future-ecosystem.png',
+  'assets/marketing/aiui-sports-agents-future-ecosystem-en-v1.png',
+  'assets/marketing/aiui-smartrun-21day-market-plan-v3.png',
+  'assets/marketing/aiui-smartrun-21day-market-plan-en-v1.png',
+  'articles/images/open-source-guide/06-release-stages-blue-ink-v2.png',
+  'articles/images/open-source-guide/06-release-stages-blue-ink-en-v1.png',
 ];
 const forbiddenExtensions = new Set([
   '.aix', '.apk', '.aab', '.pem', '.key', '.jks', '.keystore', '.p12', '.pfx', '.db', '.docx', '.jsonl', '.pdf', '.zip',
@@ -463,11 +473,15 @@ for (const requiredFragment of [
   'assets/project-icons/aibike-orange.png',
   'assets/project-icons/aismartrower-orange.png',
   'assets/project-icons/aismartpaddle-orange.png',
-  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
-  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
-  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
-  'assets/marketing/aiui-sports-agents-future-ecosystem.png',
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-en-v1.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink-en-v1.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn-en-v1.png',
+  'assets/marketing/aiui-sports-agents-evermind-rokid-overview-en.png',
+  'assets/marketing/aiui-sports-agents-future-ecosystem-en-v1.png',
+  'assets/marketing/aiui-smartrun-21day-market-plan-en-v1.png',
+  'articles/images/open-source-guide/06-release-stages-blue-ink-en-v1.png',
   '## EverMind long-term memory bridge for AISmartRun',
+  '## 21-Day Running Outreach Plan',
   'README.zh-CN.md',
   'https://avatars.githubusercontent.com/u/229275294?v=4',
   'https://github.com/EverMind-AI',
@@ -478,17 +492,52 @@ for (const requiredFragment of [
   }
 }
 
+for (const chineseOnlyImage of [
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
+  'assets/marketing/aiui-sports-agents-evermind-rokid-overview.png',
+  'assets/marketing/aiui-sports-agents-future-ecosystem.png',
+  'assets/marketing/aiui-smartrun-21day-market-plan-v3.png',
+  'articles/images/open-source-guide/06-release-stages-blue-ink-v2.png',
+]) {
+  if (readmeText.includes(chineseOnlyImage)) {
+    errors.push(`README.md: English homepage must not embed Chinese artwork ${chineseOnlyImage}`);
+  }
+}
+
 const chineseReadmeText = publicDataByPath.get('README.zh-CN.md')?.toString('utf8') ?? '';
 for (const requiredFragment of [
   'README.md',
   '## AISmartRun 的 EverMind 长期记忆衔接',
+  '## 21 天跑步触达计划',
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-v3.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn.png',
+  'assets/marketing/aiui-sports-agents-evermind-rokid-overview.png',
   'assets/marketing/aiui-sports-agents-future-ecosystem.png',
+  'assets/marketing/aiui-smartrun-21day-market-plan-v3.png',
+  'articles/images/open-source-guide/06-release-stages-blue-ink-v2.png',
   'apps/smartrun',
   'apps/aibike',
   'apps/aismartrower',
 ]) {
   if (!chineseReadmeText.includes(requiredFragment)) {
     errors.push(`README.zh-CN.md: Chinese README must expose ${requiredFragment}`);
+  }
+}
+
+for (const englishOnlyImage of [
+  'assets/architecture/aiui-sports-agents-home-overview-handdrawn-en-v1.png',
+  'assets/architecture/aiui-sports-agents-agent-hub-blue-ink-en-v1.png',
+  'assets/architecture/aiui-sports-agents-technical-architecture-handdrawn-en-v1.png',
+  'assets/marketing/aiui-sports-agents-evermind-rokid-overview-en.png',
+  'assets/marketing/aiui-sports-agents-future-ecosystem-en-v1.png',
+  'assets/marketing/aiui-smartrun-21day-market-plan-en-v1.png',
+  'articles/images/open-source-guide/06-release-stages-blue-ink-en-v1.png',
+]) {
+  if (chineseReadmeText.includes(englishOnlyImage)) {
+    errors.push(`README.zh-CN.md: Chinese homepage must not embed English artwork ${englishOnlyImage}`);
   }
 }
 
