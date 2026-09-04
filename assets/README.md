@@ -12,7 +12,7 @@ The following project-produced documentation assets are published under the repo
 - `marketing/aiui-sports-agents-evermind-rokid-overview.png` and
   `marketing/aiui-sports-agents-evermind-rokid-overview-en.png`.
 - `marketing/aiui-sports-agents-future-ecosystem.png` and
-  `marketing/aiui-sports-agents-future-ecosystem-en-v1.png`.
+  `marketing/aiui-sports-agents-future-ecosystem-en-v2.png`.
 - `marketing/aiui-smartrun-21day-market-plan-v3.png` and
   `marketing/aiui-smartrun-21day-market-plan-en-v1.png`.
 

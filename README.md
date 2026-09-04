@@ -98,7 +98,7 @@ Running, cycling, indoor rowing, and kayaking are the sports directions currentl
 ## Future Sports Ecosystem
 
 <p align="center">
-  <img src="assets/marketing/aiui-sports-agents-future-ecosystem-en-v1.png" alt="AIUI Sports Agents future sports ecosystem concept: plans to connect more sports devices and explore climbing, trail running, CityWalk travel, mountaineering, hiking, and GPX route capabilities" width="100%">
+  <img src="assets/marketing/aiui-sports-agents-future-ecosystem-en-v2.png" alt="AIUI Sports Agents future sports ecosystem concept: plans to connect more sports devices and explore climbing, trail running, CityWalk travel, mountaineering, hiking, and GPX route capabilities" width="100%">
 </p>
 
 The next stage will continue to explore professional-device integrations, outdoor sports scenarios, and GPX route capabilities. Actual support is subject to the relevant version and test results.
